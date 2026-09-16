@@ -8,8 +8,11 @@
 !tailwind.config.ts
 !postcss.config.js
 !components.json
+!src/
 !src/**
+!public/
 !public/**
+!scripts/
 !scripts/**
 !data/
 !data/imports/
