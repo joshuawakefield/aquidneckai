@@ -7,7 +7,7 @@ const pilot=process.argv.includes('--pilot');
 function fetchSource(source){return new Promise(resolve=>{
  const workerEnv={...process.env,PYTHONIOENCODING:'utf-8'};
  delete workerEnv.OPENROUTER_API_KEY; delete workerEnv.SUPABASE_SECRET_KEY; delete workerEnv.AQAI_STAGING_PASSWORD;
- const child=spawn(process.env.PYTHON_BINARY??'python',[fileURLToPath(new URL('fetch-pilot-feed.py',import.meta.url))],
+ const child=spawn(process.env.PYTHON_BINARY??'python',[fileURLToPath(new URL('fetch-source.py',import.meta.url))],
   {stdio:['pipe','pipe','pipe'],windowsHide:true,env:workerEnv});
  let out='';const timer=setTimeout(()=>child.kill(),55000);
  child.stdout.on('data',chunk=>{out+=chunk;if(out.length>4000000)child.kill();});

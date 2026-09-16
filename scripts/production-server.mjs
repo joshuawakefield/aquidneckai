@@ -13,7 +13,9 @@ const root=fileURLToPath(new URL('../dist/',import.meta.url));
 const digest=s=>createHash('sha256').update(s).digest();
 const expected=digest('Basic '+Buffer.from('aqai:'+password).toString('base64'));
 const workerEnabled=process.env.AQAI_WORKER_ENABLED==='true';
-let stopping=false,active=null,timer=null,lastCycle=null,cycleFailed=false;
+const healthDbCheck=process.env.AQAI_HEALTH_DB_CHECK!=='false';
+const startedAt=Date.now();
+let stopping=false,active=null,timer=null,lastCycle=null,cycleFailed=false,lastFailureAt=null;
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
 const server=http.createServer(async(req,res)=>{
  res.setHeader('X-Content-Type-Options','nosniff');
@@ -23,12 +25,16 @@ const server=http.createServer(async(req,res)=>{
   const path=new URL(req.url,'http://localhost').pathname;
   if(req.method!=='GET'&&req.method!=='HEAD'){res.writeHead(405);res.end();return;}
   if(path==='/healthz'){
-   const stale=workerEnabled&&lastCycle&&Date.now()-lastCycle>900000;
-   res.writeHead(stopping||cycleFailed||stale?503:200,{'Content-Type':'application/json'});
-   res.end(JSON.stringify({status:stopping||cycleFailed||stale?'degraded':'ok'}));return;
+   const stale=workerEnabled&&((lastCycle&&Date.now()-lastCycle>900000)||(!lastCycle&&Date.now()-startedAt>900000));
+   const recentFailure=lastFailureAt&&Date.now()-lastFailureAt<86400000;
+   const sources=healthDbCheck?await allRows('aq_source_registry?runtime_enabled=eq.true&select=source_id,last_checked_at,last_check_result,lease_until&order=source_id'):[{last_check_result:{status:'parsed'}}];
+   const sourceFailure=sources.some(s=>s.last_check_result?.status==='failed');
+   const degraded=stopping||cycleFailed||stale||recentFailure||sourceFailure||!sources.length;
+   res.writeHead(degraded?503:200,{'Content-Type':'application/json'});
+   res.end(JSON.stringify({status:degraded?'degraded':'ok',enabledSources:sources.length,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
   }
   if(path==='/api/aqai/published'){
-   const items=await allRows('aq_entries?status=eq.published&select=id,canonical_url,title,summary,towns,kind,published_at&order=published_at.desc,id.desc');
+   const items=await allRows('aq_entries?status=eq.published&select=id,canonical_url,title,summary,towns,kind,starts_at,ends_at,published_at&order=starts_at.asc,id.asc');
    res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify({items}));return;
   }
   if(!timingSafeEqual(expected,digest(req.headers.authorization??''))){
@@ -54,7 +60,7 @@ function cycle(){
  active=spawn(process.execPath,[fileURLToPath(new URL('run-cycle.mjs',import.meta.url))],{stdio:'inherit',windowsHide:true});
  const deadline=setTimeout(()=>{cycleFailed=true;active?.kill('SIGTERM');},600000);
  active.on('error',()=>{cycleFailed=true;});
- active.on('close',code=>{clearTimeout(deadline);active=null;lastCycle=Date.now();cycleFailed=code!==0;
+ active.on('close',code=>{clearTimeout(deadline);active=null;lastCycle=Date.now();cycleFailed=code!==0;if(cycleFailed)lastFailureAt=lastCycle;
   console.log(JSON.stringify({cycleFinished:new Date(lastCycle).toISOString(),success:!cycleFailed}));
   if(!stopping)timer=setTimeout(cycle,300000);
  });
