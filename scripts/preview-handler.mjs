@@ -1,4 +1,5 @@
 import { allRows } from './supabase-server.mjs';
+import {sourceEligible} from './source-readiness.mjs';
 export async function previewHandler(req,res){
  if(req.method!=='GET'||req.url!=='/api/aqai/preview'){res.writeHead(404);res.end();return;}
  try{
@@ -10,7 +11,7 @@ export async function previewHandler(req,res){
   const sources=registry.map(s=>({id:s.source_id,name:s.organization,url:s.endpoint_url,
    towns:Array.isArray(s.definition.municipality)?s.definition.municipality:[s.definition.municipality].filter(Boolean),
    kind:s.definition.endpoint_type,status:s.last_check_result?.status??'unchecked',
-   checkedAt:s.last_checked_at,enabled:s.runtime_enabled,itemCount:s.last_check_result?.item_count??0}));
+   checkedAt:s.last_checked_at,enabled:s.runtime_enabled,collecting:sourceEligible(s),itemCount:s.last_check_result?.item_count??0}));
   const byObservation=new Map(trials.filter(t=>t.report.kind==='observation_classification').map(t=>[t.report.observation_id,t.report]));
   const seen=new Set();const items=[];
   for(const o of observations){const k=o.source_id+'|'+o.url;if(seen.has(k))continue;seen.add(k);

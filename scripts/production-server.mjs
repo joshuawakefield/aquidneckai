@@ -6,6 +6,7 @@ import {createHash,timingSafeEqual} from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {previewHandler} from './preview-handler.mjs';
 import {database,allRows} from './supabase-server.mjs';
+import {sourceEligible} from './source-readiness.mjs';
 
 const password=process.env.AQAI_STAGING_PASSWORD;
 if(!password||password.length<24)throw Error('Set AQAI_STAGING_PASSWORD to at least 24 characters');
@@ -27,11 +28,13 @@ const server=http.createServer(async(req,res)=>{
   if(path==='/healthz'){
    const stale=workerEnabled&&((lastCycle&&Date.now()-lastCycle>900000)||(!lastCycle&&Date.now()-startedAt>900000));
    const recentFailure=lastFailureAt&&Date.now()-lastFailureAt<86400000;
-   const sources=healthDbCheck?await allRows('aq_source_registry?runtime_enabled=eq.true&select=source_id,last_checked_at,last_check_result,lease_until&order=source_id'):[{last_check_result:{status:'parsed'}}];
-   const sourceFailure=sources.some(s=>s.last_check_result?.status==='failed');
-   const degraded=stopping||cycleFailed||stale||recentFailure||sourceFailure||!sources.length;
+   const sources=healthDbCheck?await allRows('aq_source_registry?runtime_enabled=eq.true&select=source_id,runtime_enabled,definition,verification_status,last_checked_at,last_check_result,next_check_at,lease_until&order=source_id'):[];
+   const eligible=sources.filter(sourceEligible);
+   const sourceFailure=eligible.some(s=>s.last_check_result?.status==='failed');
+   const overdue=eligible.some(s=>s.next_check_at&&Date.now()-Date.parse(s.next_check_at)>900000);
+   const degraded=stopping||cycleFailed||stale||recentFailure||sourceFailure||(healthDbCheck&&(!workerEnabled||!eligible.length||overdue));
    res.writeHead(degraded?503:200,{'Content-Type':'application/json'});
-   res.end(JSON.stringify({status:degraded?'degraded':'ok',enabledSources:sources.length,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
+   res.end(JSON.stringify({status:degraded?'degraded':'ok',collectorVersion:'expanded-rss-v1',enabledSources:sources.length,eligibleSources:eligible.length,waitingSources:sources.length-eligible.length,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
   }
   if(path==='/api/aqai/published'){
    const items=await allRows('aq_entries?status=eq.published&select=id,canonical_url,title,summary,towns,kind,starts_at,ends_at,published_at&order=starts_at.asc,id.asc');

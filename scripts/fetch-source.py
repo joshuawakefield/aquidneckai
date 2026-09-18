@@ -5,6 +5,7 @@ import sys
 import urllib.request
 from audit_registry_pilot import check
 from audit_sources import ROOT
+from expanded_feeds import FEEDS
 
 SALVE_API = 'https://events.salve.edu/api/2/events?days=30&pp=100&for=main'
 AI = re.compile(r'\b(?:AI|artificial intelligence|machine learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b', re.I)
@@ -37,6 +38,8 @@ if __name__=='__main__':
     if source.get('source_id')=='salve-events' and source.get('endpoint_url')==SALVE_API:
         try: result=salve_events()
         except Exception as error: result={'status':'failed','error_type':type(error).__name__}
+    elif FEEDS.get(source.get('source_id')) == source.get('endpoint_url') and source.get('source_id') in FEEDS:
+        result=check(source)
     else:
         allowed=json.loads((ROOT/'data/imports/pilot-candidates.json').read_text(encoding='utf-8'))
         if not any(s['source_id']==source.get('source_id') and s['endpoint_url']==source.get('endpoint_url') and s['monitor_mode']=='rss' for s in allowed):
