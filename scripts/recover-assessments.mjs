@@ -1,8 +1,19 @@
 import fs from 'node:fs';
-import {allRows,database} from './supabase-server.mjs';
+import {database} from './supabase-server.mjs';
 import {assessResponse} from './assessment-result.mjs';
+export async function recoveryWork(db=database,now=Date.now()){
+ const cutoff=new Date(now-900000).toISOString();
+ const trials=await db('aq_classification_trials?report->>kind=eq.observation_classification&report->>status=neq.completed&report->>claimed_at=lt.'+encodeURIComponent(cutoff)+'&select=request_id,report&order=recorded_at.asc,request_id.asc&limit=80');
+ if(!trials.length)return {trials,observations:[]};
+ const ids=[...new Set(trials.map(t=>t.report.observation_id))];
+ if(ids.some(id=>!/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.test(id)))throw Error('Invalid recovery observation ID');
+ const observations=await db('aq_observations?id=in.('+ids.join(',')+')&select=id,title,evidence_excerpt,source_published_at&limit=80');
+ return {trials,observations};
+}
 export async function recoverAssessments(){
- const [trials,observations]=await Promise.all([allRows('aq_classification_trials?select=request_id,report&order=request_id'),allRows('aq_observations?select=*&order=id')]);
+ const {trials,observations}=await recoveryWork();
+ if(!trials.length){console.log(JSON.stringify({recoveredFromSavedResponse:0,flaggedForHumanReview:0,paidRecoveryRequests:0}));return;}
+ const observationById=new Map(observations.map(o=>[o.id,o]));
  const cached=new Map();const directory=new URL('../data/classification-responses/',import.meta.url);
  if(fs.existsSync(directory))for(const name of fs.readdirSync(directory).filter(n=>n.endsWith('.json'))){
   try{const batch=JSON.parse(fs.readFileSync(new URL(name,directory)));for(const input of batch.inputs??[])cached.set(input.id,{input,response:batch.response,count:batch.inputs.length});}catch{}
@@ -10,7 +21,7 @@ export async function recoverAssessments(){
  let recovered=0,flagged=0;
  for(const trial of trials){const report=trial.report;
   if(report.kind!=='observation_classification'||report.status==='completed'||Date.now()-Date.parse(report.claimed_at)<900000)continue;
-  const o=observations.find(o=>o.id===report.observation_id);if(!o)continue;
+  const o=observationById.get(report.observation_id);if(!o)continue;
   const saved=report.saved_response?{input:report.saved_input,response:report.saved_response,count:report.saved_batch_size??null}:cached.get(o.id);
   const input=saved?.input??{id:o.id,text:(o.title+'\n'+(o.evidence_excerpt??'')).slice(0,2500)};
   const assessed=assessResponse(input,o,saved?.response);

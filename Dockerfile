@@ -5,13 +5,13 @@ RUN npm ci
 COPY index.html vite.config.ts tsconfig*.json tailwind.config.ts postcss.config.js components.json ./
 COPY src ./src
 COPY public ./public
-RUN npm run build && npm prune --omit=dev
+RUN npm run build
 
 FROM node:22-bookworm-slim
 RUN apt-get update && apt-get install -y --no-install-recommends python3 tini ca-certificates && rm -rf /var/lib/apt/lists/*
 ENV NODE_ENV=production PORT=8080 PYTHON_BINARY=python3
 WORKDIR /app
-COPY --from=build /app/node_modules ./node_modules
+# The runtime uses Node/Python standard libraries; frontend packages stay in the build stage.
 COPY --from=build /app/dist ./dist
 COPY package.json ./
 COPY scripts ./scripts

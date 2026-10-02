@@ -1,6 +1,6 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-// Collection and classification share a cycle; neither publishes content.
+// Collection, classification, and the separately gated publisher share one serial cycle.
 for(const script of ['collect-feeds.mjs','classify-new.mjs','publish-qualified.mjs']){
  const code=await new Promise(resolve=>{
   const child=spawn(process.execPath,[fileURLToPath(new URL(script,import.meta.url))],{stdio:'inherit',windowsHide:true});
