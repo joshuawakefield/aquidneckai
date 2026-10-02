@@ -2,16 +2,22 @@
 import concurrent.futures
 import datetime as dt
 import json
-from audit_sources import ROOT, AI, download, feed_entries
+from audit_sources import ROOT, AI, feed_entries
+from conditional_download import download
 
 
 def check(source):
     result = {'source_id': source['source_id'], 'url': source['endpoint_url'],
               'checked_at': dt.datetime.now(dt.timezone.utc).isoformat()}
     try:
-        final_url, body = download(source['endpoint_url'])
-        entries = feed_entries(body, final_url)
+        fetched = download(source['endpoint_url'], source.get('http_cache'))
+        if fetched['status'] == 'not_modified':
+            result.update(fetched)
+            return result
+        final_url = fetched['http_cache']['final_url']
+        entries = feed_entries(fetched['body'], final_url)
         result.update(status='parsed', final_url=final_url, item_count=len(entries),
+                      http_cache=fetched['http_cache'],
                       entries=entries,
                       title_candidates=[x for x in entries if AI.search(x['title'])])
     except Exception as error:

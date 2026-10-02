@@ -2,7 +2,7 @@
 import json
 import re
 import sys
-import urllib.request
+from conditional_download import download
 from audit_registry_pilot import check
 from audit_sources import ROOT
 from expanded_feeds import FEEDS
@@ -11,12 +11,10 @@ SALVE_API = 'https://events.salve.edu/api/2/events?days=30&pp=100&for=main'
 AI = re.compile(r'\b(?:AI|artificial intelligence|machine learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b', re.I)
 STRONG_AI = re.compile(r'\b(?:artificial intelligence|machine learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b', re.I)
 
-def salve_events():
-    request=urllib.request.Request(SALVE_API,headers={'User-Agent':'AquidneckAI/0.1 (+https://aquidneckai.com)','Accept':'application/json'})
-    with urllib.request.urlopen(request,timeout=20) as response:
-        body=response.read(3_000_001)
-        if len(body)>3_000_000: raise ValueError('ResponseTooLarge')
-    payload=json.loads(body)
+def salve_events(cache=None):
+    fetched=download(SALVE_API,cache,accept='application/json')
+    if fetched['status']=='not_modified': return fetched
+    payload=json.loads(fetched['body'])
     if not isinstance(payload.get('events'),list) or len(payload['events'])>500: raise ValueError('InvalidEventResponse')
     entries=[]
     for wrapper in payload['events']:
@@ -31,12 +29,12 @@ def salve_events():
         location=' · '.join(filter(None,[event.get('location_name'),event.get('address')]))
         entries.append({'title':title,'url':url,'sourceDate':start,
           'description':'\n'.join(filter(None,[description,location]))})
-    return {'status':'parsed','entries':entries}
+    return {'status':'parsed','entries':entries,'http_cache':fetched['http_cache']}
 
 if __name__=='__main__':
     source=json.load(sys.stdin)
     if source.get('source_id')=='salve-events' and source.get('endpoint_url')==SALVE_API:
-        try: result=salve_events()
+        try: result=salve_events(source.get('http_cache'))
         except Exception as error: result={'status':'failed','error_type':type(error).__name__}
     elif FEEDS.get(source.get('source_id')) == source.get('endpoint_url') and source.get('source_id') in FEEDS:
         result=check(source)

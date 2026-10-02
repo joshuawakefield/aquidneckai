@@ -14,7 +14,7 @@ function fetchSource(source){return new Promise(resolve=>{
  child.stderr.resume(); // Never echo subprocess errors or environment details.
  child.on('error',()=>{clearTimeout(timer);resolve({status:'failed',error_type:'WorkerUnavailable'});});
  child.on('close',code=>{clearTimeout(timer);try{resolve(code===0?JSON.parse(out):{status:'failed',error_type:'WorkerFailed'});}catch{resolve({status:'failed',error_type:'InvalidWorkerResponse'});}});
- child.stdin.on('error',()=>{});child.stdin.end(JSON.stringify({source_id:source.source_id,endpoint_url:source.endpoint_url}));
+ child.stdin.on('error',()=>{});child.stdin.end(JSON.stringify({source_id:source.source_id,endpoint_url:source.endpoint_url,http_cache:source.last_check_result?.http_cache}));
 });}
 try{
  const sources=await database('rpc/aq_claim_feed_sources',{method:'POST',body:{p_pilot:pilot}});
