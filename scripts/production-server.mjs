@@ -14,6 +14,7 @@ if(!password||password.length<24)throw Error('Set AQAI_STAGING_PASSWORD to at le
 const root=fileURLToPath(new URL('../dist/',import.meta.url));
 const digest=s=>createHash('sha256').update(s).digest();
 const expected=digest('Basic '+Buffer.from('aqai:'+password).toString('base64'));
+const sourceCatalogDigest=createHash('sha256').update(await readFile(new URL('./source-catalog.json',import.meta.url))).digest('hex').slice(0,16);
 const workerEnabled=process.env.AQAI_WORKER_ENABLED==='true';
 const healthDbCheck=process.env.AQAI_HEALTH_DB_CHECK!=='false';
 const healthSummary=createHealthSummary(database);
@@ -36,7 +37,7 @@ const server=http.createServer(async(req,res)=>{
    const summary=healthDbCheck?await healthSummary():{enabledSources:0,eligibleSources:0,waitingSources:0};
    const degraded=stopping||cycleFailed||stale||recentFailure||(healthDbCheck&&(!workerEnabled||sourceHealthDegraded(summary)));
    res.writeHead(degraded?503:200,{'Content-Type':'application/json'});
-   res.end(JSON.stringify({status:degraded?'degraded':'ok',collectorVersion:'source-expansion-v1',enabledSources:summary.enabledSources,eligibleSources:summary.eligibleSources,waitingSources:summary.waitingSources,failedSources:summary.failedSources??0,sourceHealthCheckedAt:summary.checkedAt??null,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
+   res.end(JSON.stringify({status:degraded?'degraded':'ok',collectorVersion:'source-expansion-v1',sourceCatalogDigest,enabledSources:summary.enabledSources,eligibleSources:summary.eligibleSources,waitingSources:summary.waitingSources,failedSources:summary.failedSources??0,sourceHealthCheckedAt:summary.checkedAt??null,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
   }
   if(path==='/api/aqai/published'){
    const items=await publishedItems();

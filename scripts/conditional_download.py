@@ -1,5 +1,7 @@
 """Bounded public-source GETs with persisted, representation-specific validators."""
 import datetime as dt
+import gzip
+import io
 import re
 import time
 import urllib.error
@@ -85,5 +87,13 @@ def download(url, cache=None, accept='application/rss+xml, application/atom+xml,
         body = response.read(MAX_BYTES + 1)
         if len(body) > MAX_BYTES:
             raise ValueError('ResponseTooLarge')
+        encoding = response.headers.get('Content-Encoding', 'identity').lower().strip()
+        if encoding == 'gzip':
+            with gzip.GzipFile(fileobj=io.BytesIO(body)) as compressed:
+                body = compressed.read(MAX_BYTES + 1)
+            if len(body) > MAX_BYTES:
+                raise ValueError('ResponseTooLarge')
+        elif encoding not in ('', 'identity'):
+            raise ValueError('UnsupportedContentEncoding')
         return {'status': 'downloaded', 'http_cache': metadata,
                 'body': body.decode(response.headers.get_content_charset() or 'utf-8', errors='replace')}

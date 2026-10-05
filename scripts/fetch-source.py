@@ -38,7 +38,10 @@ if __name__=='__main__':
     source=json.load(sys.stdin)
     configured=CATALOG.get(source.get('source_id'),{})
     if configured.get('url')==source.get('endpoint_url') and configured.get('mode') in ('public_page','rss'):
-        try: result=check_page(source) if configured['mode']=='public_page' else check(source)
+        try:
+            result=check_page(source) if configured['mode']=='public_page' else check(source)
+            if configured['mode']=='rss' and result.get('status')=='parsed' and configured.get('max_items'):
+                result['entries']=result['entries'][:max(1,min(100,int(configured['max_items'])))]
         except Exception as error: result={'status':'failed','error_type':type(error).__name__+':'+str(error)[:60]}
     elif source.get('source_id')=='salve-events' and source.get('endpoint_url')==SALVE_API:
         try: result=salve_events(source.get('http_cache'))

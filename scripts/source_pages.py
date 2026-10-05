@@ -5,7 +5,7 @@ from urllib.parse import urljoin, urlsplit
 from conditional_download import download
 
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
-SKIP = {'script','style','noscript','svg','nav','header','footer','form','button','select','aside'}
+SKIP = {'script','style','noscript','svg','nav','footer','form','button','select','aside'}
 BLOCK = {'p','div','section','article','li','h1','h2','h3','h4','tr','br'}
 WALL = re.compile(r'^(?:access denied|just a moment|attention required|request rejected|forbidden|page not found|404\b|log in|sign in)',re.I)
 AI = re.compile(r'\b(?:AI|artificial intelligence|machine learning|deep learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b',re.I)
@@ -29,8 +29,9 @@ class PublicPage(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs=dict(attrs)
-        hidden=(self.stack[-1][1] if self.stack else False) or tag in SKIP or 'hidden' in attrs or attrs.get('aria-hidden')=='true'
         main=(self.stack[-1][2] if self.stack else False) or tag=='main' or attrs.get('role')=='main'
+        site_header=tag=='header' and not main and not any(x[0]=='article' for x in self.stack)
+        hidden=(self.stack[-1][1] if self.stack else False) or tag in SKIP or site_header or 'hidden' in attrs or attrs.get('aria-hidden')=='true'
         if tag=='link' and attrs.get('type') in ('application/rss+xml','application/atom+xml'):
             self.feeds.append(urljoin(self.url,attrs.get('href','')))
         if not hidden and tag in BLOCK:

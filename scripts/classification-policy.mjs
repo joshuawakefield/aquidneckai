@@ -1,7 +1,8 @@
 // Deterministic routing: model relevance is never publication permission.
+import {AI_TERM} from './assessment-text.mjs';
 export function enforceEvidence(input,result){
  if(result.decision!=='candidate')return result;
- const explicitAI=/\b(?:AI|artificial intelligence|machine learning|deep learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b/i;
+ const explicitAI=AI_TERM;
  if(!result.ai_quote?.trim()||!input.text.includes(result.ai_quote)||!explicitAI.test(result.ai_quote))
   return {...result,decision:'needs_review',reason:'Withheld: the quoted evidence does not explicitly establish AI relevance.'};
  return result;

@@ -466,5 +466,216 @@
   "usnwc-news-events": {
     "url": "https://www.usnwc.edu/News-and-Events/",
     "mode": "public_page"
+  },
+  "barrington-government-news": {
+    "url": "https://www.barrington.ri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "bristol-government-news": {
+    "url": "https://www.bristolri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "charlestown-government-news": {
+    "url": "https://charlestownri.gov/news",
+    "mode": "public_page"
+  },
+  "coventry-government": {
+    "url": "https://coventryri.gov/",
+    "mode": "public_page"
+  },
+  "cumberland-government-news": {
+    "url": "https://www.cumberlandri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "east-greenwich-government-news": {
+    "url": "https://www.eastgreenwichri.gov/m/newsflash?cat=21",
+    "mode": "public_page"
+  },
+  "east-providence-government-news": {
+    "url": "https://eastprovidenceri.gov/files-docs?title=&field_department_tid=All&field_agenda_minutes_category_tid=All&field_document_type_tid=127",
+    "mode": "public_page"
+  },
+  "foster-government-news": {
+    "url": "https://www.townoffosterri.gov/m/newsflash",
+    "mode": "public_page"
+  },
+  "glocester-government": {
+    "url": "https://www.glocesterri.gov/",
+    "mode": "public_page"
+  },
+  "jamestown-government": {
+    "url": "https://www.jamestownri.gov/",
+    "mode": "public_page"
+  },
+  "johnston-government-news": {
+    "url": "https://www.johnstonri.gov/m/newsflash",
+    "mode": "public_page"
+  },
+  "lincoln-government-news": {
+    "url": "https://www.lincolnri.gov/m/newsflash?cat=59,34,54,58,30,43,51,1,57,22,19,50,47,52,25,45",
+    "mode": "public_page"
+  },
+  "little-compton-government-news": {
+    "url": "https://www.littlecomptonri.org/newslist.php",
+    "mode": "public_page"
+  },
+  "narragansett-government-news": {
+    "url": "https://www.narragansettri.gov/m/newsflash?cat=7",
+    "mode": "public_page"
+  },
+  "new-shoreham-government-news": {
+    "url": "https://www.newshorehamri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "north-kingstown-government-news": {
+    "url": "https://www.northkingstownri.gov/m/newsflash?cat=24,19,16",
+    "mode": "public_page"
+  },
+  "north-providence-government": {
+    "url": "https://northprovidenceri.gov/feed/",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "north-smithfield-government-news": {
+    "url": "https://www.nsmithfieldri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "pawtucket-government-news": {
+    "url": "https://pawtucketri.gov/feed/",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "providence-government": {
+    "url": "https://www.providenceri.gov/",
+    "mode": "public_page"
+  },
+  "richmond-government-news": {
+    "url": "https://www.richmondri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "scituate-government": {
+    "url": "https://www.scituateri.gov/",
+    "mode": "public_page"
+  },
+  "south-kingstown-government-news": {
+    "url": "https://www.southkingstownri.gov/m/newsflash?cat=28",
+    "mode": "public_page"
+  },
+  "tiverton-government-news": {
+    "url": "https://www.tiverton.ri.gov/m/newsflash?cat=1",
+    "mode": "public_page"
+  },
+  "warren-government": {
+    "url": "https://www.townofwarren-ri.gov",
+    "mode": "public_page"
+  },
+  "warwick-government": {
+    "url": "https://www.warwickri.gov/",
+    "mode": "public_page"
+  },
+  "west-greenwich-government-news": {
+    "url": "https://www.wgtownri.org/m/newsflash",
+    "mode": "public_page"
+  },
+  "west-warwick-government": {
+    "url": "https://westwarwickri.gov/",
+    "mode": "public_page"
+  },
+  "westerly-government": {
+    "url": "https://westerlyri.gov/",
+    "mode": "public_page"
+  },
+  "rhode-island-ai-hub": {
+    "url": "https://ai.ri.gov/",
+    "mode": "public_page"
+  },
+  "rhode-island-ai-hub-business": {
+    "url": "https://ai.ri.gov/programs-initiatives/business",
+    "mode": "public_page"
+  },
+  "rhode-island-small-business-coalition": {
+    "url": "https://www.risbc.org/blog-feed.xml",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "brown-professional-studies-news": {
+    "url": "https://professional.brown.edu/news",
+    "mode": "public_page"
+  },
+  "brown-data-science-institute-news": {
+    "url": "https://dsi.brown.edu/news",
+    "mode": "public_page"
+  },
+  "roger-williams-university-news": {
+    "url": "https://www.rwu.edu/news",
+    "mode": "public_page"
+  },
+  "umass-dartmouth-news": {
+    "url": "https://www.umassd.edu/news/",
+    "mode": "public_page"
+  },
+  "umass-dartmouth-business-news": {
+    "url": "https://www.umassd.edu/charlton/news/",
+    "mode": "public_page"
+  },
+  "uri-rhody-today": {
+    "url": "https://www.uri.edu/news/feed/",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "rhode-island-governor-news": {
+    "url": "https://governor.ri.gov/press-releases.xml",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "nist-ai-news": {
+    "url": "https://www.nist.gov/news-events/news-updates/topic/2753736",
+    "mode": "public_page"
+  },
+  "sba-ai-for-small-business": {
+    "url": "https://legacy.sba.gov/business-guide/manage-your-business/small-business-ai-basics",
+    "mode": "public_page"
+  },
+  "openai-news": {
+    "url": "https://openai.com/news/rss.xml",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "anthropic-news": {
+    "url": "https://www.anthropic.com/news",
+    "mode": "public_page"
+  },
+  "google-deepmind-news": {
+    "url": "https://deepmind.google/blog/rss.xml",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "hugging-face-blog": {
+    "url": "https://huggingface.co/blog/feed.xml",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "microsoft-ai-blog": {
+    "url": "https://news.microsoft.com/source/feed/",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "rhode-island-current-ai": {
+    "url": "https://rhodeislandcurrent.com/tag/ai/",
+    "mode": "public_page"
+  },
+  "new-bedford-light": {
+    "url": "https://newbedfordlight.org/feed/",
+    "mode": "rss",
+    "max_items": 40
+  },
+  "stanford-digital-economy-lab": {
+    "url": "https://digitaleconomy.stanford.edu/news/",
+    "mode": "public_page"
+  },
+  "mit-ai-news": {
+    "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
+    "mode": "rss",
+    "max_items": 40
   }
 }
