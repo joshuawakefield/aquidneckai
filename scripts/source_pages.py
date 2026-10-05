@@ -5,7 +5,7 @@ from urllib.parse import urljoin, urlsplit
 from conditional_download import download
 
 VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
-SKIP = {'script','style','noscript','svg','nav','footer','form','button','select','aside'}
+SKIP = {'script','style','noscript','svg','nav','footer','form','button','select','textarea','aside'}
 BLOCK = {'p','div','section','article','li','h1','h2','h3','h4','tr','br'}
 WALL = re.compile(r'^(?:access denied|just a moment|attention required|request rejected|forbidden|page not found|404\b|log in|sign in)',re.I)
 AI = re.compile(r'\b(?:AI|artificial intelligence|machine learning|deep learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b',re.I)
@@ -23,15 +23,17 @@ def evidence_excerpt(text, limit=18500):
 
 
 class PublicPage(HTMLParser):
-    def __init__(self, url):
+    def __init__(self, url, include_forms=False):
         super().__init__(convert_charrefs=True)
         self.url=url; self.stack=[]; self.all=[]; self.main=[]; self.titles=[]; self.feeds=[]
+        self.include_forms=include_forms
 
     def handle_starttag(self, tag, attrs):
         attrs=dict(attrs)
         main=(self.stack[-1][2] if self.stack else False) or tag=='main' or attrs.get('role')=='main'
         site_header=tag=='header' and not main and not any(x[0]=='article' for x in self.stack)
-        hidden=(self.stack[-1][1] if self.stack else False) or tag in SKIP or site_header or 'hidden' in attrs or attrs.get('aria-hidden')=='true'
+        skipped=tag in SKIP and not (tag=='form' and self.include_forms)
+        hidden=(self.stack[-1][1] if self.stack else False) or skipped or site_header or 'hidden' in attrs or attrs.get('aria-hidden')=='true'
         if tag=='link' and attrs.get('type') in ('application/rss+xml','application/atom+xml'):
             self.feeds.append(urljoin(self.url,attrs.get('href','')))
         if not hidden and tag in BLOCK:
@@ -59,9 +61,9 @@ class PublicPage(HTMLParser):
         return main if len(main)>=180 else clean(self.all)
 
 
-def parse_page(body,url):
+def parse_page(body,url,include_forms=False):
     if not re.search(r'<(?:html|body|main|article|!doctype html)\b',body[:20000],re.I):raise ValueError('NotHTMLPage')
-    page=PublicPage(url);page.feed(body)
+    page=PublicPage(url,include_forms);page.feed(body)
     title=re.sub(r'\s+',' ',' '.join(page.titles)).strip()
     text=page.content()
     if WALL.search(title) or len(text)<180:raise ValueError('NoUsablePublicContent')
@@ -73,10 +75,10 @@ def parse_page(body,url):
 
 
 def check_page(source):
-    fetched=download(source['endpoint_url'],source.get('http_cache'),accept='text/html, application/xhtml+xml')
+    fetched=download(source['endpoint_url'],source.get('http_cache'),accept='text/html, application/xhtml+xml',max_bytes=source.get('max_response_bytes',3_000_000))
     if fetched['status']=='not_modified':return fetched
     url=fetched['http_cache']['final_url']
-    page=parse_page(fetched['body'],url)
+    page=parse_page(fetched['body'],url,source.get('include_forms',False))
     # A source-page snapshot is deliberately not described as a full linked article or PDF.
     return {'status':'parsed','http_cache':fetched['http_cache'],
             'evidence_scope':'public_page_snapshot','advertised_feeds':page['advertised_feeds'],

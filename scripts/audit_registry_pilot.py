@@ -15,7 +15,7 @@ def check(source):
             result.update(fetched)
             return result
         final_url = fetched['http_cache']['final_url']
-        entries = feed_entries(fetched['body'], final_url)
+        entries = feed_entries(fetched['body'], final_url, use_content=source.get('use_syndicated_content', False))
         result.update(status='parsed', final_url=final_url, item_count=len(entries),
                       http_cache=fetched['http_cache'],
                       entries=entries,

@@ -10,6 +10,7 @@ from email.utils import parsedate_to_datetime
 
 VERSION = 'conditional-v1'
 MAX_BYTES = 3_000_000
+FULL_REFRESH_SECONDS = 7 * 86400
 
 
 def validator(value, kind):
@@ -34,14 +35,16 @@ class PublicRedirect(urllib.request.HTTPRedirectHandler):
         return redirected
 
 
-def download(url, cache=None, accept='application/rss+xml, application/atom+xml, application/xml;q=0.9', opener=None):
+def download(url, cache=None, accept='application/rss+xml, application/atom+xml, application/xml;q=0.9', opener=None, max_bytes=MAX_BYTES):
+    if not isinstance(max_bytes, int) or not MAX_BYTES <= max_bytes <= 8_000_000:
+        raise ValueError('InvalidResponseLimit')
     cache = cache if isinstance(cache, dict) else {}
     headers = {'User-Agent': 'AquidneckAI/0.1 (+https://aquidneckai.com)', 'Accept': accept}
     usable = False
     try:
         age = (dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(cache['last_full_fetch_at'])).total_seconds()
         usable = (cache.get('endpoint_url') == url == cache.get('final_url') and
-                  cache.get('adapter_version') == VERSION and 0 <= age < 86400)
+                  cache.get('adapter_version') == VERSION and 0 <= age < FULL_REFRESH_SECONDS)
     except (KeyError, TypeError, ValueError):
         pass
     if usable:
@@ -84,14 +87,14 @@ def download(url, cache=None, accept='application/rss+xml, application/atom+xml,
                 metadata[key] = value
         if status == 304:
             return {'status': 'not_modified', 'http_cache': metadata}
-        body = response.read(MAX_BYTES + 1)
-        if len(body) > MAX_BYTES:
+        body = response.read(max_bytes + 1)
+        if len(body) > max_bytes:
             raise ValueError('ResponseTooLarge')
         encoding = response.headers.get('Content-Encoding', 'identity').lower().strip()
         if encoding == 'gzip':
             with gzip.GzipFile(fileobj=io.BytesIO(body)) as compressed:
-                body = compressed.read(MAX_BYTES + 1)
-            if len(body) > MAX_BYTES:
+                body = compressed.read(max_bytes + 1)
+            if len(body) > max_bytes:
                 raise ValueError('ResponseTooLarge')
         elif encoding not in ('', 'identity'):
             raise ValueError('UnsupportedContentEncoding')

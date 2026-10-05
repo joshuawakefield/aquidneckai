@@ -677,5 +677,102 @@
     "url": "https://news.mit.edu/topic/mitartificial-intelligence2-rss.xml",
     "mode": "rss",
     "max_items": 40
+  },
+  "the-ai-collective-newsletter": {
+    "url": "https://newsletter.aicollective.com/archive",
+    "mode": "public_page"
+  },
+  "there-is-an-ai-for-that-tools": {
+    "url": "https://theresanaiforthat.com/",
+    "mode": "public_page",
+    "max_response_bytes": 8000000
+  },
+  "the-rundown-ai-newsletter": {
+    "url": "https://www.therundown.ai/articles-category/ai",
+    "mode": "public_page"
+  },
+  "tldr-ai-newsletter": {
+    "url": "https://tldr.tech/ai/archives",
+    "mode": "public_page"
+  },
+  "deeplearning-ai-the-batch": {
+    "url": "https://www.deeplearning.ai/the-batch",
+    "mode": "public_page"
+  },
+  "bens-bites": {
+    "url": "https://www.bensbites.com/feed",
+    "mode": "rss",
+    "max_items": 10,
+    "use_syndicated_content": true
+  },
+  "import-ai": {
+    "url": "https://importai.substack.com/feed",
+    "mode": "rss",
+    "max_items": 10,
+    "use_syndicated_content": true
+  },
+  "one-useful-thing": {
+    "url": "https://www.oneusefulthing.org/feed",
+    "mode": "rss",
+    "max_items": 10,
+    "use_syndicated_content": true
+  },
+  "future-tools-ai-news": {
+    "url": "https://futuretools.io/news",
+    "mode": "public_page"
+  },
+  "ccri-ai-initiative": {
+    "url": "https://ccri.edu/ai/",
+    "mode": "public_page"
+  },
+  "rhode-island-college-news": {
+    "url": "https://www.ric.edu/news",
+    "mode": "public_page"
+  },
+  "ric-institute-for-cybersecurity-and-emerging-technologies": {
+    "url": "https://our.ric.edu/department-directory/institute-cybersecurity-emerging-technologies",
+    "mode": "public_page"
+  },
+  "bryant-university-news": {
+    "url": "https://news.bryant.edu/",
+    "mode": "public_page"
+  },
+  "bryant-ai-business-roundtable": {
+    "url": "https://ai-roundtable.bryant.edu/",
+    "mode": "public_page"
+  },
+  "providence-college-news": {
+    "url": "https://news.providence.edu/feed/",
+    "mode": "rss",
+    "max_items": 20
+  },
+  "risd-ai-teaching-and-learning": {
+    "url": "https://teachingandlearninglab.risd.edu/teaching-support/tech/ai",
+    "mode": "public_page"
+  },
+  "bristol-community-college-ai": {
+    "url": "https://bristolcc.edu/learnatbristol/degreescertificatesandclasses/computerscience/artificialintelligence.html",
+    "mode": "public_page"
+  },
+  "bristol-community-college-news": {
+    "url": "https://bristolcc.edu/news/",
+    "mode": "public_page"
+  },
+  "babson-generator-ai-events": {
+    "url": "https://www.babson.edu/thegenerator/community/upcoming-events/",
+    "mode": "public_page"
+  },
+  "northeastern-experiential-ai-events": {
+    "url": "https://ai.northeastern.edu/events",
+    "mode": "public_page"
+  },
+  "cranston-government": {
+    "url": "https://www.cranstonri.gov/community-spotlights/",
+    "mode": "public_page",
+    "include_forms": true
+  },
+  "woonsocket-government": {
+    "url": "https://www.woonsocketri.gov/m/newsflash?cat=6,1",
+    "mode": "public_page"
   }
 }

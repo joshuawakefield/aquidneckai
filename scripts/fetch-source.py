@@ -39,7 +39,7 @@ if __name__=='__main__':
     configured=CATALOG.get(source.get('source_id'),{})
     if configured.get('url')==source.get('endpoint_url') and configured.get('mode') in ('public_page','rss'):
         try:
-            result=check_page(source) if configured['mode']=='public_page' else check(source)
+            result=check_page({**source,'include_forms':configured.get('include_forms',False),'max_response_bytes':configured.get('max_response_bytes',3_000_000)}) if configured['mode']=='public_page' else check({**source,'use_syndicated_content':configured.get('use_syndicated_content',False)})
             if configured['mode']=='rss' and result.get('status')=='parsed' and configured.get('max_items'):
                 result['entries']=result['entries'][:max(1,min(100,int(configured['max_items'])))]
         except Exception as error: result={'status':'failed','error_type':type(error).__name__+':'+str(error)[:60]}

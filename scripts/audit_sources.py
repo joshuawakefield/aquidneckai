@@ -5,6 +5,7 @@ Outputs preserve failures and review candidates separately. Discovery is limited
 to the registry and at most two same-host feeds per source, never a whole crawl.
 """
 import concurrent.futures
+import copy
 import datetime as dt
 import hashlib
 import json
@@ -16,6 +17,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
+from source_pages import evidence_excerpt
 
 ROOT = Path(__file__).resolve().parents[1]
 AI = re.compile(r"\b(?:AI|artificial intelligence|machine learning|ChatGPT|generative AI)\b", re.I)
@@ -83,7 +85,21 @@ def download(url):
         time.sleep(1)
 
 
-def feed_entries(body, base):
+def syndicated_text(element):
+    # CDATA/escaped HTML lives in .text; Atom XHTML uses actual child elements.
+    # Remove XML namespaces from a copy so Page can still recognize script/style.
+    fragments = [element.text or '']
+    for child in element:
+        child = copy.deepcopy(child)
+        for node in child.iter():
+            node.tag = node.tag.rsplit('}', 1)[-1]
+        fragments.append(ET.tostring(child, encoding='unicode'))
+    page = Page()
+    page.feed(''.join(fragments))
+    return ' '.join(page.words)
+
+
+def feed_entries(body, base, use_content=False):
     if re.search(r'<!\s*(DOCTYPE|ENTITY)', body, re.I):
         raise ValueError('DTD/entity declarations are not supported')
     root = ET.fromstring(body)
@@ -95,17 +111,29 @@ def feed_entries(body, base):
         if local(item.tag) not in ('item', 'entry'):
             continue
         fields = {}
+        syndicated = []
+        summaries = []
         for child in item:
             key = local(child.tag)
             if key == 'link' and child.attrib.get('rel', 'alternate') == 'alternate':
                 fields['link'] = child.attrib.get('href') or ''.join(child.itertext())
             elif key in ('title', 'description', 'summary', 'pubDate', 'published'):
                 fields[key] = ''.join(child.itertext())
+                if use_content and key in ('description', 'summary'):
+                    summaries.append(syndicated_text(child))
+            elif use_content and (child.tag == '{http://purl.org/rss/1.0/modules/content/}encoded'
+                                  or (local(item.tag) == 'entry' and key == 'content')):
+                # Syndicated text is already in this response: never follow src,
+                # links, images or attachments to enrich an entry.
+                syndicated.append(syndicated_text(child))
         url = web_url(fields.get('link', ''), base) if fields.get('link') else None
         if url:
+            description = fields.get('description') or fields.get('summary', '')
+            if use_content:
+                description = evidence_excerpt(max(['', *summaries, *syndicated], key=len))
             entries.append({'title': fields.get('title', '').strip(), 'url': url,
                             'sourceDate': fields.get('pubDate') or fields.get('published'),
-                            'description': fields.get('description') or fields.get('summary', '')})
+                            'description': description})
     return entries
 
 
