@@ -28,13 +28,15 @@ const server=http.createServer(async(req,res)=>{
  try{
   const path=new URL(req.url,'http://localhost').pathname;
   if(req.method!=='GET'&&req.method!=='HEAD'){res.writeHead(405);res.end();return;}
+  // Container liveness is separate from upstream-source/readiness diagnostics.
+  if(path==='/livez'){res.writeHead(stopping?503:200,{'Content-Type':'application/json'});res.end(JSON.stringify({status:stopping?'stopping':'alive'}));return;}
   if(path==='/healthz'){
    const stale=workerEnabled&&((lastCycle&&Date.now()-lastCycle>900000)||(!lastCycle&&Date.now()-startedAt>900000));
    const recentFailure=lastFailureAt&&Date.now()-lastFailureAt<86400000;
    const summary=healthDbCheck?await healthSummary():{enabledSources:0,eligibleSources:0,waitingSources:0};
    const degraded=stopping||cycleFailed||stale||recentFailure||(healthDbCheck&&(!workerEnabled||sourceHealthDegraded(summary)));
    res.writeHead(degraded?503:200,{'Content-Type':'application/json'});
-   res.end(JSON.stringify({status:degraded?'degraded':'ok',collectorVersion:'conditional-downloads-v1',enabledSources:summary.enabledSources,eligibleSources:summary.eligibleSources,waitingSources:summary.waitingSources,sourceHealthCheckedAt:summary.checkedAt??null,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
+   res.end(JSON.stringify({status:degraded?'degraded':'ok',collectorVersion:'source-expansion-v1',enabledSources:summary.enabledSources,eligibleSources:summary.eligibleSources,waitingSources:summary.waitingSources,failedSources:summary.failedSources??0,sourceHealthCheckedAt:summary.checkedAt??null,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
   }
   if(path==='/api/aqai/published'){
    const items=await publishedItems();

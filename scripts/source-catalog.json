@@ -1,0 +1,470 @@
+{
+  "arcfield-news": {
+    "url": "https://www.arcfield.com/news",
+    "mode": "public_page"
+  },
+  "blue-innovation-symposium-program": {
+    "url": "https://blueinnovationsymposium.com/bisprogram/",
+    "mode": "public_page"
+  },
+  "ccri-all-news": {
+    "url": "https://www.ccri.edu/news/all-news.html",
+    "mode": "public_page"
+  },
+  "ccri-faculty-news": {
+    "url": "https://www.ccri.edu/news/faculty-staff.html",
+    "mode": "public_page"
+  },
+  "ccri-job-fairs": {
+    "url": "https://ccri.edu/careerservices/students/events-videos/jobfairs.html",
+    "mode": "public_page"
+  },
+  "ccri-news": {
+    "url": "https://www.ccri.edu/news/",
+    "mode": "public_page"
+  },
+  "ccri-news-2026": {
+    "url": "https://www.ccri.edu/news/2026/",
+    "mode": "public_page"
+  },
+  "dvids-nuwcdn-unit": {
+    "url": "https://www.dvidshub.net/unit/NUWCDN",
+    "mode": "public_page"
+  },
+  "dvids-nwc-unit": {
+    "url": "https://www.dvidshub.net/unit/NWC",
+    "mode": "public_page"
+  },
+  "fabnewport-home": {
+    "url": "https://fabnewport.org/",
+    "mode": "public_page"
+  },
+  "fabnewport-programs": {
+    "url": "https://fabnewport.org/programs/",
+    "mode": "public_page"
+  },
+  "innovate-newport-programs": {
+    "url": "https://innovatenewport.org/programs/",
+    "mode": "public_page"
+  },
+  "meetup-newport": {
+    "url": "https://www.meetup.com/find/us--ri--newport/",
+    "mode": "public_page"
+  },
+  "middletown-community-services": {
+    "url": "https://www.middletownri.gov/754/Community-Services",
+    "mode": "public_page"
+  },
+  "middletown-gov-home": {
+    "url": "https://www.middletownri.gov/",
+    "mode": "public_page"
+  },
+  "middletown-gov-news": {
+    "url": "https://www.middletownri.gov/m/NewsFlash",
+    "mode": "public_page"
+  },
+  "middletown-gov-purchasing": {
+    "url": "https://www.middletownri.gov/248/Purchasing-Department",
+    "mode": "public_page"
+  },
+  "middletown-library-home": {
+    "url": "https://middletownpubliclibraryri.org/",
+    "mode": "public_page"
+  },
+  "middletown-library-newsletter": {
+    "url": "https://middletownpubliclibraryri.org/newsletter",
+    "mode": "public_page"
+  },
+  "middletown-medac": {
+    "url": "https://middletownri.gov/344/Economic-Development-Advisory-Committee",
+    "mode": "public_page"
+  },
+  "middletown-planning-packets": {
+    "url": "https://www.middletownri.gov/504/Planning-Board-Meeting-Packets",
+    "mode": "public_page"
+  },
+  "middletown-schools-news": {
+    "url": "https://www.middletownschools.org/news?offset=0&ppl=1",
+    "mode": "public_page"
+  },
+  "middletown-zoning-agendas": {
+    "url": "https://www.middletownri.gov/709/Zoning-Board-of-Review-AgendasMinutes",
+    "mode": "public_page"
+  },
+  "mrc-careers": {
+    "url": "https://mrcds.com/careers/",
+    "mode": "public_page"
+  },
+  "navy-sbir-archive": {
+    "url": "https://www.navysbir.us/archive1.htm",
+    "mode": "public_page"
+  },
+  "navy-sbir-home": {
+    "url": "https://www.navysbir.us/",
+    "mode": "public_page"
+  },
+  "navy-sbir-previous-releases": {
+    "url": "https://www.navysbir.com/previous.htm",
+    "mode": "public_page"
+  },
+  "new-in-newport": {
+    "url": "https://newinnewport.com/",
+    "mode": "public_page"
+  },
+  "newport-buzz-home": {
+    "url": "https://thenewportbuzz.com/feed",
+    "mode": "rss"
+  },
+  "newport-chamber-calendar": {
+    "url": "https://business.newportchamber.com/event-calendar",
+    "mode": "public_page"
+  },
+  "newport-chamber-events-programs": {
+    "url": "https://www.newportchamber.com/events-programs/",
+    "mode": "public_page"
+  },
+  "newport-chamber-home": {
+    "url": "https://www.newportchamber.com/",
+    "mode": "public_page"
+  },
+  "newport-chamber-in-news": {
+    "url": "https://www.newportchamber.com/category/in-the-news/feed/",
+    "mode": "rss"
+  },
+  "newport-chamber-member-directory": {
+    "url": "https://business.newportchamber.com/member-directory",
+    "mode": "public_page"
+  },
+  "newport-gov-council-granicus": {
+    "url": "https://cityofnewport.granicus.com/ViewPublisherRSS.php?view_id=1&mode=agendas",
+    "mode": "rss"
+  },
+  "newport-library-board": {
+    "url": "https://newportlibraryri.org/board-of-trustees-meetings/",
+    "mode": "public_page"
+  },
+  "newport-library-libcal": {
+    "url": "https://newportlibraryri.libcal.com/",
+    "mode": "public_page"
+  },
+  "newport-library-newsletter": {
+    "url": "https://newportlibraryri.org/library-services/newsletter/",
+    "mode": "public_page"
+  },
+  "newport-partnership-home": {
+    "url": "https://www.newportpartnership.org/",
+    "mode": "public_page"
+  },
+  "newport-schools-committee": {
+    "url": "https://www.npsri.net/page/school-committee-meetings",
+    "mode": "public_page"
+  },
+  "newport-schools-news": {
+    "url": "https://www.npsri.net/news?page_no=1",
+    "mode": "public_page"
+  },
+  "newport-schools-social-directory": {
+    "url": "https://www.npsri.net/page/social-media-links",
+    "mode": "public_page"
+  },
+  "newport-schools-technology": {
+    "url": "https://www.npsri.net/page/technology-home",
+    "mode": "public_page"
+  },
+  "newport-this-week-home": {
+    "url": "https://www.newportthisweek.com/",
+    "mode": "public_page"
+  },
+  "ocean-state-media-news": {
+    "url": "https://www.oceanstatemedia.org/news.rss",
+    "mode": "rss"
+  },
+  "ocean-state-media-press": {
+    "url": "https://www.oceanstatemedia.org/pressroom.rss",
+    "mode": "rss"
+  },
+  "ocean-tech-hub-home": {
+    "url": "https://www.oceantechnologyhub.com/",
+    "mode": "public_page"
+  },
+  "ocean-tech-hub-partners": {
+    "url": "https://www.oceantechnologyhub.com/partners",
+    "mode": "public_page"
+  },
+  "ocean-tech-hub-press": {
+    "url": "https://www.oceantechnologyhub.com/press",
+    "mode": "public_page"
+  },
+  "ocean-tech-hub-programs": {
+    "url": "https://www.oceantechnologyhub.com/programs-and-resources",
+    "mode": "public_page"
+  },
+  "ocean-tech-hub-projects": {
+    "url": "https://www.oceantechnologyhub.com/ocean-tech-hub-projects",
+    "mode": "public_page"
+  },
+  "patch-newport": {
+    "url": "https://patch.com/rhode-island/newport",
+    "mode": "public_page"
+  },
+  "polaris-demos": {
+    "url": "https://polaristechbridge.org/demonstrations/",
+    "mode": "public_page"
+  },
+  "polaris-events": {
+    "url": "https://polaristechbridge.org/events/",
+    "mode": "public_page"
+  },
+  "polaris-home": {
+    "url": "https://polaristechbridge.org/",
+    "mode": "public_page"
+  },
+  "polaris-news": {
+    "url": "https://polaristechbridge.org/news-insights/",
+    "mode": "public_page"
+  },
+  "polaris-past-events": {
+    "url": "https://polaristechbridge.org/events/?ptb_page=1&ptb_past=1",
+    "mode": "public_page"
+  },
+  "polaris-programs": {
+    "url": "https://polaristechbridge.org/services/",
+    "mode": "public_page"
+  },
+  "portsmouth-economic-development": {
+    "url": "https://portsmouthri.gov/200/Economic-Development-Committee",
+    "mode": "public_page"
+  },
+  "portsmouth-gov-agendas": {
+    "url": "https://www.portsmouthri.gov/AgendaCenter",
+    "mode": "public_page"
+  },
+  "portsmouth-gov-council": {
+    "url": "https://www.portsmouthri.gov/AgendaCenter/Town-Council-8",
+    "mode": "public_page"
+  },
+  "portsmouth-gov-home": {
+    "url": "https://www.portsmouthri.gov/",
+    "mode": "public_page"
+  },
+  "portsmouth-gov-news": {
+    "url": "https://www.portsmouthri.gov/m/newsflash/archive",
+    "mode": "public_page"
+  },
+  "portsmouth-gov-purchasing": {
+    "url": "https://portsmouthri.gov/152/Purchasing-Requests-for-Proposals",
+    "mode": "public_page"
+  },
+  "portsmouth-library-home": {
+    "url": "https://portsmouthlibrary.org/",
+    "mode": "public_page"
+  },
+  "portsmouth-planning-agendas": {
+    "url": "https://www.portsmouthri.gov/AgendaCenter/Planning-Board-7",
+    "mode": "public_page"
+  },
+  "portsmouth-schools-live-feed": {
+    "url": "https://www.portsmouthschoolsri.org/live-feed",
+    "mode": "public_page"
+  },
+  "portsmouth-schools-news": {
+    "url": "https://www.portsmouthschoolsri.org/news",
+    "mode": "public_page"
+  },
+  "portsmouth-technical-review-agendas": {
+    "url": "https://www.portsmouthri.gov/AgendaCenter/Technical-Review-Committee-21/",
+    "mode": "public_page"
+  },
+  "portsmouth-zoning-agendas": {
+    "url": "https://www.portsmouthri.gov/AgendaCenter/Zoning-Board-of-Review-9/",
+    "mode": "public_page"
+  },
+  "purvis-careers": {
+    "url": "https://www.purvis.com/join-our-team/",
+    "mode": "public_page"
+  },
+  "renewport-resources": {
+    "url": "https://renewport.org/resources/",
+    "mode": "public_page"
+  },
+  "ri-ai-task-force": {
+    "url": "https://etss.ri.gov/data-and-ai/rhode-island-ai-task-force",
+    "mode": "public_page"
+  },
+  "ri-commerce-articles": {
+    "url": "https://commerceri.com/articles/",
+    "mode": "public_page"
+  },
+  "ri-commerce-emerging-tech": {
+    "url": "https://commerceri.com/emerging-technologies/",
+    "mode": "public_page"
+  },
+  "ri-commerce-transparency": {
+    "url": "https://commerceri.com/open-government-transparency/",
+    "mode": "public_page"
+  },
+  "ri-dlt-lmi": {
+    "url": "https://dlt.ri.gov/labor-market-information",
+    "mode": "public_page"
+  },
+  "ri-dlt-media": {
+    "url": "https://dlt.ri.gov/press-releases.xml",
+    "mode": "rss"
+  },
+  "ri-dlt-state-municipal-jobs": {
+    "url": "https://dlt.ri.gov/individuals/jobseeker-resources/rhode-island-state-and-municipal-jobs",
+    "mode": "public_page"
+  },
+  "ri-epermitting-directory": {
+    "url": "https://ribcc.ri.gov/forms-resources-and-e-permitting/statewide-e-permitting-portal",
+    "mode": "public_page"
+  },
+  "ri-purchases-all-solicitations": {
+    "url": "https://ridop.ri.gov/vendor-resources/all-solicitations",
+    "mode": "public_page"
+  },
+  "ri-purchases-bidding": {
+    "url": "https://ridop.ri.gov/vendors/bidding-opportunities",
+    "mode": "public_page"
+  },
+  "ri-purchases-osp": {
+    "url": "https://ridop.ri.gov/ocean-state-procures-osp",
+    "mode": "public_page"
+  },
+  "rihub-home": {
+    "url": "https://rihub.org/",
+    "mode": "public_page"
+  },
+  "rimta-employers": {
+    "url": "https://rimta.org/workforce-development/employers/",
+    "mode": "public_page"
+  },
+  "rimta-home": {
+    "url": "https://rimta.org/",
+    "mode": "public_page"
+  },
+  "rimta-industry-data": {
+    "url": "https://rimta.org/promotion/industry-data/",
+    "mode": "public_page"
+  },
+  "rimta-job-board": {
+    "url": "https://rimta.memberzone.com/jobs/",
+    "mode": "public_page"
+  },
+  "rimta-job-seekers": {
+    "url": "https://rimta.org/workforce-development/job-seekers/",
+    "mode": "public_page"
+  },
+  "rimta-member-directory": {
+    "url": "https://rimta.memberzone.com/list/search?q=all",
+    "mode": "public_page"
+  },
+  "rimta-promotion": {
+    "url": "https://rimta.org/promotion/",
+    "mode": "public_page"
+  },
+  "rimta-workforce": {
+    "url": "https://rimta.org/workforce-development/",
+    "mode": "public_page"
+  },
+  "rtx-raytheon-portsmouth-careers": {
+    "url": "https://careers.rtx.com/global/en/raytheon-portsmouth%2C-ri",
+    "mode": "public_page"
+  },
+  "salve-ai-initiative": {
+    "url": "https://digitalcommons.salve.edu/aiatsalve/",
+    "mode": "public_page"
+  },
+  "salve-ai-papers": {
+    "url": "https://digitalcommons.salve.edu/aipp/",
+    "mode": "public_page"
+  },
+  "salve-dissertations": {
+    "url": "https://digitalcommons.salve.edu/doctoral_dissertations/",
+    "mode": "public_page"
+  },
+  "salve-home": {
+    "url": "https://salve.edu/",
+    "mode": "public_page"
+  },
+  "salve-news": {
+    "url": "https://salve.edu/news",
+    "mode": "public_page"
+  },
+  "salve-news-listing": {
+    "url": "https://salve.edu/news/news-listing?page=0",
+    "mode": "public_page"
+  },
+  "salve-research-units": {
+    "url": "https://digitalcommons.salve.edu/communities.html",
+    "mode": "public_page"
+  },
+  "sbir-data-resources": {
+    "url": "https://www.sbir.gov/data-resources",
+    "mode": "public_page"
+  },
+  "seacorp-careers": {
+    "url": "https://www.seacorp.com/careers",
+    "mode": "public_page"
+  },
+  "seacorp-newsroom": {
+    "url": "https://www.seacorp.com/newsroom",
+    "mode": "public_page"
+  },
+  "senedia-defense-innovation-days": {
+    "url": "https://senedia.org/defense-innovation-days-2025/",
+    "mode": "public_page"
+  },
+  "senedia-events": {
+    "url": "https://members.senedia.org/events/calendar/",
+    "mode": "public_page"
+  },
+  "senedia-news": {
+    "url": "https://senedia.org/feed/",
+    "mode": "rss"
+  },
+  "senedia-strategic-partners": {
+    "url": "https://senedia.org/strategic-partners/",
+    "mode": "public_page"
+  },
+  "serco-unmanned-systems": {
+    "url": "https://careers.serco-na.com/us/en/serco-unmanned-systems",
+    "mode": "public_page"
+  },
+  "thor-solutions-careers": {
+    "url": "https://thorsolutionsllc.applytojob.com/apply",
+    "mode": "public_page"
+  },
+  "uri-ai-at-uri": {
+    "url": "https://web.uri.edu/provost/initiatives/ai-at-uri/",
+    "mode": "public_page"
+  },
+  "uri-ai-research": {
+    "url": "https://web.uri.edu/provost/initiatives/ai-at-uri/research/",
+    "mode": "public_page"
+  },
+  "uri-engineering-centers": {
+    "url": "https://web.uri.edu/engineering/research/centers/",
+    "mode": "public_page"
+  },
+  "uri-iacr-home": {
+    "url": "https://web.uri.edu/iacr/",
+    "mode": "public_page"
+  },
+  "uri-ocean-tech-center": {
+    "url": "https://web.uri.edu/engineering/research/centers/ocean-technology-center/",
+    "mode": "public_page"
+  },
+  "usnwc-events": {
+    "url": "https://usnwc.edu/news-and-events/events/",
+    "mode": "public_page"
+  },
+  "usnwc-lectures": {
+    "url": "https://www.usnwc.edu/News-and-Events/Lecture-Series-and-Talks/Lectures-of-Opportunity",
+    "mode": "public_page"
+  },
+  "usnwc-news-events": {
+    "url": "https://www.usnwc.edu/News-and-Events/",
+    "mode": "public_page"
+  }
+}

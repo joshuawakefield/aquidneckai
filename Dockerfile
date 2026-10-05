@@ -19,6 +19,6 @@ COPY data/imports/pilot-candidates.json ./data/imports/pilot-candidates.json
 RUN mkdir -p data/classification-responses && chown -R node:node data
 USER node
 EXPOSE 8080
-HEALTHCHECK --interval=60s --timeout=10s --start-period=120s CMD node -e "fetch('http://127.0.0.1:8080/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+HEALTHCHECK --interval=60s --timeout=10s --start-period=120s CMD node -e "fetch('http://127.0.0.1:8080/livez').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 CMD ["node", "scripts/production-server.mjs"]

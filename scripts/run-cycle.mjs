@@ -6,5 +6,6 @@ for(const script of ['collect-feeds.mjs','classify-new.mjs','publish-qualified.m
   const child=spawn(process.execPath,[fileURLToPath(new URL(script,import.meta.url))],{stdio:'inherit',windowsHide:true});
   child.on('error',()=>resolve(1));child.on('close',resolve);
  });
+ if(script==='collect-feeds.mjs'&&code===2){console.warn('Some sources failed; their status is recorded. Continuing assessment of available evidence.');continue;}
  if(code!==0){process.exitCode=1;break;}
 }

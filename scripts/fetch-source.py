@@ -6,6 +6,9 @@ from conditional_download import download
 from audit_registry_pilot import check
 from audit_sources import ROOT
 from expanded_feeds import FEEDS
+from source_pages import check_page
+
+CATALOG=json.loads((ROOT/'scripts/source-catalog.json').read_text(encoding='utf-8'))
 
 SALVE_API = 'https://events.salve.edu/api/2/events?days=30&pp=100&for=main'
 AI = re.compile(r'\b(?:AI|artificial intelligence|machine learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b', re.I)
@@ -33,7 +36,11 @@ def salve_events(cache=None):
 
 if __name__=='__main__':
     source=json.load(sys.stdin)
-    if source.get('source_id')=='salve-events' and source.get('endpoint_url')==SALVE_API:
+    configured=CATALOG.get(source.get('source_id'),{})
+    if configured.get('url')==source.get('endpoint_url') and configured.get('mode') in ('public_page','rss'):
+        try: result=check_page(source) if configured['mode']=='public_page' else check(source)
+        except Exception as error: result={'status':'failed','error_type':type(error).__name__+':'+str(error)[:60]}
+    elif source.get('source_id')=='salve-events' and source.get('endpoint_url')==SALVE_API:
         try: result=salve_events(source.get('http_cache'))
         except Exception as error: result={'status':'failed','error_type':type(error).__name__}
     elif FEEDS.get(source.get('source_id')) == source.get('endpoint_url') and source.get('source_id') in FEEDS:

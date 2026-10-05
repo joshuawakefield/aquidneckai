@@ -3,6 +3,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { database } from './supabase-server.mjs';
 import { normalizeResult } from './collector-policy.mjs';
+import {collectBatch} from './collection-batch.mjs';
 const pilot=process.argv.includes('--pilot');
 function fetchSource(source){return new Promise(resolve=>{
  const workerEnv={...process.env,PYTHONIOENCODING:'utf-8'};
@@ -19,11 +20,11 @@ function fetchSource(source){return new Promise(resolve=>{
 try{
  const sources=await database('rpc/aq_claim_feed_sources',{method:'POST',body:{p_pilot:pilot}});
  console.log(JSON.stringify({mode:pilot?'one_off_pilot':'scheduled',claimed:sources.length}));
- for(const source of sources){
-  let result;
-  try{result=normalizeResult(await fetchSource(source));}catch{result={status:'failed',error_type:'ValidationFailed'};}
+ const summary=await collectBatch(sources,fetchSource,normalizeResult,async(source,result)=>{
   const saved=await database('rpc/aq_finish_feed_run',{method:'POST',body:{p_source_id:source.source_id,p_lease_token:source.lease_token,p_result:result}});
   console.log(JSON.stringify({source_id:source.source_id,...saved}));
-  if(saved.status==='failed')process.exitCode=1;
- }
+  return saved;
+ });
+ console.log(JSON.stringify(summary));
+ if(summary.failed)process.exitCode=2;
 }catch(e){console.error(e.message);process.exitCode=1;}
