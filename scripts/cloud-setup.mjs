@@ -27,7 +27,8 @@ export async function runCloudSetup({install=false,root=repositoryRoot}={}){
   const config=join(folder,'npmrc');fs.writeFileSync(config,'');
   try{
    runCommand('Install locked public npm packages (lifecycle scripts disabled)',process.execPath,
-    [npmCLI(),'ci','--ignore-scripts','--no-audit','--no-fund','--registry=https://registry.npmjs.org','--userconfig='+config],
+    [npmCLI(),'ci','--ignore-scripts','--no-audit','--no-fund','--registry=https://registry.npmjs.org',
+     '--cache='+join(tmpdir(),'aquidneckai-npm-cache'),'--userconfig='+config],
     {root,offline:false,timeout:300000});
   }finally{fs.unlinkSync(config);fs.rmdirSync(folder);}
  }else if(!fs.existsSync(resolve(root,'node_modules/typescript/bin/tsc'))){

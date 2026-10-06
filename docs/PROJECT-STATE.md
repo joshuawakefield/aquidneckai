@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T21:02Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T21:06Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -33,4 +33,4 @@ The new record contains charter, architecture, decision register, backlog, dated
 - Immediate task: finish AQ-001 handoff validation; then choose one bounded ready item in [BACKLOG](BACKLOG.md). High-value options are migration inventory (AQ-002), budget/exception visibility (AQ-003), and current upstream failures (AQ-004).
 
 
-Codex Cloud environment preparation is underway in the owner account, private visibility, with no network secrets or service environment variables. The setup agent checked out the correct development commit and independently passed document/continuity checks. Its dependency install exposed a proxy-transport issue in the new runner; the package-install-only fix passed two regression tests. Environment publication and the fresh cloud application baseline remain pending.
+Codex Cloud environment preparation is underway in the owner account, private visibility, with no network secrets or service environment variables. The setup agent checked out the correct development commit and independently passed document/continuity checks. Its dependency install exposed proxy-transport and writable-cache issues; the installer now retains only required package transport settings and uses a temporary writable npm cache. The independent Linux cloud baseline passed TypeScript, 38 frontend / 63 backend / 39 Python tests, production build, loopback auth smoke, documentation checks and 16 continuity tests. Environment configuration review/publication remains pending.

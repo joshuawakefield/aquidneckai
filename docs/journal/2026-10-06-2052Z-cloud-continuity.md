@@ -33,3 +33,8 @@ Verify shared files/CI remotely; configure/publish a secret-free cloud developme
 
 All 86 reviewed files are on GitHub in commit 76124489465df5eb06b805103f3c0fd537e78ee0; remote blob hashes match. Project memory workflow run 37530484278 passed. Cloud setup independently recovered the correct branch/context and passed structure plus 16 continuity tests. Package install exposed cloud proxy transport being stripped by the new setup runner; the package-install-only fix passed two regression tests and is ready for the cloud retry. No production keys were transferred. Environment remains private and unpublished pending verification.
 
+
+### 21:06 UTC cloud verification
+
+The independent cloud setup checked out 6f5fa1d7949a4eab406e8953b6ff98db133d17a6, used Node 22.23.3 and Python 3.12.14, and passed TypeScript, 38 frontend / 63 backend / 39 Python tests, build, loopback authentication smoke, documentation validation and 16 continuity tests. Cloud transport required preserving proxy/TLS settings for npm installation only; npm cache also needs a writable temporary path. The cache fix is now explicit in cloud-setup.mjs instead of depending on external npm configuration. Syntax checked; configuration review and publication follow. No application runtime was deployed.
+
