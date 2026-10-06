@@ -47,6 +47,6 @@ Migration history is not reconciled. Applied changes were individually reviewed 
 
 ## What is not implemented
 
-No autonomous engineering agent, Codex cloud environment, model router, Cloudflare AI integration, public chatbot, source-editing dashboard, continuous discovery loop, continuing-topic arcs or sponsor checkout is implied by the working collector. Repository instructions guide future work; an external execution environment and its access must be configured separately.
+A private Codex Cloud development environment was published October 6; see [handoff](CLOUD-HANDOFF.md). It has no production credentials. No unattended autonomous engineering loop, model router, Cloudflare AI integration, public chatbot, source-editing dashboard, continuous discovery loop, continuing-topic arcs or sponsor checkout is implied by the working collector. Repository instructions guide future work; each task still needs its own scope and access.
 
 For next work and its access boundaries, use [BACKLOG.md](BACKLOG.md). Keep source collection, editorial publication, GitHub writes, hosting deployments and production DNS changes as distinct operations with evidence for each.

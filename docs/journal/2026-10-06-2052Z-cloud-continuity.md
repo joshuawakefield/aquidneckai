@@ -3,7 +3,7 @@
 Task ID: AQ-001
 Started: 2026-10-06T20:35:00Z (approximate)
 Starting commit: b34b14e11e2fb7403afddef1fc4004a078620449
-Status: in progress
+Status: handoff complete; first restored coding-task check remains AQ-001
 
 ## Request
 
@@ -23,11 +23,11 @@ D-016/D-017: GitHub is the shared project record; credentials and runtime data r
 
 Clean checkout at the recorded baseline installed 490 locked packages with lifecycle scripts disabled. TypeScript, 38 frontend tests, 61 backend tests, 39 Python tests, production build and loopback auth/framing/path smoke passed. No database, inference, collection or deployment was run. Cloud guard tests reject real .env files and external fetch/TCP, and strip inherited service credentials. Continuity rule suite: 16 passing tests. SQL files reviewed offline only.
 
-Remote upload and account-side cloud environment preparation remain in progress; completion evidence will be appended before closeout.
+Remote files were verified by Git blob hash and GitHub continuity CI. Cloud setup and publication were subsequently verified as recorded below. A separate restored coding task has not been launched.
 
 ## Next steps
 
-Verify shared files/CI remotely; configure/publish a secret-free cloud development environment and run AQ-001 from repository context. Then choose one scoped ready backlog task. Do not declare AQ-001 complete merely because documents exist.
+Use the existing published environment for AQ-001's final fresh-task restoration and closeout check; do not recreate it or repeat initial onboarding. Then choose one scoped ready backlog task. No ongoing autonomous schedule was configured.
 
 ### 21:02 UTC checkpoint
 
@@ -37,4 +37,14 @@ All 86 reviewed files are on GitHub in commit 76124489465df5eb06b805103f3c0fd537
 ### 21:06 UTC cloud verification
 
 The independent cloud setup checked out 6f5fa1d7949a4eab406e8953b6ff98db133d17a6, used Node 22.23.3 and Python 3.12.14, and passed TypeScript, 38 frontend / 63 backend / 39 Python tests, build, loopback authentication smoke, documentation validation and 16 continuity tests. Cloud transport required preserving proxy/TLS settings for npm installation only; npm cache also needs a writable temporary path. The cache fix is now explicit in cloud-setup.mjs instead of depending on external npm configuration. Syntax checked; configuration review and publication follow. No application runtime was deployed.
+
+### 21:09 UTC publication
+
+The revised install script passed in the real cloud workspace at b9e49bd52a712e3d49bbdaa342293caab9c592ee without a global npm cache workaround. Saved and reviewed the reusable install/Start skill; the latter requires fresh repository context, bounded work, tests, state/journal updates and remote verification. The UI confirmed AquidneckAI development, Only me, Package managers network preset, no added domains, no network secrets and no service environment variables. After Save draft and Publish, the UI explicitly showed Environment published.
+
+Sent the owner-authorized project handoff to the owner's Dot with the repository/branch/read order and a read-only access check. Preserved/restored the pre-existing message draft unchanged. Dot acknowledged and began verification. No recurring automation, production access grant, deployment or spending change was made.
+
+### 21:13 UTC Dot confirmation and closeout
+
+Dot independently confirmed discovery of AquidneckAI development, matching b9e49bd repository revision, and access to AGENTS/index plus all seven named context documents. It saved the repository/branch/read order and operating constraints. It also correctly identified that publication status was still pending in the prior GitHub checkpoint; this closeout updates state, architecture, handoff and journal accordingly. Dot did not launch a coding task. A fresh task restored from the published image remains explicitly unverified and is the next bounded AQ-001 check.
 
