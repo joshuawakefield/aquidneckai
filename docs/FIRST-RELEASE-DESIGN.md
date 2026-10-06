@@ -1,6 +1,6 @@
-# AquidneckAI first-release design — version 0.2
+# AquidneckAI first-release design — version 0.3
 
-Date: 2026-10-06. Task: AQ-024; reconciliation: AQ-025. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
+Date: 2026-10-06. Task: AQ-024; reconciliation: AQ-025; sourced connection preview: AQ-028. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
 
 
 ## Consolidation decision — AQ-025
@@ -13,12 +13,12 @@ This is the **recommended canonical proposal**, maintained only in this document
 | Prototype implementation | PR1 self-contained HTML, four independent paths, native disclosures, copy fallback and content states | Portable review, no application imports/dependencies, readable without JavaScript; honest unavailable/empty states. Keep one implementation, not a merged React/HTML stack. |
 | Practical learning | Adapt PR2's deliberately incorrect handwritten appointment and reveal-review idea into PR1's native disclosure | Readers must identify a concrete factual error before accepting a polished draft; retains PR1's checked prompt and manual-copy fallback. PR2's React component/test code remains in its original commit. |
 | Evidence labeling | Adopt PR2's distinction between source publication/update, actual check date and scope of verification | A retrieved contact route is not proof of available participation. No new source checks or dates are invented. |
-| Connection demonstration | Keep PR1's explicitly fictional formats and honest no-verified-listings state | PR2's FabNewport research establishes a public description/contact route only, not adult/trades/AI/project availability. Preserve it as an AQ-022 lead in PR2 history, not a recommendation or fixture copied into production. |
+| Connection demonstration | AQ-028 replaces fictional connection formats with two AQ-022-backed leads from one organization | PR2's FabNewport research establishes a public description/contact route only, not adult/trades/AI/project availability. Preserve it as an AQ-022 lead in PR2 history, not a recommendation or fixture copied into production. |
 | Validation | Retain both journals as historical evidence; rerun selected prototype flows and automated accessibility scans | PR2's three component tests/eight axe scans and full baseline are useful prior evidence, but do not prove the consolidated HTML behavior. Neither draft has real reader validation. |
 
 Historical provenance stays recoverable: [PR1 original eb5390d](https://github.com/joshuawakefield/aquidneckai/tree/eb5390d1f0f31040d8f0dbaaac25be67cb8350a6) and [PR2 original c7f4805](https://github.com/joshuawakefield/aquidneckai/tree/c7f4805edb4cdf2dadf53d8d6b3d5a96c8d30b1f). Both independently used AQ-024 and D-027 from base 15362f57. AQ-024 remains the historical design task with branch-qualified references; **AQ-025** is the distinct reconciliation task. PR1 D-027 remains the owner mandate, D-028 the original design hypothesis; **D-029** records this consolidation and PR2's historical D-027 remains explicitly branch-qualified. No original journal or decision is renumbered or erased.
 
-The [AQ-025 journal](journal/2026-10-06-2301Z-design-reconciliation.md) records fresh checks, allowlist and closeout. Next task is independent AQ-022 public connection verification; this task starts no successor or schedule.
+The [AQ-025 journal](journal/2026-10-06-2301Z-design-reconciliation.md) records fresh checks, allowlist and closeout. AQ-022 verification is complete; AQ-028 applies its bounded evidence to this same prototype. No successor or schedule is launched here.
 
 ## Product thesis
 
@@ -34,7 +34,7 @@ A useful visit ends with a next action the reader understands and can check: try
 | Existing reader supplies a feed, eight curated resources and three exercises | Source inspected; prior staging evidence; AQ-021 updated one exercise locally | Reuse working data boundaries and reader components. |
 | Customer follow-up is a worthwhile first experiment | Owner-derived use case, implemented and tested in AQ-021 | Include it; do not claim it is the most valuable feature or that it saves time. |
 | Readers prefer the proposed hierarchy and style | Unvalidated design hypothesis | Test comprehension and task completion before treating the design as settled. |
-| A real local connection can be recommended | Not yet established by AQ-022 | Show an honest empty state until verified evidence exists. |
+| A public route to local business peers exists | AQ-022 official source research; AQ-028 recheck of two Chamber pages | Show advertised lunch and conditional referral-group inquiry; places, attendance and benefits remain unknown. |
 | Current content is enough for repeat visits or sponsorship | Unknown | Examine available content and gather reader evidence before expansion/revenue work. |
 
 ## Release experience
@@ -72,7 +72,11 @@ Retain three manageable exercises. A dedicated route can evolve from the current
 
 AQ-022 researches a bounded candidate list before any recommendation. Prefer peers, collaborators and real projects; courses can support a connection but do not establish one by themselves. Each proposed entry must carry provider identity, source, current activity, actual local relevance, access/cost conditions where known, a checked date and a public route to learn more. Do not publish private contact details or claim a place is available without evidence.
 
-The prototype's three entries are fictional format examples. They must never become production seed data. Production may launch with an explicit "No verified listings yet" state; calling the connection path validated requires a real usable recommendation and reader evidence.
+AQ-028 shows two source-backed leads from the Greater Newport Chamber: the October 15 networking lunch and Chamber Connections as inquiry-only context. Public source links are the registration/inquiry destinations; the prototype collects nothing. PPL/FabNewport remain research leads outside these cards, not recommendations. Source publication/update dates remain unknown and distinct from the actual October 6 check date. Description retrieval establishes neither capacity nor participation.
+
+Event status uses America/New_York, independent of the viewer's timezone, and expires at the advertised local end (October 15, 13:00). The source prints EDT and an inconsistent GMT-05:00 label: preserve the local clock and use IANA seasonal rules, visibly disclose the discrepancy, and require organizer confirmation before plans. [NIST's 2026 DST dates](https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst) place October 15 in daylight time. This is a documented display interpretation, not organizer confirmation; no calendar export is offered. For missing times, a future day is date-only, today may already have ended, and only the next local day becomes past. Missing/invalid dates never imply upcoming. Evidence is separately stale at seven local calendar days, a conservative preview threshold; recent retrieval still cannot establish availability. Invalid/future check dates yield unknown freshness. Re-evaluate on load, each second and return to visibility without network or storage. No-JavaScript text leaves date/freshness evaluation unknown.
+
+Production may still need an explicit empty state; calling the connection path validated requires reader evidence. This proposal is neither integrated nor finally approved.
 
 ## Visual direction
 
@@ -103,7 +107,7 @@ Review paths: home → exercise → checked example; home → story → evidence
 | --- | --- | --- |
 | Coherent design | Thesis, three journeys, page anatomy, content requirements, versioned prototype and rationale | Design hypothesis, not reader endorsement |
 | Software behavior | Fixture tests, type/build checks for production changes, desktop/mobile interaction checks, selected keyboard/accessibility checks | Prototype evidence cannot substitute for production regression/staging checks |
-| Content trust | Editorial approval/original evidence; verified connection activity/access; accurate dates; uncertainty and corrections | Prototype examples count as zero verified stories or connections |
+| Content trust | Editorial approval/original evidence; verified connection activity/access; accurate dates; uncertainty and corrections | Story/exercise remain illustrative; connection source evidence does not establish current availability or reader benefit |
 | Reader usefulness | Observe a small first-reader sample trying the journeys; record comprehension, task completion, factual mistakes and checking effort | No recruitment/outreach, real reader sessions or measured benefits occurred here |
 | Operational readiness | Manual deployment/rollback plan, auth separation, bounded feed/API behavior, visible exceptions, plan/cap safeguards | Production access, migration application, deployment and apex cutover remain separate |
 
@@ -115,7 +119,7 @@ The release is defined when required behavior and content gates have concrete ev
 
 1. AQ-024 design is delivered; AQ-025 consolidates the two open drafts into this recommended proposal on PR1. Preserve both original commits and AQ-021/AQ-003 work. Integration remains separate.
 2. Preserve AQ-003's actual remote closeout. Its display default remains unavailable without a safe usage source; AQ-023 is a separate design, not a new provider polling permission.
-3. AQ-022: verify whether a real peer/project path exists. In parallel with ordinary coordinator planning, inspect content/readiness needs from authorized evidence; any development child remains serial.
+3. AQ-022 verification and AQ-028 isolated source-backed preview are complete. Next useful bounded work: AQ-010 first-release content/staging/rollback readiness checklist grounded in this proposal and the actual feed contract; no deployment or outreach. Parent owns task selection and launch.
 4. New bounded reader implementation derived from this design: improve outcome navigation and guide discoverability using existing components. Keep published feed/source links until detail-route needs are assessed. Assign a stable new AQ-ID at launch; do not preallocate speculative chains.
 5. AQ-010: prepare first-release staging/rollback and content checklist; conduct separately authorized staging/release review. Plan formative reader evaluation without initiating outreach.
 6. AQ-002 before database/schema-dependent feature work, then AQ-006 if source management is a demonstrated owner-effort bottleneck. Start with offline inventory when live comparison is unavailable.

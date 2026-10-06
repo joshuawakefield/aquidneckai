@@ -18,7 +18,7 @@ export const pythonTests=[
  'scripts/test-source-pages.py','scripts/test-syndicated-feeds.py',
 ];
 export const frontendTests=[
- 'src/test/example.test.ts','src/App.test.tsx','src/pages/IndexPreview.test.tsx',
+ 'src/test/example.test.ts','src/test/tailwind-config.test.ts','src/App.test.tsx','src/pages/IndexPreview.test.tsx',
  'src/pages/ReaderHome.test.tsx','src/pages/ReviewQueue.test.tsx',
  'src/components/EditorialReview.test.tsx','src/components/EvidenceText.test.tsx',
  'src/components/LeadCaptureForm.test.tsx','src/lib/date-format.test.ts','src/lib/event-time.test.ts',
