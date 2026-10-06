@@ -43,7 +43,7 @@ export default function ReviewQueue({observations=0}:{observations?:number}){
  {i.editorialAction&&<p>{i.editorialAction==='note'?'Editorial note saved; the assessment is unchanged. ':''}<button onClick={()=>setRefresh(n=>n+1)}>Refresh review after decision</button> to update queue membership and counts.</p>}
  {i.aiEvidence&&<div><strong>AI evidence</strong><EvidenceText text={i.aiEvidence}/></div>}{i.localEvidence&&<div><strong>Relevance and source context</strong><EvidenceText text={i.localEvidence}/></div>}
  {i.modelDecision&&i.modelDecision!==i.decision&&<p>Model originally said {i.modelDecision}: {i.modelReason}. The evidence check withheld that decision.</p>}
- <Evidence id={i.id}/><EditorialReview id={i.id} title={i.title} aiQuote={i.aiEvidence} onSaved={action=>setItems(current=>current.map(item=>item.id===i.id?{...item,editorialAction:action}:item))}/></article>)}
+ <Evidence id={i.id}/><EditorialReview id={i.id} title={i.title} aiQuote={i.aiEvidence} suggestedUsefulness={i.localEvidence} onSaved={action=>setItems(current=>current.map(item=>item.id===i.id?{...item,editorialAction:action}:item))}/></article>)}
  <p><button disabled={busy||offset===0} onClick={()=>setOffset(n=>Math.max(0,n-25))}>Previous page</button>{' '}
  <button disabled={busy||offset+25>=total} onClick={()=>setOffset(n=>n+25)}>Next page</button></p>
  </>}
