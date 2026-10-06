@@ -68,3 +68,11 @@ Two-file UI fix deployed manually from `b34b14e11e2fb7403afddef1fc4004a078620449
 Live operating-cost and schedule audit is in [the dated operating-cost report](reports/2026-10-06-operating-costs.md) and `data/cost-schedule-oct06.json`: hosting account confirms $6.48/month, Supabase remains Free, OpenRouter key has used $0.143272701 total / $0.103097016 this month. Its $1 limit never resets; $0.856727299 remains. Worker runs five minutes after each cycle completes; 208 scheduled endpoints average approximately 274 checks/day. Astra/Sol/Luna routing is not wired into this runtime; it uses Gemini 2.5 Flash Lite.
 
 Raw data/ verification files mentioned above remain private local evidence, not prerequisites for cloud setup. This tracker preserves their relevant results; the shared journal/state and reproducible fixture tests are the handoff record.
+
+## AQ-024 proposed release journey
+
+| ID | Finding | Completion condition / boundary |
+|---|---|---|
+| F11 | Individual resources and exercises need a coherent, reviewable first-release journey. | PROTOTYPE IMPLEMENTED AND LOCALLY TESTED: isolated v0.1 overview/evidence/practice/connection screens; [brief](reports/2026-10-06-first-release-design-v01.md) defines reader outcomes and a proposed validation gate. No existing reader route replacement, staging verification, public deployment or measured reader benefit. Review/design integration remain open; D-027 is proposed. |
+
+F09 remains open: AQ-024 verifies only a representative organization's public description/contact route. It does not establish a trades-owner peer network, available AI collaboration, meeting or partnership. See [journal](journal/2026-10-06-2248Z-first-release-design.md) for source and visual-check limits.
