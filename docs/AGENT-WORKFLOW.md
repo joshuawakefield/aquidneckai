@@ -31,7 +31,7 @@ This loop applies equally to Codex local, Codex Cloud, a Dot delegating work, or
 
 Keep the Dot's persistent instruction short: repository URL, development branch, read order, this loop and boundaries. Delegate a bounded task to the prepared cloud environment, wait for its actual result, read the changed state/journal, and reconcile the backlog before selecting another task. Do not run two agents against the same task or repeatedly restart a paid/live action after an uncertain outcome.
 
-A saved schedule is required for recurring Dot activity. This handoff does not create an endless background engineering loop or new recurring automation. Configure cadence, usage budget and meaningful-notification rules explicitly when enabling one.
+The owner now requests continuous serial development (D-023). The Dot coordinator launches the next useful task after verified closeout; individual cloud jobs stay bounded. Actual supported completion-triggered continuation or saved wake-ups are required for execution; documents alone cannot keep an idle agent running. Record the mechanism, overlap protection, platform-limit pause/resume and notification behavior. Use [DOT-START](DOT-START.md) for the current launch contract.
 
 ## Limits of automation
 

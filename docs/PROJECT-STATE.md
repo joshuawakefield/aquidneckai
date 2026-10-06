@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T22:10Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T22:14Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -45,4 +45,4 @@ AQ-019 initial operating documentation and follow-up answers are recorded. The f
 
 ## Dot launch preparation
 
-2026-10-06: the owner requested final Dot setup and loop startup. [DOT-START](DOT-START.md) is prepared for immediate fresh AQ-001, then one serial AQ-021 product task, plus weekday 9 AM America/New_York recurrence. Native model selection is recommended where available; the platform default is the fallback, and no custom router or paid model integration was built. This chat has no Dot/scheduler control, so AQ-020 remains blocked pending action from the Dot and actual schedule/task evidence. Publication is already verified; do not recreate the environment. No activation or new runtime deployment claimed.
+2026-10-06: the owner requested final Dot setup and loop startup. [DOT-START](DOT-START.md) is prepared for fresh AQ-001, then AQ-021, then continuous serial useful successor tasks. The owner explicitly superseded the agent-selected daily cadence; D-023 records this. A supported wake-up can resume idle work if completion-triggered continuation is unavailable, with actual gaps reported. Native model selection is recommended where available; the platform default is the fallback, and no custom router or paid model integration was built. This chat has no Dot/scheduler control, so AQ-020 remains blocked pending action from the Dot and actual continuation/task evidence. Publication is already verified; do not recreate the environment. No activation or new runtime deployment claimed.
