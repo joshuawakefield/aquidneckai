@@ -33,3 +33,11 @@ Read [PROJECT-STATE.md](PROJECT-STATE.md), [DECISIONS.md](DECISIONS.md) and the 
 ## Completion rule
 
 For each completed task record the changed paths/commit, meaningful tests and their result, deployment target if any, live verification if required, remaining limits and next action. Never close a blocked-source item because it was hidden, an editorial item because it was merely assessed, or a launch item because staging works. Keep delayed ideas here rather than embedding hidden TODOs in chat.
+
+## Current selection order — 2026-10-06 product mandate
+
+The owner delegates product/engineering ownership (D-027). AQ numbers identify work; order follows reader benefit, owner effort, evidence and dependencies. AQ-024 supplies the whole-release hypothesis and prototype. Reconcile AQ-003 closeout, then prefer AQ-022's real connection evidence and a bounded reader-navigation/guide implementation derived from the design. AQ-010 supplies readiness/rollback work; plan reader evaluation without contacting people. AQ-002 precedes schema-dependent work, including AQ-006. Promote source/noise work when measured coverage/cost blockers justify it. AQ-012/013/014/015 remain deferred for their existing evidence dependencies. No task is retired merely to simplify the list.
+
+| ID | Priority / status | Bounded next task | Acceptance criteria | Dependency / access / pointers |
+| --- | --- | --- | --- | --- |
+| AQ-024 | P1 / ready | Establish a coherent first-release design and interactive prototype under the product-ownership mandate. | Thesis, Understand/Use/Connect journeys, content/evidence requirements, visual direction, working desktop/mobile prototype, meaningful interaction checks, release gates and rationale; share an isolated draft PR. | Design/specification implemented locally in this PR; integration/review pending. [FIRST-RELEASE-DESIGN](FIRST-RELEASE-DESIGN.md), D-027/D-028, [journal](journal/2026-10-06-2252Z-first-release-design.md). Prototype data is illustrative; no app/deployment/reader-benefit claim. |
