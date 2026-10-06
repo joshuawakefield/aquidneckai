@@ -37,6 +37,8 @@ This is a project instruction, not a mandate to spend indefinitely. A coordinato
 
 ## First fresh task
 
+For the final launch message, weekday schedule and model-selection fallback, use [DOT-START](DOT-START.md). It requests a fresh AQ-001 now, then one serial AQ-021 implementation, and one bounded task per weekday thereafter. These are prepared instructions; actual task/schedule evidence remains required.
+
 Use AQ-001: read the repository without this local conversation; identify the deployed commit, geographic scope, actual model, budget cap, migration caution and three highest-priority open tasks. Run the secret-free baseline. Leave an accurate journal/state update and propose one bounded next task. Do not deploy, access live databases, publish content or buy anything. This proves context recovery before unattended implementation.
 
 ## What transfers

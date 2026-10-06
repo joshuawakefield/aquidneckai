@@ -14,6 +14,8 @@ Canonical repository: [joshuawakefield/aquidneckai, aqai-local-index](https://gi
 8. [OPERATING-MODE](OPERATING-MODE.md): interview gaps, task selection and ongoing knowledge capture.
 9. [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md): dated, non-secret plan and capability evidence.
 
+To finish Dot activation, use [DOT-START](DOT-START.md): prepared launch message, trigger defaults, startup evidence and model-selection guidance.
+
 Then read only the relevant [reports](reports/), [journal](journal/), code and [visitor tracker](VISITOR-EXPERIENCE-TRACKER.md). Context should become more useful over time without requiring every model to reread a giant diary.
 
 ## Where information belongs
@@ -43,4 +45,3 @@ GitHub is the shared project knowledge and code record. It does not automaticall
 ## Historical record
 
 The [reviewed project history](reports/2026-10-06-project-history-through-handoff.md) carries forward earlier local milestones. The [cost report](reports/2026-10-06-operating-costs.md) and [recurring-source report](reports/2026-10-05-recurring-sources.md) are dated operational snapshots, not live dashboards.
-

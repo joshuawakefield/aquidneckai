@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T21:55Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T22:10Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -42,3 +42,7 @@ The owner's Dot independently confirmed discovery of the published environment, 
 2026-10-06: the initial AQ-019 interview is recorded. The owner confirms bottom-line benefit, accessible AI understanding and otherwise-hard-to-find local connections, with an eventual automated AI/robotics/autonomy hub (charter G-001/G-002/G-003). Routine development decisions are delegated; [OPERATING-MODE](OPERATING-MODE.md) labels agent-selected PR/push/cadence defaults. The owner reports a $100 ChatGPT Pro plan and asks to stay within its limits; actual quota is unverified. Existing live/cost boundaries remain.
 
 AQ-019 initial operating documentation and follow-up answers are recorded. The first reader is a self-employed local blue-collar owner or very small team wanting freedom from customer acquisition/retention/reactivation administration. First connection focus: peers, collaborators and local projects. D-021 and the charter preserve these choices. AQ-011 defines the [reader journey and usefulness baseline](reports/2026-10-06-trades-reader-journey.md); this is source-inspected design, not user-tested savings or deployed changes. Next scoped implementation is AQ-021, a fictional customer-follow-up exercise; AQ-022 separately verifies a real peer/project resource. Tracker F08/F09 remain open. AQ-020 tracks the unavailable external scheduling step; recurrence is not configured. The prepared instruction uses the existing published environment and starts with AQ-001's still-unverified fresh-task restoration, then proceeds to outcome-driven work. No new credentials, spending, worker, migration, deployment or DNS operation performed.
+
+## Dot launch preparation
+
+2026-10-06: the owner requested final Dot setup and loop startup. [DOT-START](DOT-START.md) is prepared for immediate fresh AQ-001, then one serial AQ-021 product task, plus weekday 9 AM America/New_York recurrence. Native model selection is recommended where available; the platform default is the fallback, and no custom router or paid model integration was built. This chat has no Dot/scheduler control, so AQ-020 remains blocked pending action from the Dot and actual schedule/task evidence. Publication is already verified; do not recreate the environment. No activation or new runtime deployment claimed.
