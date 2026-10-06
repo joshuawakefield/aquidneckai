@@ -45,3 +45,20 @@ test('review is bounded, invalid parameters cause no query, and evidence is fetc
  res=response();await handler({method:'GET',url:'/api/aqai/evidence?id=11111111-1111-4111-8111-111111111111'},res);
  assert.equal(res.body.excerpt,'Only this item');assert.match(calls[1].path,/limit=1$/);
 });
+
+test('budget contract allows only safe snapshot values without another database or provider request',async()=>{
+ const paths=[];
+ const snapshot={checkedAt:'2026-10-06T12:00:00Z',usedUsd:0.95,remainingUsd:0.05,apiKey:'fixture-secret',accountId:'fixture-account',capUsd:999};
+ const handler=createPreviewHandler(async path=>{paths.push(path);return {inferenceBudget:snapshot};});
+ const res=response();await handler({method:'GET',url:'/api/aqai/preview'},res);
+ assert.deepEqual(paths,['rpc/aq_preview_summary']);
+ assert.deepEqual(res.body.inferenceBudget,{capUsd:1,reset:'never',stopBelowUsd:0.02,nearLimitUsd:0.1,checkedAt:'2026-10-06T12:00:00.000Z',usedUsd:0.95,remainingUsd:0.05});
+ assert.doesNotMatch(JSON.stringify(res.body),/fixture-secret|fixture-account/);
+});
+test('missing or malformed budget snapshots never become zero usage',async()=>{
+ for(const snapshot of [undefined,null,{}, {checkedAt:'bad',usedUsd:0,remainingUsd:1}, {checkedAt:'2026-10-06T12:00:00Z',usedUsd:null,remainingUsd:1}, {checkedAt:'2026-10-06T12:00:00Z',usedUsd:0.9,remainingUsd:1}]){
+  const handler=createPreviewHandler(async()=>({inferenceBudget:snapshot}));const res=response();
+  await handler({method:'GET',url:'/api/aqai/preview'},res);
+  assert.equal(res.body.inferenceBudget.usedUsd,null);assert.equal(res.body.inferenceBudget.remainingUsd,null);assert.equal(res.body.inferenceBudget.checkedAt,null);
+ }
+});

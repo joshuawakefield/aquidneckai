@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T22:37Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T22:42Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -30,7 +30,7 @@ The new record contains charter, architecture, decision register, backlog, dated
 - Migration history is unreconciled. No blanket database push. Runtime data is in Supabase; repository context is not a database backup.
 - General articles require human editorial approval; strict automatic official-calendar publication is separate.
 - Source CRUD, continuing arcs, broader model routing and sponsorship are still backlog work.
-- AQ-001 is complete: independent restoration, offline validation and remote closeout are verified below. AQ-021 is now implemented and locally tested; see the successor checkpoint below. AQ-002/AQ-003 remain priority reliability work; AQ-020 remains blocked only for untested reporting delivery and plan-limit pause/resume evidence. Do not recreate the published environment.
+- AQ-001 is complete: independent restoration, offline validation and remote closeout are verified below. AQ-021 is now implemented and locally tested; see the successor checkpoint below. AQ-002 remains priority reliability work; AQ-003 repository implementation is recorded below; AQ-020 remains blocked only for untested reporting delivery and plan-limit pause/resume evidence. Do not recreate the published environment.
 
 
 Codex Cloud environment AquidneckAI development was published and UI-verified around 21:09 UTC, with Only me visibility, Package managers network preset, no network secrets and no service environment variables. The independent Linux cloud baseline passed TypeScript, 38 frontend / 63 backend / 39 Python tests, production build, loopback auth smoke, documentation checks and 16 continuity tests. The final saved install script passed at b9e49bd52a712e3d49bbdaa342293caab9c592ee. Its Start skill reads the current repository and requires verification plus state/journal/remote updates.
@@ -62,3 +62,10 @@ AQ-021 replaces the first generic drafting example with a fictional carpentry es
 See the [AQ-021 journal](journal/2026-10-06-2233Z-customer-follow-up.md) for rationale and closeout. Implementation is local/repository scope, not deployed; F08 remains pending staging verification. Next recommended bounded task: AQ-003 budget/exception visibility with stale/unavailable fixtures and no live inference/cap changes; parent owns selection and launch. AQ-002 offline migration inventory is an alternative.
 
 AQ-021 remote implementation checkpoint: [93a0a21](https://github.com/joshuawakefield/aquidneckai/commit/93a0a21dac3d662dd2ba5865c712995f4eb7665d) matched the exact development ref; [Project memory run 37541654803](https://github.com/joshuawakefield/aquidneckai/actions/runs/37541654803) passed. The journal contains the reviewed file allowlist and local results. Final status-only closeout remote/CI evidence is supplied in the task response. Nothing deployed.
+
+
+## AQ-003 budget/exception summary — 2026-10-06 22:42 UTC
+
+Implemented for the private dashboard, locally tested only; not deployed. The preview now emits an allowlisted display contract and the dashboard shows cap/last-check, near-limit/stopped/stale/unavailable states plus human-review and saved-response recovery guidance. The existing summary RPC has no persisted provider usage: production-contract output deliberately remains unknown, never zero; numeric states are fixture-only. No provider call, extra database read, inference, migration, cap change, worker or public-reader change. D-026 records warning semantics; [task journal](journal/2026-10-06-2242Z-budget-exceptions.md) owns exact verification/closeout evidence.
+
+Full offline baseline passed on Node 22.23.3/Python 3.12.14: TypeScript, 53 frontend, 65 backend and 39 Python tests, production build and auth smoke; scoped lint passed. Desktop/390px fixture Chromium checks passed with no overflow, only existing requests, repeated review and interrupted reload recovery. Full-project lint has 3 pre-existing errors/8 warnings in untouched files; detailed journal records them. Parent launched this bounded successor after verifying AQ-021 d14987afe51b69b9782cf50db1276f399974813d/CI37541747551. Parent owns further successors; daily report delivery and limit-resume remain unproven under AQ-020. Next recommendation: AQ-002 offline migration inventory; AQ-023 separately designs a safe usage-snapshot source. Remote/CI proof for this task is supplied at closeout, not inferred from local tests.

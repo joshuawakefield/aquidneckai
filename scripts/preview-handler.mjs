@@ -1,6 +1,7 @@
 import {database} from './supabase-server.mjs';
 import {assessmentExcerpt} from './assessment-text.mjs';
 import {cachedRead} from './read-cache.mjs';
+import {inferenceBudget} from './inference-budget.mjs';
 
 export function createPreviewHandler(db=database){
  const summary=cachedRead(()=>db('rpc/aq_preview_summary',{method:'POST',body:{}}));
@@ -9,7 +10,7 @@ export function createPreviewHandler(db=database){
   if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);res.end();return;}
   const respond=(status,data)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(req.method==='HEAD'?undefined:JSON.stringify(data));};
   try{
-   if(url.pathname==='/api/aqai/preview'){respond(200,await summary());return;}
+   if(url.pathname==='/api/aqai/preview'){const data=await summary();respond(200,{...data,inferenceBudget:inferenceBudget(data.inferenceBudget)});return;}
    if(url.pathname==='/api/aqai/review'){
     const decision=url.searchParams.get('decision')??'needs_review';
     const offset=Number(url.searchParams.get('offset')??0);

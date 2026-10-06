@@ -6,10 +6,11 @@ import EvidenceText from '@/components/EvidenceText';
 import { eventTiming, formatReaderDate } from '@/lib/date-format';
 import './index-preview.css';
 import ReviewQueue from './ReviewQueue';
+import InferenceSummary, {type BudgetSnapshot} from '@/components/InferenceSummary';
 
 type Source = {id:string; name:string; url:string; towns:string[]; kind:string; status:string; checkedAt:string|null; enabled:boolean; collecting:boolean; itemCount:number; mode?:string; scope?:string; setupIssue?:string; errorCode?:string};
 type Item = {id:string; title:string; url:string; source:string; towns:string[]; date:string|null; destination:string; aiEvidence:string; localEvidence:string; status:string; kind:string|null; startsAt?:string|null; endsAt?:string|null; publishedAt?:string|null};
-type Data = {fetchedAt:string; sources:Source[]; items:Item[]; reviewRequired?:number; observations:number; classified:number; classificationPending:number; candidateDisplayLimit?:number};
+type Data = {inferenceBudget?:BudgetSnapshot; fetchedAt:string; sources:Source[]; items:Item[]; reviewRequired?:number; observations:number; classified:number; classificationPending:number; candidateDisplayLimit?:number};
 
 function ItemDates({item}:{item:Item}) {
   if (item.kind === 'event') return <span>{item.startsAt ? `${eventTiming(item.startsAt, item.endsAt) === 'past' ? 'Past event' : 'Event date'}: ${formatReaderDate(item.startsAt)}` : 'Event date not confirmed'}</span>;
@@ -55,6 +56,7 @@ export default function IndexPreview() {
       <div className="aq-kicker">PRIVATE · COLLECTION AND EVIDENCE REVIEW</div>
       <section className="aq-intro"><div><h1>Editorial workspace</h1><p>Inspect collected material, assessment issues, and source coverage. Candidate labels are suggestions, not completed editorial approval.</p></div><aside><span>REVIEW BEFORE RELYING ON IT</span><strong>Collection is not publication.</strong><p>Opening a record does not approve or publish it. Use the editorial decision controls after reviewing the source and evidence.</p></aside></section>
       {error && <p role="alert">{error}</p>}{!data && !error && <p role="status">Loading the editorial overview…</p>}
+      <InferenceSummary budget={data?.inferenceBudget} reviewRequired={data?.reviewRequired} pending={data?.classificationPending} refreshFailed={Boolean(error)}/>
       {data && <>
         <p className="aq-caption">{data.observations} collected items · {data.classified} processed · {data.classificationPending} awaiting assessment · {data.reviewRequired ?? 0} unresolved review items</p>
         <p className="aq-caption">Processed does not mean approved. Incomplete assessments and failed evidence checks still need review. Overview refreshed {formatReaderDate(data.fetchedAt)} at {new Date(data.fetchedAt).toLocaleTimeString('en-US', {timeZone:'America/New_York'})} ET; refreshes every five minutes while visible.</p>
