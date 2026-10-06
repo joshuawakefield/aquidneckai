@@ -4,7 +4,7 @@ This loop applies equally to Codex local, Codex Cloud, a Dot delegating work, or
 
 ## Start
 
-1. Fetch remote state and inspect branch, commit and working-tree changes. Base new work on `origin/aqai-local-index`; preserve unrelated work. Save the starting commit for the continuity check.
+1. Explicitly fetch the development ref with `git fetch origin refs/heads/aqai-local-index:refs/remotes/origin/aqai-local-index`, then inspect branch, commit and working-tree changes. A plain `git fetch origin` can refresh only main in a restored checkout; compare the development ref with `git ls-remote origin refs/heads/aqai-local-index` before trusting it. Base new work on `origin/aqai-local-index`; preserve unrelated work. Save the starting commit for the continuity check.
 2. Read current state, charter, architecture, decisions and backlog. Read the latest relevant journal/report and actual code. Old chat or a cloud filesystem snapshot may be stale.
    Also read [OPERATING-MODE](OPERATING-MODE.md) for task-selection/interview updates and relevant entries in [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md). Derive goals, steps and tests from current intent within the task's authority; do not treat historical permissions or a backlog as a recurring execution grant.
 3. State the task ID, intended outcome, acceptance criteria and current authority. For competing agents, use separate task branches/PRs and avoid editing the same files concurrently.
@@ -37,3 +37,4 @@ The owner now requests continuous serial development (D-023). The Dot coordinato
 
 The push/PR continuity check validates record presence, filenames, links and updates. It does not validate the truth of prose, guarantee instruction compliance, or enforce merge blocking without a repository rule. Agents must still inspect results. Keep human involvement for product judgment, genuinely missing authorization and unresolved evidence, rather than routine copying or formatting.
 
+The parent coordinates one active development child and launches successors only after reading the verified result and freshly fetching the development branch. A child completes only its assigned task. Reconcile uncertain task/push outcomes from remote refs, CI and the journal before retrying; never create a duplicate writer. Use draft PRs for substantial work, never automatically merge PRs, and stop before any push known to trigger an unauthorized deployment.

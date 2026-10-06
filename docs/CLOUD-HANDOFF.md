@@ -50,3 +50,7 @@ The cloud coding environment runs while the local computer is offline. A Dot del
 ## Official references
 
 Verified 2026-10-06: [Cloud environments](https://learn.chatgpt.com/docs/environments/cloud-environments), [Dot tasks and memory](https://learn.chatgpt.com/docs/dots/tasks-and-memory), [Dot computers and apps](https://learn.chatgpt.com/docs/dots/computers-and-apps). Recheck these when the account UI or product capabilities differ.
+
+## First restored task checkpoint — 2026-10-06
+
+AQ-001 now runs as a separate task from the published configuration; see its [journal](journal/2026-10-06-2227Z-fresh-cloud-restoration.md). The restored shell had Node 24 and a main-only fetch refspec despite the earlier setup evidence. Explicitly fetch the development ref as in AGENT-WORKFLOW and select Node 22 before checks. Node 22.23.0/Python 3.12.14 passed here. The saved Start skill was not exposed as a readable SKILL.md in this child; its documented startup contract supplied the fallback. Do not infer that the earlier setup runtime will always be restored. AQ-020 still requires actual parent-to-successor evidence.
