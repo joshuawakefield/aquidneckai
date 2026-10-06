@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T23:09Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T23:19Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -83,3 +83,14 @@ Next proposed reader task: isolated non-public connection-card preview with evid
 
 
 AQ-022 remote research checkpoint: `ab590db17eaa9071a42b1dfd0935a2226f766af9` matched the exact development ref; [Project memory run 37545148318](https://github.com/joshuawakefield/aquidneckai/actions/runs/37545148318) passed. All 16 local continuity tests, 47-document validation against actual start and diff checks passed. Five documentation files only; no runtime tests/deployment claimed. Final status-only checkpoint SHA/CI are supplied in the task response.
+
+
+## AQ-002 offline reconciliation preparation — 2026-10-06 23:19 UTC
+
+The [offline report](reports/2026-10-06-migration-reconciliation-offline.md) inventories all 13 migration files (796 lines) and seven SQL fixtures, with exact SHA-256 hashes, declared order, dependencies, replay caveats and historical applied-state evidence. Unique timestamps/bytes; 10 declared tables and 12 distinct function signatures across 22 definitions. The calendar migration needs a registry row not seeded by migrations and resets activation/lease state; the collector fixture assumes the older seven-source pilot. These are repository findings, not live mismatches. No permanent helper was needed.
+
+**AQ-002 offline portion is complete; the whole task remains blocked/unverified for live comparison and recovery evidence.** The report prepares bounded catalog/history queries, expected outputs, semantic comparison, baseline options and backup/restore gates. None of those SQL commands, fixtures, migrations or recovery operations was executed. No database connection, app change, provider call, worker, source enrollment, publication, deployment, DNS or permission expansion occurred. Current live schema and ledger remain unknown; Supabase Free and all existing caps/hosting boundaries remain.
+
+Started from clean stale b9e49bd, then explicitly fetched/fast-forwarded aqai-local-index to actual base `6836574088189c40de6ef22bf353eb210db01afa`; no competing local edits. Node 22.23.3/Python 3.12.14. The [journal](journal/2026-10-06-2315Z-migration-inventory.md) records exact checks/allowlist; final remote SHA/CI proof is provided in the task response. PR1 canonical recommendation and PR2 alternative remain open/draft/unmerged, checked in this task; reserved AQ-024/AQ-025 and design D-027–D-029 unchanged.
+
+Latest coordinator priority is AQ-020 recovery proof after this closeout: verify this task’s exact remote commit/CI, confirm no active writer, exercise supported wake-up recovery, record the actual outcome, then resume one bounded authorized successor. AQ-023 usage-snapshot design remains an independent successor candidate without provider calls, runtime/schema wiring or deployment. Live AQ-002 requires separate narrow read authority/access, followed by comparison and recovery verification before repairs. Parent owns successors; no child/schedule launched. Parent reports hourly recovery enabled and daily reporting around 19:00 Eastern; actual interruption recovery and delivery remain untested. Default model used; actual model/quota unknown.

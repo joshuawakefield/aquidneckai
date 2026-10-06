@@ -38,6 +38,8 @@ Decision: Manual builds only; keep existing Netlify apex and DNS unchanged until
 ### D-012 — approved — 2026-10-06 — Apply database changes individually until history is reconciled
 Decision: No blanket database push. Reason: the local migration directory and live migration history are not yet reconciled. Evidence: applied additive changes and [migration fixtures](../scripts/test-editorial-review.sql). Revisit: a verified migration inventory, baseline and restoration procedure.
 
+AQ-002 update 2026-10-06: [offline inventory](reports/2026-10-06-migration-reconciliation-offline.md) covers all 13 migration files, exact hashes, replacement order, historical evidence and proposed read-only catalog inspection. Repository SQL and historical reports do not establish current applied schema. Preserve the files; choose no baseline/ledger repair until live differences are explained and private restore prerequisites verified. This adds evidence to D-012 without authorizing SQL or reusing reserved design IDs.
+
 ### D-013 — deferred — 2026-10-06 — Continuing topic arcs and internal links
 Decision: Develop persistent topics with visible updates and useful internal links after the core feed works reliably. Reason: readers should understand what changed over time. Evidence: owner interview; not implemented in [ReaderHome](../src/pages/ReaderHome.tsx). Revisit: enough related published material to validate one useful arc.
 
