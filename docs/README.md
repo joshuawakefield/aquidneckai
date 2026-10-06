@@ -36,7 +36,7 @@ Current state supersedes dated history. Label proposed, implemented, tested and 
 
 GitHub is the shared project knowledge and code record. It does not automatically contain unsaved conversations, local files, credentials or a database backup. Raw local reports remain private; this repository preserves their relevant findings and verification summaries. Database restoration and migration reconciliation remain tracked work.
 
-[AGENTS.md](../AGENTS.md) instructs agents to maintain this record. The [continuity workflow](../.github/workflows/project-memory.yml) checks document structure and requires changed state plus a journal update for substantive PR changes. It cannot prove an agent read the docs or that every statement is correct. Branch protection must be configured separately before checks become mandatory merge gates.
+[AGENTS.md](../AGENTS.md) instructs agents to maintain this record. The [continuity workflow](../.github/workflows/project-memory.yml) checks document structure and requires changed state plus a journal update for substantive push/PR changes. It cannot prove an agent read the docs or that every statement is correct. Branch protection must be configured separately before checks become mandatory merge gates.
 
 ## Historical record
 

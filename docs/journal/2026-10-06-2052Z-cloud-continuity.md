@@ -28,3 +28,8 @@ Remote upload and account-side cloud environment preparation remain in progress;
 ## Next steps
 
 Verify shared files/CI remotely; configure/publish a secret-free cloud development environment and run AQ-001 from repository context. Then choose one scoped ready backlog task. Do not declare AQ-001 complete merely because documents exist.
+
+### 21:02 UTC checkpoint
+
+All 86 reviewed files are on GitHub in commit 76124489465df5eb06b805103f3c0fd537e78ee0; remote blob hashes match. Project memory workflow run 37530484278 passed. Cloud setup independently recovered the correct branch/context and passed structure plus 16 continuity tests. Package install exposed cloud proxy transport being stripped by the new setup runner; the package-install-only fix passed two regression tests and is ready for the cloud retry. No production keys were transferred. Environment remains private and unpublished pending verification.
+

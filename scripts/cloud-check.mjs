@@ -9,7 +9,7 @@ import {syncBuiltinESMExports} from 'node:module';
 export const repositoryRoot=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 export const nodeTests=[
  'test-assessment-batches.mjs','test-assessment-result.mjs','test-bounded-reads.mjs',
- 'test-calendar-signals.mjs','test-classification-policy.mjs','test-collector-policy.mjs',
+ 'test-calendar-signals.mjs','test-classification-policy.mjs','test-cloud-environment.mjs','test-collector-policy.mjs',
  'test-cycle-runner.mjs','test-editorial-handler.mjs','test-published-feed.mjs',
  'test-recovery-cache.mjs','test-source-expansion.mjs','test-source-readiness.mjs',
 ].map(name=>'scripts/'+name);
@@ -46,10 +46,14 @@ if(process.env.AQAI_CLOUD_OFFLINE_TEST==='1'){
  syncBuiltinESMExports();
 }
 
-export function cleanEnvironment({offline=false}={}){
+export function cleanEnvironment({offline=true}={}){
  const allowed=new Set(['PATH','HOME','USERPROFILE','TMP','TEMP','TMPDIR','SYSTEMROOT','WINDIR',
   'COMSPEC','PATHEXT','APPDATA','LOCALAPPDATA','PROGRAMFILES','PROGRAMFILES(X86)','PROGRAMW6432',
   'SYSTEMDRIVE','HOMEDRIVE','HOMEPATH','LANG','LC_ALL','LC_CTYPE']);
+ // Only the explicit npm installation command opts out of offline mode. Keep
+ // its proxy and certificate transport configuration, never package/service keys.
+ if(offline===false)for(const name of ['HTTP_PROXY','HTTPS_PROXY','ALL_PROXY','NO_PROXY',
+  'NODE_EXTRA_CA_CERTS','SSL_CERT_FILE','SSL_CERT_DIR'])allowed.add(name);
  const env=Object.fromEntries(Object.entries(process.env).filter(([key])=>allowed.has(key.toUpperCase())));
  Object.assign(env,{CI:'1',AQAI_WORKER_ENABLED:'false',AQAI_HEALTH_DB_CHECK:'false',
   PYTHONDONTWRITEBYTECODE:'1',PYTHONIOENCODING:'utf-8'});

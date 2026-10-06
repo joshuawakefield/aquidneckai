@@ -33,5 +33,5 @@ A saved schedule is required for recurring Dot activity. This handoff does not c
 
 ## Limits of automation
 
-The PR continuity check validates record presence, filenames, links and updates. It does not validate the truth of prose, guarantee instruction compliance, or enforce merge blocking without a repository rule. Agents must still inspect results. Keep human involvement for product judgment, genuinely missing authorization and unresolved evidence, rather than routine copying or formatting.
+The push/PR continuity check validates record presence, filenames, links and updates. It does not validate the truth of prose, guarantee instruction compliance, or enforce merge blocking without a repository rule. Agents must still inspect results. Keep human involvement for product judgment, genuinely missing authorization and unresolved evidence, rather than routine copying or formatting.
 
