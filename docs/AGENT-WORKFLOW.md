@@ -6,6 +6,7 @@ This loop applies equally to Codex local, Codex Cloud, a Dot delegating work, or
 
 1. Fetch remote state and inspect branch, commit and working-tree changes. Base new work on `origin/aqai-local-index`; preserve unrelated work. Save the starting commit for the continuity check.
 2. Read current state, charter, architecture, decisions and backlog. Read the latest relevant journal/report and actual code. Old chat or a cloud filesystem snapshot may be stale.
+   Also read [OPERATING-MODE](OPERATING-MODE.md) for task-selection/interview updates and relevant entries in [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md). Derive goals, steps and tests from current intent within the task's authority; do not treat historical permissions or a backlog as a recurring execution grant.
 3. State the task ID, intended outcome, acceptance criteria and current authority. For competing agents, use separate task branches/PRs and avoid editing the same files concurrently.
 4. Check required access before dependent work. Repository-only tasks need no live credentials. Do not infer authority from a backlog row or historical command.
 
@@ -13,6 +14,7 @@ This loop applies equally to Codex local, Codex Cloud, a Dot delegating work, or
 
 5. Make one bounded change. Prefer low operating cost and less owner work. Verify uncertain current provider details against official sources.
 6. At useful milestones, update a dated journal with findings, changes, concise reasons and unresolved questions. Record mistakes/corrections as lessons with evidence, not as an unbounded transcript.
+   Capture material learning from owner interactions at the time it arrives, updating the canonical document rather than leaving new intent only in chat. Record plan/access changes as dated, non-secret metadata in ENVIRONMENT-REGISTER.
 7. Put durable decisions in DECISIONS with permanent IDs, status, reason, evidence and revisit trigger. Supersede old decisions rather than rewriting history. Put future ideas in BACKLOG with acceptance criteria.
 8. Test actual behavior with the smallest meaningful checks. Use fixtures before live services. Do not use real inference, publication, a worker run or a database write as a default test.
 9. Record verification level precisely: local test, build, staging, public site. A green build does not mean deployed; a passing feed does not mean all sources are healthy.

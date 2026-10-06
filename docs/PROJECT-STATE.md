@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T21:13Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T21:47Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -36,3 +36,7 @@ The new record contains charter, architecture, decision register, backlog, dated
 Codex Cloud environment AquidneckAI development was published and UI-verified around 21:09 UTC, with Only me visibility, Package managers network preset, no network secrets and no service environment variables. The independent Linux cloud baseline passed TypeScript, 38 frontend / 63 backend / 39 Python tests, production build, loopback auth smoke, documentation checks and 16 continuity tests. The final saved install script passed at b9e49bd52a712e3d49bbdaa342293caab9c592ee. Its Start skill reads the current repository and requires verification plus state/journal/remote updates.
 
 The owner's Dot independently confirmed discovery of the published environment, the matching repository revision, and reading AGENTS/index plus all seven named context documents. It saved the repository/branch/read order and operating constraints. It correctly flagged the then-stale publication status, corrected in this closeout. No fresh coding task or recurring schedule was launched; restoration into a separate task remains AQ-001's final check.
+
+## Ongoing-development interview
+
+2026-10-06: the owner requested continued agent-selected development and useful capture of project learning from interactions. AQ-019 is in progress: [OPERATING-MODE](OPERATING-MODE.md) adds task-selection/capture rules and unanswered success/authority/cadence questions; [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md) records dated non-secret capability evidence. Existing charter, decision IDs, backlog and journal remain canonical. No scheduler, live access or spending permission changed. Next interview step: obtain the three initial answers and incorporate them into the current record; AQ-001 fresh-task restoration remains separately unverified.

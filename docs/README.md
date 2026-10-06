@@ -11,6 +11,8 @@ Canonical repository: [joshuawakefield/aquidneckai, aqai-local-index](https://gi
 5. [BACKLOG](BACKLOG.md): stable task IDs, acceptance criteria and dependencies.
 6. [AGENT-WORKFLOW](AGENT-WORKFLOW.md): the startup, work, verification and closeout loop.
 7. [CLOUD-HANDOFF](CLOUD-HANDOFF.md): environment recipe and Dot instructions.
+8. [OPERATING-MODE](OPERATING-MODE.md): interview gaps, task selection and ongoing knowledge capture.
+9. [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md): dated, non-secret plan and capability evidence.
 
 Then read only the relevant [reports](reports/), [journal](journal/), code and [visitor tracker](VISITOR-EXPERIENCE-TRACKER.md). Context should become more useful over time without requiring every model to reread a giant diary.
 
