@@ -3,7 +3,7 @@
 Task ID: AQ-022
 Started: 2026-10-06T23:05Z
 Starting commit: 15362f57f8972eb30960b876bd436e024fa1b972
-Status: research and local checks completed; remote verification follows commit
+Status: completed — research commit remotely verified and CI passed; no publication/deployment
 
 ## Request
 
@@ -35,3 +35,8 @@ Read AGENTS, README/index, current state/charter/backlog/decisions/architecture/
 ## Next steps
 
 Parent should review the report and consider the isolated non-public connection-card preview. Freshly reconcile task IDs/proposal branches first; do not reuse AQ-024/AQ-025 or merge either draft automatically. Resolve the event timezone-label inconsistency before conversion and recheck date/conditions before any reader publication. F09 remains open. Parent-reported hourly idle recovery has not been recovery-tested; callbacks remain primary, reporting delivery/limit-resume remain unproven. No successor or schedule is launched here.
+
+
+## Remote closeout
+
+Research commit `ab590db17eaa9071a42b1dfd0935a2226f766af9` was pushed without force to aqai-local-index after a fresh fetch still matched the actual start. `git ls-remote` matched that exact SHA; working tree clean. [Project memory push run 37545148318](https://github.com/joshuawakefield/aquidneckai/actions/runs/37545148318) completed successfully at that SHA. This status-only checkpoint changes only this journal and PROJECT-STATE; its final remote SHA/CI are verified in the task response, avoiding a self-referential commit claim. Both design drafts remain unmodified. No live reader content was published.
