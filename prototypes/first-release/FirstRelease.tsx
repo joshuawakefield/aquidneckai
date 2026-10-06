@@ -1,0 +1,63 @@
+import {useEffect, useRef, useState} from 'react';
+import {Link, NavLink, Route, Routes, useLocation} from 'react-router-dom';
+import {ArrowRight, ArrowUpRight, Waves} from 'lucide-react';
+import {readerResources} from '../../src/data/reader-resources';
+import '../../src/pages/reader-home.css';
+import './prototype.css';
+
+const sba = readerResources.find(r => r.id === 'sba-ai-small-business')!;
+const steps = [['/', 'Overview'], ['/evidence', 'Understand'], ['/practice', 'Use'], ['/connect', 'Connect']];
+function Next({to, children}: {to:string; children:React.ReactNode}) {
+  return <Link className="reader-button" to={to}>{children}<ArrowRight size={18} aria-hidden="true"/></Link>;
+}
+function Home() {
+  return <><section className="reader-hero reader-wrap">
+    <div><p className="reader-eyebrow"><Waves size={18} aria-hidden="true"/> Aquidneck Island & a wider world</p>
+      <h1>Less mystery.<br/><em>More possibility.</em></h1>
+      <p className="reader-intro">AI is changing how we work. Start with something you know: the customer reply still waiting after a day on the job.</p>
+      <Next to="/evidence">Find a useful first step</Next><p className="reader-small">For people working for themselves, small teams, and curious neighbors.</p>
+    </div>
+    <aside className="reader-feature"><span className="reader-eyebrow">On the workbench</span><span className="reader-feature-number">01 / CUSTOMER WORK</span><h2>A better follow-up starts with the facts.</h2><p>See what AI can draft, spot what it invents, and keep the final decision in your hands.</p><Link to="/practice">Try the fictional gate-repair example →</Link><p className="reader-small">No account. No customer data. Nothing gets sent.</p></aside>
+  </section>
+  <section className="reader-wrap reader-section"><div className="reader-section-heading"><div><p className="reader-eyebrow">A small path forward</p><h2>Understand. Try. Find your people.</h2></div><p>You don’t need to master everything. Follow one question as far as it is useful.</p></div>
+    <div className="proto-three"><article><span className="reader-meta">01 / UNDERSTAND · SOURCE GUIDE</span><h3><Link to="/evidence">Where does AI fit in a small business?</Link></h3><p>Start with the SBA guide, then separate its advice from our suggested experiment.</p><p className="reader-small">Resource record checked Oct 5, 2026</p></article><article><span className="reader-meta">02 / USE · WORKED EXAMPLE</span><h3><Link to="/practice">Reply to an estimate request</Link></h3><p>Compare a made-up draft with the facts. Keep, edit or reject it.</p><p className="reader-small">Fictional practice · No measured savings</p></article><article><span className="reader-meta">03 / CONNECT · LOCAL PROJECT</span><h3><Link to="/connect">Explore making with FabNewport</Link></h3><p>A local learning project with a public contact route. Check fit before reaching out.</p><p className="reader-small">Official pages reviewed Oct 6, 2026</p></article></div>
+  </section>
+  <section className="reader-wrap proto-horizon"><p className="reader-eyebrow">Keep your curiosity</p><h2>Beyond the next job.</h2><p>Robotics, autonomy and the ideas taking shape around the Island belong here too. This first release starts with practical AI; broader coverage will grow from sourced stories, not predictions dressed as news.</p><p className="reader-small">Proposed coverage direction · No live news feed in this prototype</p></section></>;
+}
+function Evidence() {
+  return <div className="reader-wrap proto-detail"><Link to="/">← Back to overview</Link><p className="reader-eyebrow">Understand / A source worth starting with</p><h1>Where could AI help<br/>your business?</h1><p className="proto-lede">Start with a task whose answer you can check.</p>
+    <div className="proto-columns"><article><h2>What the source covers</h2><p>The existing AquidneckAI resource record describes the SBA guide as an introduction to business uses, basic AI terms and risks to consider.</p><p>This is a resource summary, not a new report or an endorsement of a particular tool.</p><a className="proto-source" href={sba.href} target="_blank" rel="noreferrer">Read the SBA guide <ArrowUpRight size={16} aria-hidden="true"/> <small>(external, new tab)</small></a>
+      <h2>Our local interpretation</h2><p>A solo carpenter already knows what was requested and what still needs asking. That makes a short estimate follow-up a reasonable experiment: the owner can check every claim.</p><p>It might take longer once checking is included. No time or revenue benefit has been measured.</p><h2>What to try next</h2><p>Use made-up facts to compare a draft with the request. You can reject the result without losing anything.</p><Next to="/practice">Walk through the example</Next>
+    </article><aside className="proto-ledger"><p className="reader-eyebrow">Evidence card</p><dl><dt>Source</dt><dd>U.S. Small Business Administration</dd><dt>Source updated</dt><dd>February 14, 2025, per existing record</dd><dt>Record checked</dt><dd>October 5, 2026</dd><dt>Freshness</dt><dd>Historical repository metadata. Source content not rechecked for this prototype.</dd><dt>Editorial addition</dt><dd>The carpentry exercise is our proposed application, not an SBA case study.</dd></dl><p className="reader-small">Always open the original for current guidance. A checked date is not a guarantee.</p></aside></div>
+  </div>;
+}
+function Practice() {
+  const [review, setReview] = useState(false);
+  return <div className="reader-wrap proto-detail"><Link to="/evidence">← Back to the source guide</Link><p className="reader-eyebrow">Use / A small experiment</p><h1>The reply after<br/>a busy day.</h1><p className="proto-lede">A fictional carpentry request. No AI call, customer input or sending.</p>
+    <div className="proto-columns"><article><h2>01 / Give it only the facts</h2><p>A customer asked for an estimate to repair a wooden garden gate. You need to know whether it opens and closes. No price, visit or completion date has been agreed.</p>
+    <details><summary>Read the practice prompt</summary><blockquote>Using only these fictional facts, draft a friendly follow-up of no more than 80 words. I run a small carpentry business. A customer asked for an estimate to repair a wooden garden gate. I need to know whether it opens and closes. No price, visit or completion date is agreed. Ask for the missing detail. Do not invent prices, availability, appointments, guarantees or prior conversations. List uncertainties separately. Leave sending to me.</blockquote><p>To experiment elsewhere, copy this text into a tool you already use. Keep it fictional; do not add customer names, contact details or messages.</p></details>
+    <h2>02 / Check a draft</h2><div className="proto-sample"><p className="reader-eyebrow">Handwritten sample with a deliberate error</p><blockquote>Thanks for asking about repairing your garden gate. Does it currently open and close? I can visit on Friday to take a look.</blockquote></div><p>Which sentence goes beyond the facts?</p><button aria-expanded={review} onClick={()=>setReview(v=>!v)}>{review?'Hide the review':'Reveal the review'}</button>
+    {review&&<div className="proto-review" role="status"><h3>Friday was never agreed.</h3><p>Remove the visit promise. A possible checked version:</p><blockquote>Thanks for asking about repairing your garden gate. Does it currently open and close? That detail will help me prepare the estimate.</blockquote><p>This is also a handwritten example, not generated output. Edit the tone or reject it. You decide whether a real message should be sent manually elsewhere.</p></div>}
+    <h2>03 / Decide whether it helped</h2><p>Compare drafting <strong>and checking</strong> with your usual approach. A usable message matters more than a polished-looking draft.</p><Next to="/connect">Explore a local project</Next><p><Link to="/">Cancel practice and return home</Link> · Nothing is saved.</p></article>
+    <aside className="proto-ledger"><p className="reader-eyebrow">Keep control</p><h2>You know the job.<br/>AI doesn’t.</h2><p>Check facts. Remove promises. Keep your voice.</p><p>No account, inbox connection, automation or measured benefit is part of this exercise.</p><p className="reader-small">Adapted from AQ-021’s fictional gate-repair practice.</p></aside></div></div>;
+}
+function Connect() {
+  const [leaving, setLeaving] = useState(false);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLElement>(null);
+  useEffect(()=>{if(leaving)panel.current?.focus();},[leaving]);
+  return <div className="reader-wrap proto-detail"><Link to="/practice">← Back to the example</Link><p className="reader-eyebrow">Connect / Newport County</p><h1>Curiosity is better<br/>with company.</h1><p className="proto-lede">Explore FabNewport, a local learning project. Start by checking whether it fits you.</p>
+    <div className="proto-columns"><article><h2>What we could verify</h2><p>FabNewport’s official homepage describes year-round programs in its lab and with Newport County partners. Its contact page offers a public inquiry route.</p><p><a className="proto-source" href="https://fabnewport.org/" target="_blank" rel="noreferrer">Read the organization’s description <ArrowUpRight size={16} aria-hidden="true"/> <small>(external, new tab)</small></a></p><h2>Why explore it?</h2><p>Our interpretation: a local learning project may be a starting point for someone curious about making and collaboration. This is not evidence of a trades-owner network or an available AI project.</p><h2>Ask before making plans</h2><p>“Do you currently have any adult community projects where a local trades owner could learn or contribute? What experience, time and cost would be involved?”</p><p>This is a suggested question, not a message sent by AquidneckAI.</p>
+      <button className="proto-action" ref={trigger} onClick={()=>setLeaving(true)}>Review the public contact route →</button>
+      {leaving&&<section className="proto-review" aria-label="Before you leave" tabIndex={-1} ref={panel}><h3>Continue on FabNewport’s website</h3><p>Nothing has been sent or booked. Use the organization’s own page to check current fit, costs and availability.</p><p><a className="proto-source" href="https://fabnewport.org/contact/" target="_blank" rel="noreferrer">Open official contact page <ArrowUpRight size={16} aria-hidden="true"/> <small>(external, new tab)</small></a></p><button onClick={()=>{setLeaving(false);trigger.current?.focus();}}>Cancel — stay here</button></section>}
+      <p className="proto-return"><Link to="/">Return to overview</Link></p></article><aside className="proto-ledger"><p className="reader-eyebrow">Connection evidence</p><dl><dt>Verified scope</dt><dd>Official description and public contact route</dd><dt>Pages reviewed</dt><dd>October 6, 2026 · Web retrieval; pages show no update date</dd><dt>Still unknown</dt><dd>Adult participation, current openings, costs, AI/robotics activity and peer introductions</dd><dt>Relationship</dt><dd>No partnership or endorsement. No outreach made.</dd></dl><p className="reader-small">A verified route is not a verified opportunity. Confirm details directly before making plans.</p></aside></div></div>;
+}
+export default function FirstRelease() {
+  const location = useLocation();
+  const main = useRef<HTMLElement>(null);
+  useEffect(()=>{main.current?.focus(); window.scrollTo?.(0,0);},[location.pathname]);
+  return <div className="reader-page proto-page"><a className="reader-skip" href="#main-content" onClick={e=>{e.preventDefault();main.current?.focus();}}>Skip to content</a><div className="proto-banner">DESIGN PROPOSAL v0.1 · Local prototype · Sample journey, not the live site</div>
+    <header className="reader-header reader-wrap"><Link className="reader-brand" to="/">Aquidneck<span>AI</span><small>CURIOSITY, WITH A SENSE OF PLACE</small></Link><nav aria-label="Prototype journey">{steps.map(([to,label])=><NavLink key={to} to={to} end>{label}</NavLink>)}</nav></header>
+    <main id="main-content" tabIndex={-1} ref={main}><Routes><Route path="/" element={<Home/>}/><Route path="/evidence" element={<Evidence/>}/><Route path="/practice" element={<Practice/>}/><Route path="/connect" element={<Connect/>}/><Route path="*" element={<div className="reader-wrap proto-detail"><h1>This prototype page isn’t here.</h1><Link to="/">Return to overview</Link></div>}/></Routes></main>
+    <footer className="reader-footer reader-wrap"><Link className="reader-brand" to="/">Aquidneck<span>AI</span></Link><span>Free to read. Evidence before enthusiasm.</span><span>Proposed design · Not user-validated</span></footer></div>;
+}

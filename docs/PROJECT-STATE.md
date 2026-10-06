@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T22:42Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T22:56Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -69,3 +69,9 @@ AQ-021 remote implementation checkpoint: [93a0a21](https://github.com/joshuawake
 Implemented for the private dashboard, locally tested only; not deployed. The preview now emits an allowlisted display contract and the dashboard shows cap/last-check, near-limit/stopped/stale/unavailable states plus human-review and saved-response recovery guidance. The existing summary RPC has no persisted provider usage: production-contract output deliberately remains unknown, never zero; numeric states are fixture-only. No provider call, extra database read, inference, migration, cap change, worker or public-reader change. D-026 records warning semantics; [task journal](journal/2026-10-06-2242Z-budget-exceptions.md) owns exact verification/closeout evidence.
 
 Full offline baseline passed on Node 22.23.3/Python 3.12.14: TypeScript, 53 frontend, 65 backend and 39 Python tests, production build and auth smoke; scoped lint passed. Desktop/390px fixture Chromium checks passed with no overflow, only existing requests, repeated review and interrupted reload recovery. Full-project lint has 3 pre-existing errors/8 warnings in untouched files; detailed journal records them. Parent launched this bounded successor after verifying AQ-021 d14987afe51b69b9782cf50db1276f399974813d/CI37541747551. Parent owns further successors; daily report delivery and limit-resume remain unproven under AQ-020. Next recommendation: AQ-002 offline migration inventory; AQ-023 separately designs a safe usage-snapshot source. Remote/CI proof for this task is supplied at closeout, not inferred from local tests.
+
+## AQ-024 first-release design proposal — 2026-10-06
+
+Version 0.1 proposes a coherent overview → evidence detail → fictional customer follow-up → public local connection route in an isolated React/Vite prototype. [Design brief](reports/2026-10-06-first-release-design-v01.md) records goals, hierarchy, freshness rules, tradeoffs, non-goals, release decision criteria and ordered backlog rationale. D-027 stays open: this is not final branding, reader validation or measured benefit. Existing live routes/data remain untouched; normal application build excludes the prototype entry. No deployment occurred.
+
+FabNewport's official description/contact route were retrieved for a bounded representative connection; adult/AI participation, availability, cost and peer fit remain unknown. F09/AQ-022 remain open. Next recommended task: AQ-022, verify the missing peer/project fit through bounded public evidence before production integration; parent owns selection/launch. AQ-002 offline reliability work remains useful. Exact verification and draft PR/remote evidence are in the [AQ-024 journal](journal/2026-10-06-2248Z-first-release-design.md); production budget values remain unknown per AQ-003.
