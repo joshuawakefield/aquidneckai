@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T22:42Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T23:01Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -79,3 +79,14 @@ AQ-024 is isolated on aqai-first-release-design, based on AQ-003 implementation 
 Next selection: reconcile current AQ-003 result and this draft, then AQ-022's real connection evidence and one bounded reader-navigation/guide implementation derived from the design; AQ-010 prepares release/rollback. AQ-002 precedes schema-dependent work. Existing live/cost limits and unknown quota remain. Continuous future execution is not established by this chat.
 
 AQ-024 remote checkpoint: 3fa95408c662b263b38d88a5937447808d0af9cf matched the exact isolated branch ref and PR head; draft PR #1 targets aqai-local-index, remains unmerged, and has no detected merge conflict at this observation. [Project memory PR CI](https://github.com/joshuawakefield/aquidneckai/actions/runs/37543593846) passed for that exact commit. Final documentation-only closeout head/CI are verified in the task response. The separate shared branch remained 15362f57f8972eb30960b876bd436e024fa1b972; no direct shared-branch write or child launch occurred.
+
+
+## AQ-025 draft reconciliation — 2026-10-06 23:01 UTC
+
+This checkpoint supersedes the unresolved two-draft relationship above. Explicit fetch verified shared development 15362f57f8972eb30960b876bd436e024fa1b972, PR1 eb5390d1f0f31040d8f0dbaaac25be67cb8350a6 and PR2 c7f4805edb4cdf2dadf53d8d6b3d5a96c8d30b1f. Connected GitHub metadata confirmed both PRs open, draft and unmerged against aqai-local-index. The parent reports both prior design jobs completed with no other active writer; this is one bounded reconciliation only.
+
+[FIRST-RELEASE-DESIGN v0.2](FIRST-RELEASE-DESIGN.md) on [PR1](https://github.com/joshuawakefield/aquidneckai/pull/1) is the recommended canonical proposal. Keep PR1's isolated portable prototype and release gates, adapt PR2's error-spotting exercise and evidence-date distinctions, retain [PR2](https://github.com/joshuawakefield/aquidneckai/pull/2)'s tested React alternative at its original commit. PR2 is recommended for supersession; both PRs stay open and unmerged pending owner disposition. No duplicate brief or second UX implementation is imported. Neither proposal is integrated, finally approved, staged or publicly live.
+
+AQ-024/D-027 were independently allocated on both branches. AQ-025 is the distinct reconciliation task and D-029 records the mapping; original history remains branch-qualified and unmodified. Current 1280/390/320px key flows, eight axe scans, no-JavaScript fallback, 16 continuity tests and project-memory check against actual PR1 start passed. The [journal](journal/2026-10-06-2301Z-design-reconciliation.md) owns exact results and the blocked Library preview refresh; remote/CI closeout is supplied in the task result. Existing AQ-003 full baseline remains historical evidence (53 frontend / 65 backend / 39 Python / 16 continuity; full lint 3 pre-existing errors and 8 warnings). Application code is unchanged here.
+
+Next bounded task: **AQ-022 independent public connection verification**, using PR2's limited FabNewport finding only as a lead, never proof of an available adult/trades/AI project. No successor or schedule launched. AQ-001/AQ-021 remain complete; demonstrated serial continuation remains distinct from untested report delivery and plan-limit pause/resume. Private environment/public repository, Supabase Free, inference safeguards, manual staging and legacy apex boundaries remain unchanged.

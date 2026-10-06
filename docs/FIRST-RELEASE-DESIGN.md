@@ -1,6 +1,24 @@
-# AquidneckAI first-release design — version 0.1
+# AquidneckAI first-release design — version 0.2
 
-Date: 2026-10-06. Task: AQ-024. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
+Date: 2026-10-06. Task: AQ-024; reconciliation: AQ-025. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
+
+
+## Consolidation decision — AQ-025
+
+This is the **recommended canonical proposal**, maintained only in this document on [draft PR #1](https://github.com/joshuawakefield/aquidneckai/pull/1). It is not integrated into aqai-local-index, finally approved or deployed. Both drafts remain open. Recommend superseding [PR #2](https://github.com/joshuawakefield/aquidneckai/pull/2) as a competing proposal only when the owner decides their disposition; do not merge both document/prototype sets.
+
+| Area | Selected treatment | Reader/evidence/maintenance rationale |
+| --- | --- | --- |
+| Whole-release brief and authority | PR1 thesis, owner mandate, content gates and explicit production-contract gaps | Covers the release beyond the demo and keeps delegated authority separate from design validation. |
+| Prototype implementation | PR1 self-contained HTML, four independent paths, native disclosures, copy fallback and content states | Portable review, no application imports/dependencies, readable without JavaScript; honest unavailable/empty states. Keep one implementation, not a merged React/HTML stack. |
+| Practical learning | Adapt PR2's deliberately incorrect handwritten appointment and reveal-review idea into PR1's native disclosure | Readers must identify a concrete factual error before accepting a polished draft; retains PR1's checked prompt and manual-copy fallback. PR2's React component/test code remains in its original commit. |
+| Evidence labeling | Adopt PR2's distinction between source publication/update, actual check date and scope of verification | A retrieved contact route is not proof of available participation. No new source checks or dates are invented. |
+| Connection demonstration | Keep PR1's explicitly fictional formats and honest no-verified-listings state | PR2's FabNewport research establishes a public description/contact route only, not adult/trades/AI/project availability. Preserve it as an AQ-022 lead in PR2 history, not a recommendation or fixture copied into production. |
+| Validation | Retain both journals as historical evidence; rerun selected prototype flows and automated accessibility scans | PR2's three component tests/eight axe scans and full baseline are useful prior evidence, but do not prove the consolidated HTML behavior. Neither draft has real reader validation. |
+
+Historical provenance stays recoverable: [PR1 original eb5390d](https://github.com/joshuawakefield/aquidneckai/tree/eb5390d1f0f31040d8f0dbaaac25be67cb8350a6) and [PR2 original c7f4805](https://github.com/joshuawakefield/aquidneckai/tree/c7f4805edb4cdf2dadf53d8d6b3d5a96c8d30b1f). Both independently used AQ-024 and D-027 from base 15362f57. AQ-024 remains the historical design task with branch-qualified references; **AQ-025** is the distinct reconciliation task. PR1 D-027 remains the owner mandate, D-028 the original design hypothesis; **D-029** records this consolidation and PR2's historical D-027 remains explicitly branch-qualified. No original journal or decision is renumbered or erased.
+
+The [AQ-025 journal](journal/2026-10-06-2301Z-design-reconciliation.md) records fresh checks, allowlist and closeout. Next task is independent AQ-022 public connection verification; this task starts no successor or schedule.
 
 ## Product thesis
 
@@ -40,13 +58,13 @@ The three paths share one home, consistent navigation and evidence conventions. 
 
 ### Story/detail
 
-The prototype uses an illustrative story to demonstrate anatomy, not a reported announcement. Real production content must include a title, concise account, original source, meaningful date, local interpretation labeled as such, unknowns and an actionable next step when justified. Display corrections/withdrawals truthfully; preserve editorial history. No invented original sources or quotations.
+The prototype uses an illustrative story to demonstrate anatomy, not a reported announcement. Real production content must include a title, concise account, original source, meaningful date, local interpretation labeled as such, unknowns and an actionable next step when justified. Label the original source publication/update date separately from the actual AquidneckAI check date and check scope. Unknown dates stay unknown; a successful retrieval does not prove availability or endorsement. Display corrections/withdrawals truthfully; preserve editorial history. No invented original sources or quotations.
 
 The existing PublishedFeed contract does not yet provide a first-party article route or all of these fields. Implementing that route is a separately scoped follow-up; inspect the schema and existing functions before deciding whether an additive contract is necessary. Until then, original-source links remain the truthful production destination. The prototype hash view is not permission to replace all external links with unsourced articles.
 
 ### Practical guide
 
-Use AQ-021's fictional carpentry estimate-request scenario. The prompt is self-contained; no real customer information is needed. Readers use an existing AI tool, inspect factual accuracy, adjust tone or reject the result, and control any eventual sending. Count editing/checking in any later benefit assessment. A copy action is an optional convenience with a manual fallback; copying does not call a model.
+Use AQ-021's fictional carpentry estimate-request scenario. The prompt is self-contained; no real customer information is needed. Readers use an existing AI tool, inspect factual accuracy, adjust tone or reject the result, and control any eventual sending. Include a visibly handwritten flawed draft, ask the reader to spot its invented appointment, then reveal the correction. Count editing/checking in any later benefit assessment. A copy action is an optional convenience with a manual fallback; copying does not call a model.
 
 Retain three manageable exercises. A dedicated route can evolve from the current expandable details when evidence justifies discoverability and maintenance cost. No automation service or site-hosted model call is required for the first release.
 
@@ -95,8 +113,8 @@ The release is defined when required behavior and content gates have concrete ev
 
 ## Implementation order and reprioritization
 
-1. AQ-024 (this task): establish design/specification/prototype and owner mandate in an isolated draft PR. Preserve AQ-021/AQ-003 work.
-2. Reconcile AQ-003's actual remote closeout. Its display default remains unavailable without a safe usage source; AQ-023 is a separate design, not a new provider polling permission.
+1. AQ-024 design is delivered; AQ-025 consolidates the two open drafts into this recommended proposal on PR1. Preserve both original commits and AQ-021/AQ-003 work. Integration remains separate.
+2. Preserve AQ-003's actual remote closeout. Its display default remains unavailable without a safe usage source; AQ-023 is a separate design, not a new provider polling permission.
 3. AQ-022: verify whether a real peer/project path exists. In parallel with ordinary coordinator planning, inspect content/readiness needs from authorized evidence; any development child remains serial.
 4. New bounded reader implementation derived from this design: improve outcome navigation and guide discoverability using existing components. Keep published feed/source links until detail-route needs are assessed. Assign a stable new AQ-ID at launch; do not preallocate speculative chains.
 5. AQ-010: prepare first-release staging/rollback and content checklist; conduct separately authorized staging/release review. Plan formative reader evaluation without initiating outreach.

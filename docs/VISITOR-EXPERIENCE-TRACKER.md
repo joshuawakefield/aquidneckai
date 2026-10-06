@@ -72,3 +72,8 @@ Raw data/ verification files mentioned above remain private local evidence, not 
 ## First-release design hypothesis — AQ-024
 
 The owner delegates product/engineering ownership and evidence-led task selection. [FIRST-RELEASE-DESIGN](FIRST-RELEASE-DESIGN.md) ties G-001/G-002/G-003 to Understand, Use and Connect journeys. The [isolated prototype](prototypes/first-release/index.html) demonstrates home, story anatomy, AQ-021-derived guide and fictional connection formats with honest empty/unavailable states. It does not close F08 deployment or F09 real-connection evidence. Desktop/mobile prototype checks are recorded in the [journal](journal/2026-10-06-2252Z-first-release-design.md); production usability, accessibility conformance, real reader benefit and deployment remain separately assessed.
+
+
+## AQ-025 consolidation checkpoint
+
+The [v0.2 canonical proposal](FIRST-RELEASE-DESIGN.md) on PR1 retains one isolated HTML prototype and adds PR2's handwritten invented-appointment exercise plus explicit source/check-date distinctions. PR2's original React proposal, component tests, axe checks and public-route research remain recoverable at c7f4805; they are alternative/historical evidence, not a second canonical release. Both drafts stay open/unmerged. F08 still requires deployment; F09/AQ-022 still requires independent suitable connection evidence. Local reflow/keyboard/flow and automated accessibility results belong to the [AQ-025 journal](journal/2026-10-06-2301Z-design-reconciliation.md), not a conformance, reader-benefit or live-verification claim.
