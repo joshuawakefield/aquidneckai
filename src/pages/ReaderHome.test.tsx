@@ -42,3 +42,57 @@ it('provides fixed, expandable examples without collecting user input',async()=>
  expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
  expect(screen.getByText(/Do not invent prices/)).toBeInTheDocument();
 });
+
+it('makes the fictional trades follow-up discoverable with a complete prompt and manual review',async()=>{
+ feed();render(<ReaderHome/>);await screen.findByText('No current listings published here yet.');
+ expect(screen.getByRole('link',{name:'Put AI to work'})).toHaveAttribute('href','#put-it-to-work');
+ const practice=screen.getByRole('region',{name:'What could AI do for you?'});
+ const card=within(practice).getByRole('heading',{name:'Follow up on a customer’s estimate request'}).closest('article')!;
+ expect(practice.querySelectorAll('article')).toHaveLength(3);
+ expect(card).toHaveTextContent('small trades team');
+ expect(card).toHaveTextContent('do not add real customer names, contact details or messages');
+ const prompt=card.querySelector('blockquote')!;
+ expect(prompt).toHaveTextContent('Using only these fictional facts');
+ expect(prompt).toHaveTextContent('repair a wooden garden gate');
+ expect(prompt).toHaveTextContent('whether the gate opens and closes');
+ expect(prompt).toHaveTextContent('No price, visit or completion date has been agreed');
+ expect(prompt).toHaveTextContent('Do not invent prices, availability, appointments, guarantees or prior conversations');
+ expect(prompt).toHaveTextContent('List uncertain details separately');
+ expect(card).toHaveTextContent('Compare every claim');
+ expect(card).toHaveTextContent('send a checked message manually');
+ expect(card).toHaveTextContent('drafting AND checking');
+ expect(practice.querySelector('input,textarea,form,[contenteditable],button')).toBeNull();
+ expect(fetch).toHaveBeenCalledTimes(1);
+ expect(fetch).toHaveBeenCalledWith('/api/aqai/published',expect.objectContaining({signal:expect.any(AbortSignal)}));
+});
+it('keeps practice available through feed failure, retry and resource navigation',async()=>{
+ const fetcher=vi.fn().mockResolvedValueOnce({ok:false}).mockResolvedValueOnce({ok:true,json:async()=>({items:[],pastEvents:[]})});
+ vi.stubGlobal('fetch',fetcher);render(<ReaderHome/>);await screen.findByRole('alert');
+ const card=screen.getByRole('heading',{name:'Follow up on a customer’s estimate request'}).closest('article')!;
+ const details=card.querySelector('details')!;
+ fireEvent.click(within(card).getByText('Try this approach'));expect(details).toHaveAttribute('open');
+ fireEvent.change(screen.getByRole('searchbox'),{target:{value:'no such resource'}});
+ fireEvent.click(screen.getByRole('link',{name:'Start with the SBA guide'}));
+ expect(screen.getByRole('searchbox')).toHaveValue('');
+ fireEvent.click(screen.getByRole('link',{name:'Put AI to work'}));expect(details).toHaveAttribute('open');
+ fireEvent.click(screen.getByRole('button',{name:'Retry listings'}));await screen.findByText('No current listings published here yet.');
+ for(let i=0;i<2;i++){
+  fireEvent.click(within(card).getByText('Try this approach'));expect(details).not.toHaveAttribute('open');
+  fireEvent.click(within(card).getByText('Try this approach'));expect(details).toHaveAttribute('open');
+ }
+ expect(fetcher).toHaveBeenCalledTimes(2);
+ expect(fetcher.mock.calls.every(([url])=>url==='/api/aqai/published')).toBe(true);
+});
+it('aborts an interrupted visit and restores the static exercise on return without saving input',async()=>{
+ const fetcher=vi.fn().mockImplementation(()=>new Promise(()=>{}));vi.stubGlobal('fetch',fetcher);
+ const storage=vi.spyOn(Storage.prototype,'setItem');
+ const first=render(<ReaderHome/>);
+ const signal=fetcher.mock.calls[0][1].signal;
+ first.unmount();expect(signal.aborted).toBe(true);
+ fetcher.mockResolvedValueOnce({ok:true,json:async()=>({items:[],pastEvents:[]})});
+ render(<ReaderHome/>);await screen.findByText('No current listings published here yet.');
+ const card=screen.getByRole('heading',{name:'Follow up on a customer’s estimate request'}).closest('article')!;
+ expect(card.querySelector('details')).not.toHaveAttribute('open');
+ expect(card).toHaveTextContent('Using only these fictional facts');
+ expect(storage).not.toHaveBeenCalled();expect(fetcher).toHaveBeenCalledTimes(2);
+});
