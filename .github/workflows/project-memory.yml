@@ -1,0 +1,38 @@
+name: Project memory
+
+on:
+  pull_request:
+    branches: [aqai-local-index]
+  push:
+    branches: [aqai-local-index]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  continuity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test continuity rules
+        run: node --test scripts/test-project-memory.mjs
+      - name: Validate documentation and change record
+        if: github.event_name == 'pull_request'
+        env:
+          MEMORY_BASE: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/check-project-memory.mjs --base "$MEMORY_BASE"
+      - name: Validate documentation structure
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.event.before == '0000000000000000000000000000000000000000')
+        run: node scripts/check-project-memory.mjs
+      - name: Validate pushed change record
+        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+        env:
+          MEMORY_BASE: ${{ github.event.before }}
+        run: node scripts/check-project-memory.mjs --base "$MEMORY_BASE"

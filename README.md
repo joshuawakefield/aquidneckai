@@ -1,73 +1,23 @@
-# Welcome to your Lovable project
+# AquidneckAI
 
-## Project info
+A useful, free AI information hub for Aquidneck Island residents and businesses, including wider developments when they matter locally.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Start here: [Project record](docs/README.md).** Agents must read [AGENTS.md](AGENTS.md).
 
-## How can I edit this code?
+This is the `aqai-local-index` development branch for the replacement site at [staging.aquidneckai.com](https://staging.aquidneckai.com/). The older public site remains on `main`/Netlify. Development commits do not automatically deploy.
 
-There are several ways of editing your application.
+- [What we are building and why](docs/PROJECT-CHARTER.md)
+- [Current state](docs/PROJECT-STATE.md) and [architecture](docs/ARCHITECTURE.md)
+- [Decisions](docs/DECISIONS.md), [backlog](docs/BACKLOG.md), [dated journal](docs/journal/)
+- [Cloud / Dot handoff](docs/CLOUD-HANDOFF.md)
+- [Schedule and operating costs](docs/reports/2026-10-06-operating-costs.md)
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+For a clean checkout with Node 22 and Python 3:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+node scripts/cloud-setup.mjs --install
+node scripts/cloud-check.mjs
 ```
 
-**Edit a file directly in GitHub**
+Setup installs locked npm dependencies. Checks use fixtures and local loopback only; no production credentials are needed. See the handoff for network/access boundaries and migration cautions.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
