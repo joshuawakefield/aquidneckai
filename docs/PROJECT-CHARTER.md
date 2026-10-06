@@ -10,6 +10,18 @@ The product should become a sustainable, sponsor-supported business with little 
 
 Reading remains free. Local businesses should eventually want a visible presence because the site attracts a useful local audience. Sponsorship is a later audience-backed offering, with clear labeling and separation from editorial judgments; revenue and audience demand are not yet proven.
 
+## Owner-confirmed outcomes and longer-term direction
+
+Confirmed in the 2026-10-06 interview; [dated answers](journal/2026-10-06-2151Z-owner-outcomes-and-authority.md). These outcome IDs are stable references for task selection, not claims that the outcomes have been achieved:
+
+- G-001: A local resident or business learns something that improves their bottom line. Look for credible, concrete financial or practical benefit; avoid unsupported savings/revenue promises.
+- G-002: AI becomes understandable and usable for someone who previously found it inaccessible. Help readers move from an unfamiliar development to an achievable next action.
+- G-003: Interested local people find one another or an opportunity to meet that would be difficult to uncover elsewhere. Preserve real evidence, current dates and accurate connection details.
+
+The eventual direction is an automated local technology hub covering AI, robotics and autonomy. The current AI-focused hub is the starting point. Broader coverage is an intentional product direction; implement it through bounded work and evidence rather than assuming new sources, spending or unrestricted publication are authorized.
+
+No numeric audience, financial or usage target was supplied. Derive candidate measures in AQ-011, distinguish a proposed metric from measured reader benefit, and seek concrete reader examples through the continuing interview. The existing slight business tilt and low owner-maintenance goal remain.
+
 ## Editorial scope
 
 - Center Newport, Middletown and Portsmouth; include Jamestown, Tiverton, Little Compton, Bristol, Barrington, Providence, Rhode Island statewide and the nearby South Coast when useful. These are coverage areas, not a claim that every place belongs to Newport County.

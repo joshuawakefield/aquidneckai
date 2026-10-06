@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T21:47Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T21:51Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -39,4 +39,6 @@ The owner's Dot independently confirmed discovery of the published environment, 
 
 ## Ongoing-development interview
 
-2026-10-06: the owner requested continued agent-selected development and useful capture of project learning from interactions. AQ-019 is in progress: [OPERATING-MODE](OPERATING-MODE.md) adds task-selection/capture rules and unanswered success/authority/cadence questions; [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md) records dated non-secret capability evidence. Existing charter, decision IDs, backlog and journal remain canonical. No scheduler, live access or spending permission changed. Next interview step: obtain the three initial answers and incorporate them into the current record; AQ-001 fresh-task restoration remains separately unverified.
+2026-10-06: the initial AQ-019 interview is recorded. The owner confirms bottom-line benefit, accessible AI understanding and otherwise-hard-to-find local connections, with an eventual automated AI/robotics/autonomy hub (charter G-001/G-002/G-003). Routine development decisions are delegated; [OPERATING-MODE](OPERATING-MODE.md) labels agent-selected PR/push/cadence defaults. The owner reports a $100 ChatGPT Pro plan and asks to stay within its limits; actual quota is unverified. Existing live/cost boundaries remain.
+
+AQ-019 initial operating documentation is complete; concrete reader examples and preferred connection path are asked as the next interview round and feed AQ-011. AQ-020 tracks the unavailable external scheduling step; recurrence is not configured. The prepared instruction uses the existing published environment and starts with AQ-001's still-unverified fresh-task restoration, then proceeds to outcome-driven work. No new credentials, spending, worker, migration, deployment or DNS operation performed.
