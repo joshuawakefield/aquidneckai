@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T23:30Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T23:35Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -105,3 +105,12 @@ AQ-020 now records demonstrated normal operation, with its original exceptional/
 The child explicitly fetched/fast-forwarded stale b9e49bd to exact base d65e18b, used Node 22.23.3/Python 3.12.14 and inspected both draft PRs unchanged: PR1 recommended 5292dc1, PR2 alternative c7f4805, open/draft/unmerged. AQ-024/AQ-025 and D-027–D-029 stay reserved. The [journal](journal/2026-10-06-2326Z-usage-snapshot-and-recovery.md) records local checks and public-safe allowlist. Exact final remote SHA/CI are returned after push for parent verification; no self-referential follow-up commit is needed.
 
 Next bounded recommendation: parent selects an isolated, non-public connection-card preview from AQ-022 evidence and assigns a fresh task ID after checking both drafts. It offers direct reader benefit with little owner work and no production dependency; evidence/unknown/expired states prevent stale opportunities becoming claims. Do not merge either proposal, wire a live route or publish it. A pure snapshot-contract implementation is an independent reliability alternative, not a reason to access production. AQ-002 live comparison remains blocked for separate narrow read authority/access. Supabase Free, current Gemini/OpenRouter safeguards, manual staging and legacy Netlify apex/DNS are unchanged. No successor or schedule launched by this child; actual task model/quota unknown.
+
+
+## AQ-027 full-project lint baseline — 2026-10-06 23:35 UTC
+
+The previously failing lint baseline is repaired locally: full `npm run lint` now exits 0 with **0 errors and 8 unchanged warnings**, superseding the earlier 3-error observation. Two empty prop interfaces became equivalent type aliases with existing exports preserved; Tailwind imports the same animation plugin using ESM. No runtime logic, hook behavior, API, rule configuration or dependency changed. A generated-CSS regression verifies enter/exit/fade utilities and custom accordion animation and is included in the offline runner.
+
+Node 22.23.3/Python 3.12.14: TypeScript, all 54 frontend tests, 65 backend tests, 39 Python tests, production build, loopback authentication smoke and all 16 continuity tests passed. Remaining warnings are one EditorialReview effect dependency and seven Fast Refresh mixed-export warnings; changing these would broaden the task into hook lifecycle/export organization. See the [AQ-027 journal](journal/2026-10-06-2333Z-lint-baseline.md) for original diagnostics, allowlist, verification and limits. Remote SHA/CI evidence is supplied at closeout after push, without a recursive documentation commit. Nothing deployed or live-validated.
+
+Next product recommendation: parent assign a fresh unused ID for the isolated non-public connection-card preview from AQ-022 evidence, with source/check dates, unknown/expired states and fixture tests. It advances G-003 without production access or a full design integration. PR1 recommended 5292dc1 and PR2 alternative c7f4805 were checked open/draft/unmerged and remain untouched; AQ-024/AQ-025 stay reserved. AQ-020 normal continuation remains proven; AQ-026 crash/quota/report evidence remains untested; AQ-023 remains design-only with actual usage unavailable. No child successor, schedule, router, live service, inference, SQL, deployment or DNS change; caps and Supabase Free unchanged. Exact model/quota unknown.
