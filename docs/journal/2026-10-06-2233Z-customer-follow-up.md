@@ -3,7 +3,7 @@
 Task ID: AQ-021
 Started: 2026-10-06T22:33:00Z (minute-level observation)
 Starting commit: 5c38f245f9552a30ac19ef96234bccc53e2b21fa
-Status: in progress — implementation and local verification complete; remote closeout pending
+Status: completed — implementation, local verification and remote implementation checkpoint verified
 
 ## Request
 
@@ -31,8 +31,12 @@ Parent supplied verified AQ-001 final SHA and passing [CI 37541004642](https://g
 - `node --test scripts/test-project-memory.mjs`: 16/16 passed.
 - Local Vite/Chromium with fixture feed at 1280x900 and 390x900: keyboard Enter expansion, three cards/no form controls, resource search/reset, repeated practice/resource navigation, collapse/reopen, reload reset, no horizontal overflow, empty local/session storage. Exactly one existing `/api/aqai/published` request per visit; no new API/inference/sending request. External URLs blocked (existing Google font CSS); expanded-card screenshots visually inspected at both widths. Provider-font rendering, real-device and staging/public checks not run. Temporary browser script/screenshots/logs stay outside Git.
 - Publishing workflow inspected: only Project memory push/PR continuity checks, no deployment step. Recorded hosting auto-builds remain disabled; no hosting settings changed or live reverified.
-- Required project-memory validation against the full actual starting SHA and final pre-publish fetch/remote/CI verification follow below.
+- `node scripts/check-project-memory.mjs --base 5c38f245f9552a30ac19ef96234bccc53e2b21fa`: passed (44 Markdown files). `git diff --check` passed. Pre-publish explicit fetch still matched the starting SHA; no concurrent changes needed reconciliation.
 
 ## Next steps
 
-Finish remote/CI closeout, then parent may select AQ-003: local budget/exception visibility including stale/unavailable usage, no new inference or cap change. AQ-002 offline migration inventory is an alternative. Child launches neither. No live authorization is inferred; Supabase Free, inference caps/recovery, manual staging and Netlify apex/DNS stay unchanged. Public GitHub receives only reviewed code/tests/context; no credentials, account IDs or private data.
+Parent may select AQ-003: local budget/exception visibility including stale/unavailable usage, no new inference or cap change. AQ-002 offline migration inventory is an alternative. Child launches neither. No live authorization is inferred; Supabase Free, inference caps/recovery, manual staging and Netlify apex/DNS stay unchanged. Public GitHub receives only reviewed code/tests/context; no credentials, account IDs or private data.
+
+## Remote closeout — 2026-10-06 22:37 UTC
+
+Reviewed allowlist: src/pages/ReaderHome.tsx, src/pages/ReaderHome.test.tsx; docs/BACKLOG.md, CLOUD-HANDOFF.md, DECISIONS.md, DOT-START.md, ENVIRONMENT-REGISTER.md, OPERATING-MODE.md, PROJECT-STATE.md, VISITOR-EXPERIENCE-TRACKER.md and this journal. No unrelated files or private data staged. Implementation commit [93a0a21dac3d662dd2ba5865c712995f4eb7665d](https://github.com/joshuawakefield/aquidneckai/commit/93a0a21dac3d662dd2ba5865c712995f4eb7665d) was pushed normally to aqai-local-index, matched exact ls-remote, and [Project memory run 37541654803](https://github.com/joshuawakefield/aquidneckai/actions/runs/37541654803) completed successfully for that exact SHA. No deployment workflow exists in the checked branch; no deployment performed. Local fixture preview stopped. This status-only closeout will be validated, pushed and independently checked against the final remote SHA/CI before the task response; final response supplies that final-revision evidence without a recursive documentation commit. AQ-021 implementation is complete; F08 still requires separate staging verification. No successor launched.

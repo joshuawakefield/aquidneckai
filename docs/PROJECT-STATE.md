@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T22:36Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T22:37Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -60,3 +60,5 @@ The parent launched this bounded task after AQ-001 terminal notification and ver
 AQ-021 replaces the first generic drafting example with a fictional carpentry estimate follow-up. Three examples, eight resources, navigation and feed behavior remain. The self-contained prompt limits facts and forbids invented prices, timing, appointments, guarantees and prior conversations; readers check/edit/reject and decide on manual sending. No customer collection/storage, sending control, new inference, service integration or telemetry was added. Full offline baseline passed: Node 22.23.3/Python 3.12.14, TypeScript, 41 frontend / 63 backend / 39 Python tests, build and loopback auth smoke. Eight reader tests, scoped lint and 16 continuity tests passed. Fixture Chromium checks passed at 1280px and 390px, including keyboard expansion, repeated resource/practice navigation, reload, empty browser storage and only the existing feed request per visit. Screenshots inspected with external fonts blocked; provider-font/live/staging checks were not run. No measured savings or real reader validation claimed.
 
 See the [AQ-021 journal](journal/2026-10-06-2233Z-customer-follow-up.md) for rationale and closeout. Implementation is local/repository scope, not deployed; F08 remains pending staging verification. Next recommended bounded task: AQ-003 budget/exception visibility with stale/unavailable fixtures and no live inference/cap changes; parent owns selection and launch. AQ-002 offline migration inventory is an alternative.
+
+AQ-021 remote implementation checkpoint: [93a0a21](https://github.com/joshuawakefield/aquidneckai/commit/93a0a21dac3d662dd2ba5865c712995f4eb7665d) matched the exact development ref; [Project memory run 37541654803](https://github.com/joshuawakefield/aquidneckai/actions/runs/37541654803) passed. The journal contains the reviewed file allowlist and local results. Final status-only closeout remote/CI evidence is supplied in the task response. Nothing deployed.
