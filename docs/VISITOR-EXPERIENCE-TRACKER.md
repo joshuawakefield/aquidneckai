@@ -31,7 +31,14 @@ Improve the replacement on staging. Preserve the existing Netlify apex, Supabase
 | F06 | Existing infrastructure and upstream access work remains. | OPEN: `/healthz` reports degraded because Scituate government and RTX Portsmouth careers currently return HTTP 403; both remain scheduled with existing failure/backoff handling. Of 39 municipalities, 34 are scheduled (including currently failing Scituate); Burrillville, Central Falls, Exeter, Hopkinton and Smithfield remain blocked. Overall 269 registered / 208 eligible / 61 awaiting setup. Migration-history reconciliation and other blocked endpoints remain in the source/operations reports; do not run a blanket database push. |
 | F07 | Approval appears unresponsive when required reader content is missing; saving a note discards the prepared draft. | FIXED AND VERIFIED ON STAGING: October 6 user report reproduced; required fields were empty and feedback appeared above the long form. Checklist and focused errors now appear beside actions. Save draft and note persists reader fields; note/reject retain them and reload restores structured drafts. News default and editable assessment context reduce unnecessary setup; summary and geography still require review. Sixteen UI and five API tests, TypeScript/build and live missing-field checks passed. Deployed `b34b14e11e2fb7403afddef1fc4004a078620449` at approximately 4:27 PM EDT. |
 
-## Baseline evidence
+## October 6 owner-priority follow-up (design only)
+
+| ID | Finding | Completion condition / boundary |
+|---|---|---|
+| F08 | General practice examples do not yet directly help a self-employed trades owner with customer follow-up. | OPEN: AQ-021 implements a fictional, factual-only follow-up exercise and tests discoverability, manual review and absence of customer collection/inference/sending. AQ-011 design baseline is in the [reader-journey report](reports/2026-10-06-trades-reader-journey.md); no user savings or deployment claimed. |
+| F09 | Existing resources do not establish a real local peer/collaborator/project path. | OPEN: AQ-022 checks a bounded public candidate list and records actual activity/relevance/contact evidence or truthful unknown status before recommending it. Calendar/training links alone do not close this finding. |
+
+## Historical baseline evidence
 
 Live staging showed 1,164 collected/processed records, 184 needing review, two September events under “Current,” 269 source endpoints and long raw excerpts on the landing page. Backend audit found 114 review results caused by an obsolete Island-only gate, 62 incomplete outputs and eight invalid quotes. The reader needs a useful published product, not a view into these operational counts.
 

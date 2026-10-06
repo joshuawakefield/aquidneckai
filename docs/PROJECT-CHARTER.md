@@ -22,6 +22,16 @@ The eventual direction is an automated local technology hub covering AI, robotic
 
 No numeric audience, financial or usage target was supplied. Derive candidate measures in AQ-011, distinguish a proposed metric from measured reader benefit, and seek concrete reader examples through the continuing interview. The existing slight business tilt and low owner-maintenance goal remain.
 
+## First reader and customer-work focus
+
+Confirmed 2026-10-06 in the [follow-up interview](journal/2026-10-06-2155Z-trades-and-local-connections.md): prioritize local blue-collar business owners who work for themselves or with a very small team. Help them reclaim time and freedom through AI and automation for the annoying parts of getting, keeping and refreshing customers. This sharper first-reader focus does not exclude other residents or change the broader geographic scope.
+
+Use the customer's lifecycle to choose practical examples: respond to an inquiry, prepare a factual quote follow-up, keep an existing customer informed, or draft a relevant returning-customer check-in. These are candidate use cases derived from the owner's goal, not validated claims of revenue or automated features. Start with work the owner can check and control, using fictional/public information in demonstrations.
+
+For local connections, prioritize peers, collaborators and local projects. Training/events and experts/services remain useful supporting routes, but a course list alone does not satisfy the connection goal. Do not invent local partners, publish personal details or promise an available collaboration. Validate an organization's/project's actual activity and contact route before recommending it.
+
+The first [reader-journey/usefulness plan](reports/2026-10-06-trades-reader-journey.md) records current implementation gaps, a proposed customer follow-up experiment and evidence to gather. It is design work, not user validation or deployed behavior.
+
 ## Editorial scope
 
 - Center Newport, Middletown and Portsmouth; include Jamestown, Tiverton, Little Compton, Bristol, Barrington, Providence, Rhode Island statewide and the nearby South Coast when useful. These are coverage areas, not a claim that every place belongs to Newport County.

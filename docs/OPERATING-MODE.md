@@ -15,7 +15,7 @@ Already recorded: free reading, Island residents/businesses with a slight busine
 | Plan/usage | Owner reports a $100 ChatGPT Pro plan and AquidneckAI as the only current project; stay within plan limits. | Owner report, not billing or remaining-quota verification; see ENVIRONMENT-REGISTER. No additional paid API allowance. |
 | Cadence and updates | Selected starting default: one bounded task each weekday, one weekly progress digest, and prompt notification for a concrete blocker or owner decision. | Agent-selected default under delegated judgment. Scheduling remains unconfigured; no promise of five completed tasks or automatic work until a supported trigger exists. |
 
-Current follow-up interview: one representative local reader/business problem and which connections should be easiest first (events/training, peers/projects, or experts/services). These answers improve the first reader journey; their absence does not block independently useful authorized work. Ask further questions only when they materially affect a choice. Summarize each substantive answer into its canonical home; label proposals and unresolved preferences explicitly.
+Follow-up interview answered 2026-10-06: prioritize self-employed local blue-collar owners and very small teams, freeing them from customer acquisition/retention/reactivation administration; prioritize peers, collaborators and local projects as the connection path. PROJECT-CHARTER owns this intent; AQ-011's [reader-journey plan](reports/2026-10-06-trades-reader-journey.md) translates it into initial work. No new preference answer is required to begin the scoped implementation. Ask further questions only when they materially affect a choice, and label inferred examples separately from owner statements.
 
 Stay within the existing subscription and platform-enforced usage limits. Remaining usage and reset timing are not exposed to this task; do not invent a numeric quota or claim quota monitoring. Use bounded tasks, reuse evidence and valid test outputs, avoid duplicate agent work and unchanged retries, and stop/back off when the platform reports a usage limit. Do not purchase credits, enable overage, raise caps or equate a ChatGPT subscription with OpenRouter/API credit.
 
@@ -30,7 +30,7 @@ For each authorized session or scheduled task:
 5. Finish the state/journal/remote loop in [AGENT-WORKFLOW](AGENT-WORKFLOW.md). If blocked, record the exact prerequisite, completed independent work and next safe action. Do not repeat unchanged failed or paid actions.
 6. Identify one next useful task. Continue only within the session/task mandate and usage limits. A backlog is not an endless-running process.
 
-The existing AQ-001 restored-task check remains a prerequisite for claiming fresh-task continuity. After that first scheduled invocation, AQ-011 should map the three confirmed outcomes to a representative reader journey and minimal evidence of usefulness; reliability work such as AQ-003 can proceed independently. This record does not authorize live portions of the backlog.
+The existing AQ-001 restored-task check remains a prerequisite for claiming fresh-task continuity. AQ-011 now defines the first trades-owner journey and proposed usefulness measures; AQ-021 implements the customer-follow-up exercise and AQ-022 researches the peer/project path. Reliability work such as AQ-003 can proceed independently. This record does not authorize live portions of the backlog.
 
 ## Capture knowledge while it is fresh
 
