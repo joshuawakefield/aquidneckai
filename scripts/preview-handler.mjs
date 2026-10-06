@@ -1,5 +1,5 @@
 import {database} from './supabase-server.mjs';
-import {plainText} from './assessment-text.mjs';
+import {assessmentExcerpt} from './assessment-text.mjs';
 import {cachedRead} from './read-cache.mjs';
 
 export function createPreviewHandler(db=database){
@@ -20,7 +20,7 @@ export function createPreviewHandler(db=database){
     const id=url.searchParams.get('id')??'';
     if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)){respond(400,{error:'Invalid item'});return;}
     const rows=await db('aq_observations?id=eq.'+id+'&select=evidence_excerpt&limit=1');
-    respond(rows.length?200:404,rows.length?{excerpt:plainText(rows[0].evidence_excerpt).slice(0,6000)}:{error:'Item not found'});return;
+    respond(rows.length?200:404,rows.length?{excerpt:assessmentExcerpt(rows[0].evidence_excerpt)}:{error:'Item not found'});return;
    }
    respond(404,{error:'Not found'});
   }catch{respond(503,{error:'Database unavailable. Please retry.'});}

@@ -5,7 +5,10 @@ export function plainText(value){
  .replace(/&(amp|quot|apos|nbsp|lt|gt);/gi,(_,n)=>({amp:'&',quot:'"',apos:"'",nbsp:' ',lt:'<',gt:'>'}[n.toLowerCase()])).replace(/\s+/g,' ').trim();
 }
 export function assessmentText(o){
- const text=plainText(o.title+'\n'+(o.evidence_excerpt??''));
+ return assessmentExcerpt(o.title+'\n'+(o.evidence_excerpt??''));
+}
+export function assessmentExcerpt(value){
+ const text=plainText(value);
  if(text.length<=6000)return text;
  const spans=[[0,1200]];
  for(const match of text.matchAll(new RegExp(AI_TERM.source,'gi'))){

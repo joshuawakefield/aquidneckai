@@ -39,11 +39,11 @@ const Footer = () => {
 
           {/* Contact */}
           <a 
-            href="mailto:hello@aquidneckai.com"
+            href="mailto:joshua@aquidneckai.com"
             className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
             <Mail className="w-4 h-4" />
-            <span>hello@aquidneckai.com</span>
+            <span>joshua@aquidneckai.com</span>
           </a>
         </div>
 

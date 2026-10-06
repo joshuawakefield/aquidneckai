@@ -6,6 +6,7 @@ import {assessResponse} from './assessment-result.mjs';
 import {recoverAssessments} from './recover-assessments.mjs';
 import {assessmentText} from './assessment-text.mjs';
 import {assessmentPrompt} from './assessment-prompt.mjs';
+import {assessmentBatches,assessmentItemSchema,ASSESSMENT_MAX_OUTPUT_TOKENS} from './assessment-batches.mjs';
 const model='google/gemini-2.5-flash-lite';
 const api=async(path,body)=>{
  const r=await fetch('https://openrouter.ai/api/v1/'+path,{method:body?'POST':'GET',
@@ -13,9 +14,6 @@ const api=async(path,body)=>{
   body:body?JSON.stringify(body):undefined,redirect:'error',signal:AbortSignal.timeout(45000)});
  if(!r.ok)throw Error(`OpenRouter HTTP ${r.status}`);return r.json();
 };
-const str={type:'string'};
-const itemSchema={type:'object',additionalProperties:false,required:['id','decision','ai_quote','local_basis','reason'],properties:{
- id:str,decision:{type:'string',enum:['candidate','reject','needs_review']},ai_quote:str,local_basis:str,reason:str}};
 const patch=(id,report)=>database('aq_classification_trials?request_id=eq.'+encodeURIComponent(id),{method:'PATCH',body:{report}});
 try{
  await recoverAssessments();
@@ -30,9 +28,9 @@ try{
  const catalog=(await api('models')).data.find(m=>m.id===model);
  if(!catalog||Number(catalog.pricing.prompt)>1e-7||Number(catalog.pricing.completion)>4e-7)throw Error('Model pricing changed');
  let paidRequests=0,totalCost=0;
- for(let offset=0;offset<pending.length;offset+=8){
+ for(const batch of assessmentBatches(pending,assessmentText)){
   const claimed=[];
-  for(const o of pending.slice(offset,offset+8)){
+  for(const o of batch){
    const id='observation-v1:'+o.id;
    const prior=reassess?recoverable.get(id):null;
    const report={kind:'observation_classification',observation_id:o.id,status:'claimed',model,claimed_at:new Date().toISOString(),...(prior?{reassessment_attempted:true,previous_assessment:prior,attempt_token:randomUUID()}: {})};
@@ -52,7 +50,7 @@ try{
   const messages=[{role:'system',content:assessmentPrompt},{role:'user',content:JSON.stringify(inputs)}];
   let response;
   try{
-   response=await api('chat/completions',{model,messages,temperature:0,max_tokens:2600,provider:{require_parameters:true},response_format:{type:'json_schema',json_schema:{name:'aqai_observations',strict:true,schema:{type:'object',additionalProperties:false,required:['items'],properties:{items:{type:'array',items:itemSchema}}}}}});
+   response=await api('chat/completions',{model,messages,temperature:0,max_tokens:ASSESSMENT_MAX_OUTPUT_TOKENS,provider:{require_parameters:true},response_format:{type:'json_schema',json_schema:{name:'aqai_observations',strict:true,schema:{type:'object',additionalProperties:false,required:['items'],properties:{items:{type:'array',minItems:claimed.length,maxItems:claimed.length,items:assessmentItemSchema}}}}}});
    paidRequests++;totalCost+=response.usage?.cost??0;
    // Save the public-input response before database updates so interrupted writes can be recovered without another paid call.
    fs.mkdirSync(new URL('../data/classification-responses/',import.meta.url),{recursive:true});

@@ -5,9 +5,10 @@ import {fileURLToPath} from 'node:url';
 import {createHash,timingSafeEqual} from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {previewHandler} from './preview-handler.mjs';
-import {database,allRows} from './supabase-server.mjs';
+import {database} from './supabase-server.mjs';
 import {createHealthSummary,sourceHealthDegraded} from './health-summary.mjs';
-import {cachedRead} from './read-cache.mjs';
+import {createPublishedFeed} from './published-feed.mjs';
+import {editorialHandler} from './editorial-handler.mjs';
 
 const password=process.env.AQAI_STAGING_PASSWORD;
 if(!password||password.length<24)throw Error('Set AQAI_STAGING_PASSWORD to at least 24 characters');
@@ -18,17 +19,19 @@ const sourceCatalogDigest=createHash('sha256').update(await readFile(new URL('./
 const workerEnabled=process.env.AQAI_WORKER_ENABLED==='true';
 const healthDbCheck=process.env.AQAI_HEALTH_DB_CHECK!=='false';
 const healthSummary=createHealthSummary(database);
-const publishedItems=cachedRead(()=>allRows('aq_entries?status=eq.published&select=id,canonical_url,title,summary,towns,kind,starts_at,ends_at,published_at&order=starts_at.asc,id.asc'));
+const publishedItems=createPublishedFeed(database);
 const startedAt=Date.now();
 let stopping=false,active=null,timer=null,lastCycle=null,cycleFailed=false,lastFailureAt=null;
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2'};
 const server=http.createServer(async(req,res)=>{
  res.setHeader('X-Content-Type-Options','nosniff');
+ res.setHeader('X-Frame-Options','DENY');
+ res.setHeader('Content-Security-Policy',"frame-ancestors 'none'");
  res.setHeader('X-Robots-Tag','noindex, nofollow');
  res.setHeader('Cache-Control','no-store');
  try{
   const path=new URL(req.url,'http://localhost').pathname;
-  if(req.method!=='GET'&&req.method!=='HEAD'){res.writeHead(405);res.end();return;}
+  if(req.method!=='GET'&&req.method!=='HEAD'&&!(path==='/api/aqai/editorial'&&req.method==='POST')){res.writeHead(405);res.end();return;}
   // Container liveness is separate from upstream-source/readiness diagnostics.
   if(path==='/livez'){res.writeHead(stopping?503:200,{'Content-Type':'application/json'});res.end(JSON.stringify({status:stopping?'stopping':'alive'}));return;}
   if(path==='/healthz'){
@@ -40,12 +43,13 @@ const server=http.createServer(async(req,res)=>{
    res.end(JSON.stringify({status:degraded?'degraded':'ok',collectorVersion:'source-expansion-v1',sourceCatalogDigest,enabledSources:summary.enabledSources,eligibleSources:summary.eligibleSources,waitingSources:summary.waitingSources,failedSources:summary.failedSources??0,sourceHealthCheckedAt:summary.checkedAt??null,lastCycle:lastCycle?new Date(lastCycle).toISOString():null}));return;
   }
   if(path==='/api/aqai/published'){
-   const items=await publishedItems();
-   res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'public, max-age=30, s-maxage=60'});res.end(req.method==='HEAD'?undefined:JSON.stringify({items}));return;
+   const publications=await publishedItems();
+   res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'public, max-age=30, s-maxage=60'});res.end(req.method==='HEAD'?undefined:JSON.stringify(publications));return;
   }
   if(!timingSafeEqual(expected,digest(req.headers.authorization??''))){
    res.writeHead(401,{'WWW-Authenticate':'Basic realm="AqAI staging", charset="UTF-8"'});res.end('Private AqAI staging');return;
   }
+  if(path==='/api/aqai/editorial'){await editorialHandler(req,res);return;}
   if(['/api/aqai/preview','/api/aqai/review','/api/aqai/evidence'].includes(path)){await previewHandler(req,res);return;}
   if(path==='/api/aqai/status'){
    await database('aq_source_registry?select=source_id&limit=1');
@@ -73,8 +77,13 @@ function cycle(){
  });
 }
 for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{
- stopping=true;clearTimeout(timer);active?.kill('SIGTERM');server.close(()=>process.exit(0));
- setTimeout(()=>process.exit(1),10000).unref();
+ if(stopping)return;
+ stopping=true;clearTimeout(timer);
+ let webClosed=false,workerClosed=!active;
+ const finish=()=>{if(webClosed&&workerClosed)process.exit(0);};
+ if(active){active.once('close',()=>{workerClosed=true;finish();});active.kill('SIGTERM');}
+ server.close(()=>{webClosed=true;finish();});
+ setTimeout(()=>{active?.kill('SIGKILL');process.exit(1);},10000).unref();
 });
 server.listen(Number(process.env.PORT??8080),process.env.AQAI_BIND_HOST??'0.0.0.0',()=>{
  console.log(JSON.stringify({web:'listening',workerEnabled}));if(workerEnabled)cycle();

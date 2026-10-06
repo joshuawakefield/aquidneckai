@@ -1,28 +1,19 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
-import IndexPreview from "./pages/IndexPreview";
-
-const queryClient = new QueryClient();
+import {lazy, Suspense} from 'react';
+import ReaderHome from './pages/ReaderHome';
+const IndexPreview = lazy(() => import('./pages/IndexPreview'));
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<IndexPreview />} />
+        <Suspense fallback={<p role="status">Loading workspace…</p>}><Routes>
+          <Route path="/" element={<ReaderHome />} />
+          <Route path="/admin" element={<IndexPreview />} />
           <Route path="/index-preview" element={<IndexPreview />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+        </Routes></Suspense>
       </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
 );
 
 export default App;

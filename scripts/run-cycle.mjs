@@ -1,11 +1,7 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {runStages} from './cycle-runner.mjs';
 // Collection, classification, and the separately gated publisher share one serial cycle.
-for(const script of ['collect-feeds.mjs','classify-new.mjs','publish-qualified.mjs']){
- const code=await new Promise(resolve=>{
-  const child=spawn(process.execPath,[fileURLToPath(new URL(script,import.meta.url))],{stdio:'inherit',windowsHide:true});
-  child.on('error',()=>resolve(1));child.on('close',resolve);
- });
- if(script==='collect-feeds.mjs'&&code===2){console.warn('Some sources failed; their status is recorded. Continuing assessment of available evidence.');continue;}
- if(code!==0){process.exitCode=1;break;}
-}
+// A POSIX process group lets shutdown reach the collector's Python children too.
+process.exitCode=await runStages(script=>spawn(process.execPath,[fileURLToPath(new URL(script,import.meta.url))],
+ {stdio:'inherit',windowsHide:true,detached:process.platform!=='win32'}));

@@ -1,5 +1,6 @@
 // Initial automatic publication policy: official, upcoming local AI calendar events only.
 import {database} from './supabase-server.mjs';
+import {explicitCalendarCancellation} from './calendar-signals.mjs';
 const AI=/\b(?:AI|artificial intelligence|machine learning|ChatGPT|generative AI|large language models?|LLMs?|neural networks?)\b/i;
 const towns=new Set(['Newport','Middletown','Portsmouth']);
 let published=0,cursor='';
@@ -12,7 +13,8 @@ while(true){
  const qualifies=result?.decision==='candidate'&&result.destination==='current_review'&&result.publication_status==='unpublished'&&
   source?.runtime_enabled&&source.verification_status==='api_parsed'&&source.last_check_result?.status==='parsed'&&
   source.definition?.endpoint_type==='calendar'&&towns.has(town)&&AI.test(result.ai_quote??'')&&
-  report.input_text?.includes(result.ai_quote)&&result.local_basis?.trim()&&Number.isFinite(start)&&ageDays>=-365&&ageDays<=30;
+  report.input_text?.includes(result.ai_quote)&&result.local_basis?.trim()&&Number.isFinite(start)&&ageDays>=-365&&ageDays<=30&&
+  !explicitCalendarCancellation(observation?.title);
  if(!qualifies)continue;
  try{await database('aq_entries',{method:'POST',body:{observation_id:observation.id,canonical_url:observation.url,title:observation.title,
   summary:result.reason,towns:[town],kind:'event',status:'published',local_evidence:result.local_basis,

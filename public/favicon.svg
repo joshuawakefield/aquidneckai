@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>AquidneckAI</title>
+  <rect width="64" height="64" rx="14" fill="#001B3A"/>
+  <g fill="none" stroke="#C5A059" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 39 32 14 45 39M25 29h14"/>
+    <path d="M14 49c6-5 12 5 18 0s12 5 18 0"/>
+  </g>
+</svg>

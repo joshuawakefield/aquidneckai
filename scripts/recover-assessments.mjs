@@ -1,6 +1,6 @@
-import fs from 'node:fs';
 import {database} from './supabase-server.mjs';
 import {assessResponse} from './assessment-result.mjs';
+import {loadRecoveryResponses} from './recovery-cache.mjs';
 export async function recoveryWork(db=database,now=Date.now()){
  const cutoff=new Date(now-900000).toISOString();
  const trials=await db('aq_classification_trials?report->>kind=eq.observation_classification&report->>status=neq.completed&report->>claimed_at=lt.'+encodeURIComponent(cutoff)+'&select=request_id,report&order=recorded_at.asc,request_id.asc&limit=80');
@@ -14,10 +14,7 @@ export async function recoverAssessments(){
  const {trials,observations}=await recoveryWork();
  if(!trials.length){console.log(JSON.stringify({recoveredFromSavedResponse:0,flaggedForHumanReview:0,paidRecoveryRequests:0}));return;}
  const observationById=new Map(observations.map(o=>[o.id,o]));
- const cached=new Map();const directory=new URL('../data/classification-responses/',import.meta.url);
- if(fs.existsSync(directory))for(const name of fs.readdirSync(directory).filter(n=>n.endsWith('.json'))){
-  try{const batch=JSON.parse(fs.readFileSync(new URL(name,directory)));for(const input of batch.inputs??[])cached.set(input.id,{input,response:batch.response,count:batch.inputs.length});}catch{}
- }
+ const cached=loadRecoveryResponses(trials,{directory:new URL('../data/classification-responses/',import.meta.url)});
  let recovered=0,flagged=0;
  for(const trial of trials){const report=trial.report;
   if(report.kind!=='observation_classification'||report.status==='completed'||Date.now()-Date.parse(report.claimed_at)<900000)continue;

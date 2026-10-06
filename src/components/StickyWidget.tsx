@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Clock, X } from "lucide-react";
+import { MapPin, Mail, X } from "lucide-react";
 import { useState } from "react";
 
 const StickyWidget = () => {
@@ -31,14 +31,11 @@ const StickyWidget = () => {
             </div>
             <div>
               <div className="text-sm font-medium text-foreground mb-1">
-                Josh is currently on the island.
+                AquidneckAI · Newport, Rhode Island
               </div>
               <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <Clock className="w-3 h-3" />
-                <span>
-                  Current Audit Response Time: 
-                  <span className="text-primary font-medium ml-1">4 hours</span>
-                </span>
+                <Mail className="w-3 h-3" />
+                <a href="mailto:joshua@aquidneckai.com" className="text-primary hover:underline">Contact Joshua</a>
               </div>
             </div>
           </div>
