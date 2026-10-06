@@ -4,7 +4,7 @@ Task ID: AQ-001
 Started: 2026-10-06T22:25Z (minute precision)
 Snapshot starting commit: b9e49bd52a712e3d49bbdaa342293caab9c592ee
 Reconciled starting commit before edits: 2f0af026942f224e55849dbf6c868b09223da5b5
-Status: local acceptance passed; remote closeout pending
+Status: done; independent restoration, local acceptance and remote checkpoint/CI verified
 
 ## Request
 
@@ -44,6 +44,12 @@ Unrun intentionally: live application health/source/database/inference checks, w
 
 Review the explicit changed-file allowlist; run final memory/diff checks, fetch the exact development ref again, commit/push the scoped documentation and verify exact remote SHA plus Project memory CI. Close AQ-001 only after that evidence. Parent then freshly fetches and launches AQ-021: add one fictional, factual-only customer-follow-up exercise while preserving three manageable examples, feed/resources and manual review/sending; focused discoverability/no-customer-collection/no-inference checks and type/build validation. No automatic merge or deployment; child starts no successor.
 
-### Pre-push checkpoint — 2026-10-06 22:30 UTC
+### Pre-push checkpoint — 2026-10-06 22:29 UTC
 
 Final document checks passed for 43 Markdown files against both 2f0af026942f224e55849dbf6c868b09223da5b5 and snapshot b9e49bd52a712e3d49bbdaa342293caab9c592ee. git diff --check passed. Explicit fresh development-ref fetch still matched 2f0af02; no concurrent edits required reconciliation. Reviewed allowlist: docs/AGENT-WORKFLOW.md, docs/BACKLOG.md, docs/CLOUD-HANDOFF.md, docs/DECISIONS.md, docs/DOT-START.md, docs/ENVIRONMENT-REGISTER.md, docs/OPERATING-MODE.md, docs/PROJECT-STATE.md, and this journal. No credentials, private customer data, raw logs, application code, generated build output or unrelated files are staged. Remote verification follows before closure.
+
+### Verified closeout — 2026-10-06 22:30 UTC
+
+Scoped documentation checkpoint c674479d1e6057dbf092bde176a51311525a84f8 was pushed to aqai-local-index. git ls-remote returned that exact SHA; fresh explicit fetch and git diff --exit-code HEAD origin/aqai-local-index matched with a clean worktree. GitHub [Project memory run 37540917217](https://github.com/joshuawakefield/aquidneckai/actions/runs/37540917217) completed successfully for that exact commit. The connected API provided CI evidence after shell API access failed. All AQ-001 acceptance criteria now have independent execution and shared evidence; mark AQ-001 done. AQ-020 remains blocked and AQ-021 remains ready for the parent.
+
+This final documentation-only closeout changes BACKLOG, PROJECT-STATE, CLOUD-HANDOFF and this journal; it also corrects the pre-push timestamp to the actual 22:29 UTC minute. Full application checks remain valid because no application/test/dependency files changed. Rerun continuity rules, memory checks against both starting commits and the checkpoint, plus diff checks before the final commit. Verify final remote SHA and its own CI in the returned task result; no self-referential commit hash is invented in this journal. No successor, schedule, PR merge or deployment was performed.

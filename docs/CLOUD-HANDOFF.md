@@ -1,6 +1,6 @@
 # Codex Cloud and Dot handoff
 
-Published and UI-verified: 2026-10-06 around 21:09 UTC. AquidneckAI development is an available private Codex Cloud environment. Setup independently validated the repository at b9e49bd52a712e3d49bbdaa342293caab9c592ee. Restoration into a separate future coding task remains a distinct check; no unattended recurring agent was started.
+Published and UI-verified: 2026-10-06 around 21:09 UTC. AquidneckAI development is an available private Codex Cloud environment. Setup independently validated the repository at b9e49bd52a712e3d49bbdaa342293caab9c592ee. Separate fresh-task restoration and remote closeout now passed in AQ-001; see the [fresh-task journal](journal/2026-10-06-2227Z-fresh-cloud-restoration.md). Successor execution remains unverified under AQ-020.
 
 ## Environment
 
