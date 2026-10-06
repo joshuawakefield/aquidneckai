@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T23:35Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-06T23:50Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -114,3 +114,14 @@ The previously failing lint baseline is repaired locally: full `npm run lint` no
 Node 22.23.3/Python 3.12.14: TypeScript, all 54 frontend tests, 65 backend tests, 39 Python tests, production build, loopback authentication smoke and all 16 continuity tests passed. Remaining warnings are one EditorialReview effect dependency and seven Fast Refresh mixed-export warnings; changing these would broaden the task into hook lifecycle/export organization. See the [AQ-027 journal](journal/2026-10-06-2333Z-lint-baseline.md) for original diagnostics, allowlist, verification and limits. Remote SHA/CI evidence is supplied at closeout after push, without a recursive documentation commit. Nothing deployed or live-validated.
 
 Next product recommendation: parent assign a fresh unused ID for the isolated non-public connection-card preview from AQ-022 evidence, with source/check dates, unknown/expired states and fixture tests. It advances G-003 without production access or a full design integration. PR1 recommended 5292dc1 and PR2 alternative c7f4805 were checked open/draft/unmerged and remain untouched; AQ-024/AQ-025 stay reserved. AQ-020 normal continuation remains proven; AQ-026 crash/quota/report evidence remains untested; AQ-023 remains design-only with actual usage unavailable. No child successor, schedule, router, live service, inference, SQL, deployment or DNS change; caps and Supabase Free unchanged. Exact model/quota unknown.
+
+
+## AQ-010 release-readiness preparation — 2026-10-06 23:50 UTC
+
+**Not ready for public release.** [Readiness/rollback v0.1](reports/2026-10-06-release-readiness-v01.md) maps integrated base `5d818832d48226ce94dcafe1162cdcb7521c5372`, draft-only design, historical staging, unverified reader benefit and separately authorized operations. Local preparation is done; AQ-010 remains blocked for release gates. Current server protects root/admin/assets with one staging credential; only published feed/liveness/aggregate health are anonymous. Public reader mode is not implemented. Code rollback cannot undo committed database/publication/paid-call effects; recoverable backup and isolated restoration remain unverified under AQ-002.
+
+Fresh refs and connector metadata confirm PR1 `968cd3fb94992cadcd659034259902500d63a84a` is the canonical v0.3 proposal, open/draft/unmerged ([CI 37548195462](https://github.com/joshuawakefield/aquidneckai/actions/runs/37548195462) success); PR2 `c7f4805edb4cdf2dadf53d8d6b3d5a96c8d30b1f` remains the untouched alternative. AQ-024/AQ-025/AQ-028 and D-027–D-029 remain reserved in proposals; the historical AQ-024/D-027 collision is branch-qualified, no new collision introduced. No prototype accepted, merged or integrated.
+
+Expanded loopback checks plus Node 22.23.3/Python 3.12.14 baseline pass: TypeScript, 54 frontend / 65 backend / 39 Python, build, auth/static/API failure checks; full lint 0 errors/8 existing warnings and 16 continuity tests. [Journal](journal/2026-10-06-2350Z-release-readiness.md) records file allowlist and limits. Staging remains only the historical b34b14e observation; no current host/TLS/DNS/mail/service check. AQ-003 usage remains unavailable, AQ-023 design only, readership untested; AQ-026 crash/quota/report evidence unchanged.
+
+Next bounded implementation recommendation: a local-only public-reader route policy, private staging default preserved, with explicit admin/private-API/asset/method regression tests and a draft PR; no hosted enablement or whole-prototype integration. Parent assigns a fresh ID and owns successor selection. This child creates no successor or schedule. Exact task model/quota unknown; no live service/database/provider/worker, SQL, source enrollment, publication, deployment, DNS or spending operation. Remote SHA/CI evidence follows in the closeout response.

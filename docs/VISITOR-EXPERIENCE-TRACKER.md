@@ -68,3 +68,7 @@ Two-file UI fix deployed manually from `b34b14e11e2fb7403afddef1fc4004a078620449
 Live operating-cost and schedule audit is in [the dated operating-cost report](reports/2026-10-06-operating-costs.md) and `data/cost-schedule-oct06.json`: hosting account confirms $6.48/month, Supabase remains Free, OpenRouter key has used $0.143272701 total / $0.103097016 this month. Its $1 limit never resets; $0.856727299 remains. Worker runs five minutes after each cycle completes; 208 scheduled endpoints average approximately 274 checks/day. Astra/Sol/Luna routing is not wired into this runtime; it uses Gemini 2.5 Flash Lite.
 
 Raw data/ verification files mentioned above remain private local evidence, not prerequisites for cloud setup. This tracker preserves their relevant results; the shared journal/state and reproducible fixture tests are the handoff record.
+
+## AQ-010 release assessment — October 6, 23:50 UTC
+
+[Readiness matrix v0.1](reports/2026-10-06-release-readiness-v01.md) preserves the distinction between historical staging rows above and current local tests. Expanded loopback checks confirm root/admin/assets remain staging-authenticated, private APIs require auth and anonymous feed failure stays unavailable. No public-reader enablement or current staging verification occurred. F01 launch gates, F08 staging follow-through and F09 production/usefulness remain open; PR1 AQ-028 sourced cards exist only in the unmerged v0.3 proposal. Actual reader benefit and readership remain untested.
