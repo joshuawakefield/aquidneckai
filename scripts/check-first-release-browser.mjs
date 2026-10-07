@@ -8,7 +8,7 @@ const server=createServer((req,res)=>{res.setHeader('Content-Type','text/html');
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const url=`http://127.0.0.1:${server.address().port}/`;
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || '/usr/bin/chromium',headless:true,args:['--no-sandbox']});
-const output=process.env.REVIEW_OUTPUT || '/tmp/aq028-review';mkdirSync(output,{recursive:true});
+const output=process.env.REVIEW_OUTPUT || '/tmp/aq031-review';mkdirSync(output,{recursive:true});
 let scans=0;
 try {
 for(const width of [320,390,1280]) {
@@ -19,7 +19,7 @@ for(const width of [320,390,1280]) {
  await page.goto(url);
  await page.keyboard.press('Tab');assert.equal(await page.locator(':focus').textContent(),'Skip to content');
  await page.keyboard.press('Enter');assert.equal(await page.locator(':focus').getAttribute('id'),'main');
- for(const view of ['story','guide','connect']) {
+ for(const view of ['home','story','guide','connect']) {
    await page.locator(`nav a[href="#${view}"]`).focus();await page.keyboard.press('Enter');
    await page.waitForFunction(v=>document.activeElement?.id===v+'-title',view);
    assert.equal(await page.locator('main > section:visible').count(),1);
@@ -34,8 +34,23 @@ for(const width of [320,390,1280]) {
    const summary=page.locator('.connection summary').first();await summary.focus();await page.keyboard.press('Enter');
    assert.equal(await summary.evaluate(e=>e.parentElement.open),true);await page.keyboard.press('Enter');
  }
- await page.locator('.review summary').click();
+ await page.locator('#connect .review summary').click();
  await page.locator('#state').selectOption('error');await page.locator('#reset').click();assert.match(await page.locator('#count').textContent(),/^2 /);
+ await page.locator('nav a[href="#home"]').click();
+ for(let i=0;i<2;i++){
+  await page.locator('#news-stream').selectOption('broader');await page.locator('#news-audience').selectOption('residents');
+  assert.equal(await page.locator('[data-news]:visible').count(),1);assert.match(await page.locator('[data-news]:visible').textContent(),/Ethan Mollick/);
+  await page.locator('#news-search').fill('nonesuch');assert.equal(await page.locator('#news-status').isVisible(),true);
+  await page.locator('#news-reset').click();assert.equal(await page.locator('[data-news]:visible').count(),4);
+ }
+ await page.locator('#home .review summary').click();
+ for(const mode of ['loading','empty','error']){await page.locator('#news-state').selectOption(mode);assert.equal(await page.locator('[data-news]:visible').count(),0);assert.equal(await page.locator('#news-status').isVisible(),true)}
+ await page.locator('#news-reset').click();
+ await page.screenshot({path:`${output}/news-${width}.png`,fullPage:true});
+ await page.locator('#news-state').selectOption('expired');assert.match(await page.locator('.news-event-state').textContent(),/Past listing/);
+ await page.locator('#news-state').selectOption('available');
+ for(const link of await page.locator('[data-news] a[href^="https:"]').all())assert.match(await link.getAttribute('rel'),/noreferrer/);
+ await page.locator('nav a[href="#connect"]').click();
  await page.locator('nav a[href="#guide"]').click();await page.goBack();await page.waitForFunction(()=>location.hash==='#connect');
  await page.reload();assert.equal(await page.locator('#connect').isVisible(),true);
  await page.screenshot({path:`${output}/connect-${width}.png`,fullPage:true});
@@ -54,5 +69,5 @@ for(const width of [320,390,1280]) {
 }
 const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:900}});const page=await context.newPage();await page.goto(url);
 assert.equal(await page.locator('main > section:visible').count(),4);assert.match(await page.locator('.event-state').first().textContent(),/not evaluated/);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await context.close();
-console.log(`PASS: 320/390/1280px; keyboard, repeated search/reset/disclosure, back/reload, clock transition, no-JS, copy denial, no external requests/storage/errors; ${scans} axe scans. Screenshots: ${output}`);
+console.log(`PASS: 320/390/1280px; news combined filters/states/provenance, keyboard, repeated search/reset/disclosure, back/reload, clock transition, no-JS, copy denial, no external requests/storage/errors; ${scans} axe scans. Screenshots: ${output}`);
 } finally {await browser.close();await new Promise(r=>server.close(r));}

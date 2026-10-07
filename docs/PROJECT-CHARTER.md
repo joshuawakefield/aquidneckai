@@ -22,7 +22,17 @@ The eventual direction is an automated local technology hub covering AI, robotic
 
 No numeric audience, financial or usage target was supplied. Derive candidate measures in AQ-011, distinguish a proposed metric from measured reader benefit, and seek concrete reader examples through the continuing interview. The existing slight business tilt and low owner-maintenance goal remain.
 
-## First reader and customer-work focus
+## Useful news is central — October 7 clarification
+
+The owner explicitly wants a news hub drawing on regularly checked local resources and worthwhile authors/publications, including One Useful Thing and TAAFT. Useful news is a core reason to return, alongside practical examples and connections. Serve Island residents and SMBs with a slight business tilt; trades owners remain an important example audience, not a required reader persona. This clarification supersedes any interpretation of the October 6 first-reader emphasis as the whole product.
+
+The proposed first release leads with two complementary streams: **local developments** that matter to life or work here, and **broader ideas** with an honest useful application for local readers. Do not imply all material originated locally, force an AI angle onto ordinary local facts, or make a generic breaking-news firehose. Current AI-only assessment still excludes non-AI local news; any broader selection gate is proposed and requires bounded fixture review before runtime change. Keep the existing narrow automatic-calendar gate separate.
+
+Each selected item explains what changed, why it may matter, and a practical next action only when supported. Name the publication and author when known; link the original; separate source publication, collection, editorial check and AquidneckAI publication dates; disclose uncertainty, commercial context and expired/corrected information. A reader may simply become better informed without doing an exercise. The owner's trust in named sources is a preference, not a guarantee of every claim. Source-specific review and sponsored/affiliate distinctions remain necessary.
+
+Prioritize source quality, provenance and news display ahead of further isolated exercises. Reuse the existing collection/editorial stack and bounded source catalog; no new enrollment, paywall bypass, paid service or publication permission follows. D-032 records the rationale; the news-first design remains an unmerged PR1 proposal.
+
+## Supporting customer-work focus
 
 Confirmed 2026-10-06 in the [follow-up interview](journal/2026-10-06-2155Z-trades-and-local-connections.md): prioritize local blue-collar business owners who work for themselves or with a very small team. Help them reclaim time and freedom through AI and automation for the annoying parts of getting, keeping and refreshing customers. This sharper first-reader focus does not exclude other residents or change the broader geographic scope.
 

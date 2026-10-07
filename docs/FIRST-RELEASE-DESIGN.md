@@ -1,6 +1,6 @@
-# AquidneckAI first-release design — version 0.3
+# AquidneckAI first-release design — version 0.4
 
-Date: 2026-10-06. Task: AQ-024; reconciliation: AQ-025; sourced connection preview: AQ-028. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
+Date: 2026-10-07. Task: AQ-024; reconciliation: AQ-025; sourced connection preview: AQ-028; useful-news revision: AQ-031. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
 
 
 ## Consolidation decision — AQ-025
@@ -22,9 +22,9 @@ The [AQ-025 journal](journal/2026-10-06-2301Z-design-reconciliation.md) records 
 
 ## Product thesis
 
-AquidneckAI helps local people understand consequential technology, put it to practical use, and find relevant people and opportunities nearby, with little routine work from the owner. The first reader is a self-employed trades owner or very small team around Aquidneck Island. Other residents remain welcome; substantial RI, nearby and national/global relevance remains within scope. AI is the first content focus; the longer AI/robotics/autonomy direction does not require widening collection now.
+AquidneckAI helps local people understand consequential technology, put it to practical use, and find relevant people and opportunities nearby, with little routine work from the owner. Useful news is central for Island residents and SMBs: local developments plus broader ideas with substantive local usefulness. A self-employed trades owner remains a useful example audience alongside residents, learners, educators, retailers and other small teams. No persona selection is required; substantial RI, nearby and national/global relevance remains within scope. AI is the first content focus; the longer AI/robotics/autonomy direction does not require widening collection now.
 
-A useful visit ends with a next action the reader understands and can check: try a factual exercise, follow an original source, or investigate a verified local opportunity. A feature count or automated test pass is not proof of benefit. Free reading and original evidence are part of the value proposition; sponsorship follows audience evidence.
+A useful visit may end with a clearer understanding of a development, following an original source, trying a factual exercise or investigating a verified local opportunity. Next actions are optional and supported by evidence. A feature count or automated test pass is not proof of benefit. Free reading and original evidence are part of the value proposition; sponsorship follows audience evidence.
 
 ## What is known and what is a hypothesis
 
@@ -39,22 +39,31 @@ A useful visit ends with a next action the reader understands and can check: try
 
 ## Release experience
 
-The three paths share one home, consistent navigation and evidence conventions. They are outcomes, not three products or isolated town portals.
+Useful news leads the home; practical use and local connections complement it. The three paths share consistent navigation and evidence conventions. They are outcomes, not three products or isolated town portals.
 
 | Path | Reader question | Surface and useful next action | Evidence requirement |
 | --- | --- | --- | --- |
-| Understand | What changed, and why might it matter here? | Concise feed cards, then source-linked detail with facts, local interpretation, uncertainty and dates | Existing editorially published material only; source and exact evidence retained. |
+| Useful news / Understand | What changed, and why might it matter here? | Concise feed cards, then source-linked detail with facts, local interpretation, uncertainty and dates | Existing editorially published material only; source and exact evidence retained. |
 | Use | What can I try in my day-to-day work? | A short practical guide with example inputs, factual-only prompt, review steps and a stopping point | Fictional/public example data; no savings promise, collection, sending or site inference. |
 | Connect | Who or what nearby is worth exploring? | Small curated list with purpose, current activity, relevance and public contact route | Verified provider/activity/access and checked date; uncertainty visibly disclosed. |
 
-### Home
+### Home: a useful selection, in two streams
 
-- Lead with the promise and a useful first action; do not lead with collector counts or editorial backlog.
-- Feature one practical exercise for the first reader, with an understandable situation and clear result.
-- Expose the three paths in ordinary language. Retain easy access to learning resources and the published feed.
-- Highlight a few genuinely useful published entries, with accurate publication/event dates and local relevance. Prioritize evidence and reader value over volume.
-- Distinguish empty, unavailable and loading states. Empty news is not an invitation to generate filler; unavailable data is not evidence that nothing exists.
-- Keep past events separated, preserve resource search and avoid mandatory signup or segmentation.
+- Lead with **Useful news. For life here.** A short reviewable edition answers what changed and why a resident or SMB should care. Acknowledge unavailable or sparse approved content; never generate filler to fill a layout.
+- **Local developments:** reporting, official changes, learning and community/business resources rooted here. A local fact must have source evidence; interpretation is separately labeled. Useful local coverage beyond AI is proposed, while the current classifier remains AI-only.
+- **Broader ideas:** authors, publications, research and useful tools from elsewhere. Explain a credible application for residents, educators or SMBs without inventing local adoption, savings or local origin.
+- Show source/publication, author where known, original destination, source-published date, actual checked date and scope, unknowns and commercial context. Do not relabel approval time or retrieval time as a publication or editorial-check date.
+- Search plus optional stream and usefulness filters reduce effort without mandatory town/trades segmentation. Default to both streams and everyone. A new selection need not mean the latest breaking story: explicitly label evergreen resources and older context.
+- Keep existing guides/resources and source-backed connections as visible supporting routes after the selection. Preserve the fictional follow-up example; do not add more isolated exercises before news quality/provenance/display work.
+- Distinguish loading, zero approved items, no filter matches, failure, stale evidence and expired listings. Past events remain visibly past; a recent check never guarantees occurrence or available places.
+
+The v0.4 prototype contains two explicitly unassigned sample stories plus two sourced leads: a dated Chamber connection and a verified One Useful Thing author introduction. The introduction is an evergreen reading route, not a fabricated current article. Unknown dates remain unknown, sample originals are absent/required, and no byline is invented. The Chamber evidence retains its October 6 check; October 7 verification covers only Mollick's About page identity/scope. TAAFT's current official-page check is blocked; historical directory/newsletter role is labeled as such. See the [source-stage audit](reports/2026-10-07-useful-news-source-audit.md).
+
+### Selection and source quality
+
+Curate for usefulness and evidence, not volume or popularity. Preserve original reporting vs official/maker claims vs research/commentary vs digest/tool-directory leads. A trusted author is not infallible. Attribute each brief summary; follow important claims to original evidence when accessible; distinguish sponsored placements/affiliate links from editorial judgment, and show unknown disclosure status honestly. Avoid copying full articles, paid content, fabricated local impact or guessed authors. No signup, challenge/paywall bypass, new provider call or source enrollment is authorized.
+
+Selection gates precede presentation: an individual accessible source item, concise supported change, provenance and dates/unknowns, a credible reader use case, source fact vs interpretation, rights/access suitability, disclosure and uncertainty/expiry. A next action is optional. Source-specific quality/yield needs evidence; the existing registry size and historical successful checks are not proof of enough approved news. One page-watch extraction under AQ-007 may help; a wholesale collection rewrite does not.
 
 ### Story/detail
 
@@ -97,9 +106,9 @@ Use semantic landmarks/headings, a skip link, keyboard-operable links/controls, 
 
 ## Prototype and review
 
-Open [the self-contained prototype](prototypes/first-release/index.html) in a browser, or serve its directory over loopback for testing. It uses no external assets, network API, dependency installation or storage. HTML/CSS/JavaScript stay inside this one concept file; a restrictive content policy blocks connections. JavaScript enhances hash navigation, connection filtering, sample states and prompt copying. Without JavaScript all concept pages remain readable with anchor navigation.
+Open [the self-contained prototype](prototypes/first-release/index.html) in a browser, or serve its directory over loopback for testing. It uses no external assets, network API, dependency installation or storage. HTML/CSS/JavaScript stay inside this one concept file; a restrictive content policy blocks connections. JavaScript enhances hash navigation, news and connection filtering, sample states and prompt copying. Without JavaScript all concept pages remain readable with anchor navigation.
 
-Review paths: home → exercise → checked example; home → story → evidence requirements; home → connections → filter/detail → empty/unavailable states. Desktop, 390px and 320px behavior, reload/back navigation and keyboard focus are recorded in the task journal. The prototype is outside the application build/public tree and is not deployed.
+Review paths: home → local/broader selection → combined filters and original sources; home → sample story → evidence requirements; home → exercise → checked example; home → connections → filter/detail → empty/unavailable states. Desktop, 390px and 320px behavior, reload/back navigation and keyboard focus are recorded in the task journal. The prototype is outside the application build/public tree and is not deployed.
 
 ## Acceptance gates
 
@@ -117,13 +126,10 @@ The release is defined when required behavior and content gates have concrete ev
 
 ## Implementation order and reprioritization
 
-1. AQ-024 design is delivered; AQ-025 consolidates the two open drafts into this recommended proposal on PR1. Preserve both original commits and AQ-021/AQ-003 work. Integration remains separate.
-2. Preserve AQ-003's actual remote closeout. Its display default remains unavailable without a safe usage source; AQ-023 is a separate design, not a new provider polling permission.
-3. AQ-022 verification and AQ-028 isolated source-backed preview are complete. Next useful bounded work: AQ-010 first-release content/staging/rollback readiness checklist grounded in this proposal and the actual feed contract; no deployment or outreach. Parent owns task selection and launch.
-4. New bounded reader implementation derived from this design: improve outcome navigation and guide discoverability using existing components. Keep published feed/source links until detail-route needs are assessed. Assign a stable new AQ-ID at launch; do not preallocate speculative chains.
-5. AQ-010: prepare first-release staging/rollback and content checklist; conduct separately authorized staging/release review. Plan formative reader evaluation without initiating outreach.
-6. AQ-002 before database/schema-dependent feature work, then AQ-006 if source management is a demonstrated owner-effort bottleneck. Start with offline inventory when live comparison is unavailable.
+1. AQ-031 makes useful news central in the same canonical PR1 proposal, preserving AQ-024/025/028 history. Integration/final design approval remain separate. No competing third design.
+2. **AQ-032 next:** fixture-led source-to-reader provenance contract, source/approval/collected/checked date semantics, commercial unknowns and local/broader usefulness. Compare current AI-only rejection with useful local coverage fixtures and propose any policy amendment separately. Reuse relationships; no new migration, database access or source activation.
+3. AQ-007: one bounded, permission-compatible individual-story extraction from an existing useful page watch; prove original provenance, deduplication and request/text caps on fixtures. AQ-008 follows measured noise, not speculative source expansion.
+4. Preserve AQ-010 readiness/rollback gates and PR3 AQ-029 default-private route proposal; no merge or deployment implied. AQ-002 precedes schema-dependent work. AQ-003 actual usage remains unknown and AQ-023 is only a design.
+5. Integrate only a reviewed bounded news-display slice when its data is supportable. Preserve original links until a real detail route is justified. Existing practical examples and connections remain; further isolated exercises are lower priority.
 
-Promote AQ-004/007/008 when evidence shows source failures, whole-page material or noise prevent useful coverage or inflate cost. Defer AQ-012 until enough related published material exists; AQ-013/AQ-014 until a measured model/platform gap; AQ-015 until audience/sponsor evidence. No existing task is retired without a documented reason. IDs are identifiers, not execution order.
-
-Choose each task by expected reader benefit, owner effort reduced, uncertainty resolved, cost, dependencies and evidence confidence. Prefer a complete useful slice. Stop expanding a slice when its acceptance is met; refetch/reconcile before the next. Avoid polishing a hypothesis while a concrete release blocker remains.
+AQ-012 needs enough related published material, AQ-013/014 a measured model/platform gap, AQ-015 audience/sponsor evidence. Reader comprehension, trust and usefulness remain untested; no outreach is performed. Revisit hierarchy after representative resident and SMB evidence rather than polishing indefinitely. Parent selects each bounded successor after fresh reconciliation; no task or schedule launched here.

@@ -81,3 +81,17 @@ The [v0.2 canonical proposal](FIRST-RELEASE-DESIGN.md) on PR1 retains one isolat
 ## AQ-028 sourced connection preview
 
 F09 now has an implemented isolated preview on draft PR1, using AQ-022 evidence and a fresh October 6 source check. Two Chamber leads disclose checked/source dates, prices, conditional access and unknown availability/participation. Newport clock boundaries, missing-date and stale evidence states have deterministic fixtures; mobile/desktop and keyboard checks are recorded in the journal. The Understand story and Use exercise stay explicitly illustrative. F09 remains OPEN for production integration, separately authorized release and actual reader usefulness. This is the recommended v0.3 proposal, not final approval or a published directory. PR2 remains untouched.
+
+## AQ-010 release assessment — October 6, 23:50 UTC
+
+[Readiness matrix v0.1](reports/2026-10-06-release-readiness-v01.md) preserves the distinction between historical staging rows above and current local tests. Expanded loopback checks confirm root/admin/assets remain staging-authenticated, private APIs require auth and anonymous feed failure stays unavailable. No public-reader enablement or current staging verification occurred. F01 launch gates, F08 staging follow-through and F09 production/usefulness remain open; PR1 AQ-028 sourced cards exist only in the unmerged v0.3 proposal. Actual reader benefit and readership remain untested.
+
+
+## AQ-030 local visual review — October 7
+
+Twelve actual integrated-app fixture captures at 1280/390px and current browser-flow checks are recorded in the [owner packet](reports/2026-10-07-owner-preview-v01.md). Reader resource search, fictional follow-up, private unknown-budget/exception guidance and failed reload are locally verified only. Screenshots inspected; no horizontal overflow, mobile vertical scrolling remains. Parent reports Library delivery recovered October 7 at 00:27 UTC via direct native upload; helper failure is historical. F08 still awaits staging follow-through; F01 public-launch and F09 design/connection/usefulness gates are unchanged. No current hosted or real-reader evidence added.
+
+
+## AQ-031 useful-news selection — October 7
+
+**F11 — OPEN for production and reader usefulness:** useful news must be central, with local developments and broader useful ideas for residents and SMBs. The isolated v0.4 PR1 prototype demonstrates combined filters, source/author attribution or explicit unknowns, original links, source-vs-check dates, fact-vs-interpretation, commercial uncertainty and honest sample/expired/error states. Exercise and connection paths remain. The [source-stage audit](reports/2026-10-07-useful-news-source-audit.md) identifies current AI-only selection and missing feed provenance fields; AQ-032 addresses the fixture/contract gap next. Local tests do not establish current source health, actual readership, production integration or deployment. F08/F09 and release gates remain open.

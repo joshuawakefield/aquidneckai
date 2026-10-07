@@ -1,0 +1,117 @@
+{
+  "candidate": "7cfda3354c46e92346d55f2b936781b331f03d75",
+  "fixtureOnly": true,
+  "externalRequestsBlocked": true,
+  "captures": [
+    {
+      "file": "reader-home-1280.png",
+      "width": 1280,
+      "height": 900,
+      "sha256": "1f715abb7a6490dcd0e81450c734a7346d364e88c718a2757441ad1e1a31d116"
+    },
+    {
+      "file": "resources-1280.png",
+      "width": 1280,
+      "height": 900,
+      "sha256": "10350805ce55f4de3bd3e728fb2217b10c27ed03dc5163ff3db774b1cede02c4"
+    },
+    {
+      "file": "follow-up-1280.png",
+      "width": 1280,
+      "height": 900,
+      "sha256": "2a697fa686ec672dcc5d359155328f7e8c26fa6f0d59ce7d75a11ae45e866f3d"
+    },
+    {
+      "file": "dashboard-unknown-1280.png",
+      "width": 1280,
+      "height": 900,
+      "sha256": "2ab1d0517bc9c0aaba82a55845bad5de8bd6e55b28dda17d4a488ab0512c65bf"
+    },
+    {
+      "file": "exception-review-1280.png",
+      "width": 1280,
+      "height": 900,
+      "sha256": "063c060954170db684e5306b8fca03d5a9b68bd75eb397eee436379628c7fe09"
+    },
+    {
+      "file": "dashboard-unavailable-1280.png",
+      "width": 1280,
+      "height": 900,
+      "sha256": "7e0cc7d54e8e1c228bae7a8214f8321a9fd85031deadedaa159ab45b74fb8c71"
+    },
+    {
+      "file": "reader-home-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "627a76c3e570e6cc12a0eef98d412dc3174404f32965cd78fc731bcb1af9c918"
+    },
+    {
+      "file": "resources-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "684ca78f1212b2401db8e38793be561575f66cffe1f4a8b27421be4368bf3fb0"
+    },
+    {
+      "file": "follow-up-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "8a40b7d5c913bd2220ef67a346a98a82410b1ef2a152c7d354d7cfb400889104"
+    },
+    {
+      "file": "dashboard-unknown-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "2c4a9e03a2547c16068e57f9c9695dad17bd9201454cb9ae9f96d5447a678bcb"
+    },
+    {
+      "file": "exception-review-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "3a4ef96aa3eea9d93a4b9584e0eafc468e57b98482e17e0e0890f5a8b5a31712"
+    },
+    {
+      "file": "dashboard-unavailable-390.png",
+      "width": 390,
+      "height": 900,
+      "sha256": "56f5ff74a58659105ed85bd26c3a785b9a138fc33643a9b66143fa9822885771"
+    }
+  ],
+  "buildFiles": [
+    {
+      "path": "dist/assets/IndexPreview-CjlqZQPF.css",
+      "sha256": "f429fde1ee5d677fe7cdef5faa6b081cc471d4fa238ee2f6d9d78ba452e47fc8"
+    },
+    {
+      "path": "dist/assets/IndexPreview-IM4hqVFj.js",
+      "sha256": "f18e76dbf89b8d843123aa1fd83eaa641764c8947553b702b2f1919bdfa09002"
+    },
+    {
+      "path": "dist/assets/index-Dv1Ldr91.css",
+      "sha256": "80aa15199abe0eeb5de8ea7233a1b09d937684942175cc5b23bf3ebcd15dccc1"
+    },
+    {
+      "path": "dist/assets/index-ycRNkMMn.js",
+      "sha256": "bec908fb55749c7f04f85559a235a55864f6a79131b91016d623044e4f4e8fb6"
+    },
+    {
+      "path": "dist/favicon.ico",
+      "sha256": "dd821076a9b03adc2173c93956226aea3d92482d7578fc4339c5d3a2e9c24586"
+    },
+    {
+      "path": "dist/favicon.svg",
+      "sha256": "8ae6e3d995c479353613538759226aefbb11feb41b864013115dc10459e42b8f"
+    },
+    {
+      "path": "dist/index.html",
+      "sha256": "3ec7c7098ce34292c2c78089a4169ea1ff8d6408022c51ccf667400e59b56066"
+    },
+    {
+      "path": "dist/placeholder.svg",
+      "sha256": "64badf7aabda0b9630b87020ffb6095cb858ccbcf66b355c2aa08b1063954d3b"
+    },
+    {
+      "path": "dist/robots.txt",
+      "sha256": "a3d27b3ca5ce32341fa9f96f01169b521b1657c05d1860c45d1e53a6258e9e8b"
+    }
+  ]
+}

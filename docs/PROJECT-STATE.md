@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T23:42Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-07T00:28Z. Latest priority: useful-news reconciliation below. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -143,3 +143,32 @@ The canonical isolated PR1 HTML now has two AQ-022-backed Chamber leads, recheck
 Starting PR1 head was `5292dc108e60e2899cf7125c95b118f2e7564ee4`; base `5d818832d48226ce94dcafe1162cdcb7521c5372` was merged into this proposal branch to preserve newer AQ-022/002/023/027 context and lint repairs, with additive document conflicts reconciled. No PR was merged into the shared base; PR2 remains at c7f4805. Runtime/build paths match the current base exactly. [AQ-028 journal](journal/2026-10-06-2342Z-sourced-connection-preview.md) records new scoped fixture/browser/continuity checks and inherited app baseline separately. Final exact remote head/CI and Library replacement outcome are returned in the task response.
 
 Next useful bounded task: AQ-010 first-release content/staging/rollback readiness checklist using this proposal and existing feed/source contracts; expose implementation/content blockers without deployment or outreach. Parent selects successors; none launched here. AQ-020 normal/clean-idle continuation remains demonstrated, AQ-026 exceptional recovery/report delivery untested, quota unknown. All live/cost boundaries remain.
+
+
+## AQ-010 release-readiness preparation — 2026-10-06 23:50 UTC
+
+**Not ready for public release.** [Readiness/rollback v0.1](reports/2026-10-06-release-readiness-v01.md) maps integrated base `5d818832d48226ce94dcafe1162cdcb7521c5372`, draft-only design, historical staging, unverified reader benefit and separately authorized operations. Local preparation is done; AQ-010 remains blocked for release gates. Current server protects root/admin/assets with one staging credential; only published feed/liveness/aggregate health are anonymous. Public reader mode is not implemented. Code rollback cannot undo committed database/publication/paid-call effects; recoverable backup and isolated restoration remain unverified under AQ-002.
+
+Fresh refs and connector metadata confirm PR1 `968cd3fb94992cadcd659034259902500d63a84a` is the canonical v0.3 proposal, open/draft/unmerged ([CI 37548195462](https://github.com/joshuawakefield/aquidneckai/actions/runs/37548195462) success); PR2 `c7f4805edb4cdf2dadf53d8d6b3d5a96c8d30b1f` remains the untouched alternative. AQ-024/AQ-025/AQ-028 and D-027–D-029 remain reserved in proposals; the historical AQ-024/D-027 collision is branch-qualified, no new collision introduced. No prototype accepted, merged or integrated.
+
+Expanded loopback checks plus Node 22.23.3/Python 3.12.14 baseline pass: TypeScript, 54 frontend / 65 backend / 39 Python, build, auth/static/API failure checks; full lint 0 errors/8 existing warnings and 16 continuity tests. [Journal](journal/2026-10-06-2350Z-release-readiness.md) records file allowlist and limits. Staging remains only the historical b34b14e observation; no current host/TLS/DNS/mail/service check. AQ-003 usage remains unavailable, AQ-023 design only, readership untested; AQ-026 crash/quota/report evidence unchanged.
+
+Next bounded implementation recommendation: a local-only public-reader route policy, private staging default preserved, with explicit admin/private-API/asset/method regression tests and a draft PR; no hosted enablement or whole-prototype integration. Parent assigns a fresh ID and owns successor selection. This child creates no successor or schedule. Exact task model/quota unknown; no live service/database/provider/worker, SQL, source enrollment, publication, deployment, DNS or spending operation. Remote SHA/CI evidence follows in the closeout response.
+
+
+## AQ-030 actual-app review packet — October 7
+
+[Packet v0.1](reports/2026-10-07-owner-preview-v01.md) proposes the fetched integrated base `7cfda3354c46e92346d55f2b936781b331f03d75` for a later private staging review, with configuration delta NONE and global auth retained. Neither PR1 design integration nor PR3 public-reader mode is required. All three PRs remain open/draft/unmerged. Historical staging b34b14e is not freshly verified. Current full local baseline passed 54 frontend / 65 backend / 39 Python tests, TypeScript/build/auth, lint 0 errors/8 existing warnings and 16 continuity tests. Twelve actual-app fixture screenshots and browser flows passed and were visually inspected at 1280/390px. No live data/services were used.
+
+AQ-030 screenshot delivery initially failed at helper discovery. Parent reports recovery via direct native Library upload and delivery of the gallery plus home desktop/mobile screenshots in the main conversation at 00:27 UTC October 7. The delivery blocker is resolved; no current hosted-readiness evidence follows. Existing design prototype Library `libfile_a86cace2b2b48191b3c61c097b55ecd0` v3 is unchanged and separate. Next parent task: narrow read-only host metadata for deployed build, worker boot behavior, data isolation and compatible rollback artifact/config; then an exact private deployment decision. Isolation and rollback remain UNKNOWN, and an enabled worker starts immediately on restart. No deployment, worker, inference, SQL, migration, publication, DNS or cap change occurred. Parent owns successors; remote/CI evidence supplied at closeout.
+
+
+## AQ-031 useful-news priority and proposal — October 7
+
+The owner's October 7 clarification makes useful news central for residents and SMBs. D-032/charter supersede an exercise-first or trades-only interpretation; practical examples and connections remain complementary. Source quality, provenance and news display now precede additional isolated exercises. [Audit](reports/2026-10-07-useful-news-source-audit.md) separates configured/scheduled/fetched/assessed/approved/shown evidence; no live freshness is claimed. Existing catalog: 189 adapter entries, not the whole registry or an article corpus. Historical runtime 269/208 counts stay dated. Current AI-only assessment rejects otherwise useful non-AI local items; a broader proposed selection rule needs fixture review.
+
+The same [draft PR1 proposal v0.4](FIRST-RELEASE-DESIGN.md) now leads with local developments and broader ideas, optional search/stream/usefulness filters, source/byline/date/check-scope/uncertainty distinctions, sample and sourced-lead labels, and loading/empty/error/expired states. Source facts and local interpretation are visibly separate. Prototype only: no application integration, publication, deployment, source enrollment, inference, SQL or worker. Fetched base 16730015 was merged into proposal history; additive document conflicts retain both histories. PR3 AQ-029/D-031 stays separate and unmerged. AQ-031 uses fresh ID/D-032; AQ-032 reserves the next fixture contract task.
+
+One Useful Thing About verifies Ethan Mollick's identity/self-described scope October 7, not article accuracy or feed runtime. Current official TAAFT pages could not be read; retain historical directory/newsletter roles and an explicit current-verification blocker. The preview's Chamber check remains October 6. Parent correction: AQ-030 screenshot delivery is recovered; hosted isolation/rollback readiness stays unknown.
+
+Verification and exact remote/CI/Library outcome are recorded in the [AQ-031 journal](journal/2026-10-07-0028Z-useful-news-reconciliation.md) and closeout. Preferred successor: AQ-032 provenance contract/fixtures and AI-only/local-usefulness policy comparison; source quality before further isolated exercises. Parent owns selection and user updates; no successors or schedules created, actual model/quota unknown.

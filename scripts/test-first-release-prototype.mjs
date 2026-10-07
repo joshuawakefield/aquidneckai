@@ -62,3 +62,39 @@ test('self-contained evidence and repeated search/reset/error states',()=>{
  assert.match(d.querySelector('#practice-review').textContent,/Friday was never agreed/);
  } finally {dom.window.close();}
 });
+test('news streams combine search and optional audience filters; reset is reversible',()=>{
+ const dom=new JSDOM(html,{url:'https://prototype.invalid/#home',runScripts:'dangerously',beforeParse(w){w.scrollTo=()=>{}}});
+ try {
+  const w=dom.window,d=w.document;
+  const set=(id,value,event='change')=>{const el=d.getElementById(id);el.value=value;el.dispatchEvent(new w.Event(event))};
+  const shown=()=>[...d.querySelectorAll('[data-news]:not([hidden])')];
+  assert.equal(shown().length,4);
+  for(let i=0;i<3;i++){
+   set('news-stream','broader');set('news-audience','residents');assert.equal(shown().length,1);assert.match(shown()[0].textContent,/Ethan Mollick/);
+   set('news-search',' TOOLs ','input');assert.equal(shown().length,0);assert.equal(d.getElementById('news-status').hidden,false);
+   assert.equal(d.querySelectorAll('[data-news-group]:not([hidden])').length,0);
+   d.getElementById('news-reset').click();assert.equal(shown().length,4);assert.equal(d.activeElement.id,'news-search');
+  }
+  set('news-stream','local');set('news-audience','residents');assert.equal(shown().length,1);assert.match(shown()[0].textContent,/fictional/);
+ } finally {dom.window.close()}
+});
+test('news empty/loading/failure are distinct; expiry and source dates stay honest',()=>{
+ const dom=new JSDOM(html,{url:'https://prototype.invalid/',runScripts:'dangerously',beforeParse(w){w.scrollTo=()=>{}}});
+ try {
+  const w=dom.window,d=w.document;
+  for(const [mode,pattern] of [['loading',/Loading the selection/],['empty',/No approved items/],['error',/selection is unavailable/]]){
+   const el=d.getElementById('news-state');el.value=mode;el.dispatchEvent(new w.Event('change'));
+   assert.equal(d.querySelectorAll('[data-news]:not([hidden])').length,0);assert.match(d.getElementById('news-state-title').textContent,pattern);
+   assert.equal(d.getElementById('news-reset').hidden,mode==='loading');
+  }
+  d.getElementById('news-state').value='expired';d.getElementById('news-state').dispatchEvent(new w.Event('change'));
+  assert.match(d.querySelector('.news-event-state').textContent,/Past listing.*occurrence unverified/);
+  assert.match(d.querySelector('.news-freshness').textContent,/Stale/);
+  for(const sample of d.querySelectorAll('.sample-card')){
+   assert.match(sample.textContent,/unassigned sample/);assert.match(sample.textContent,/not checked/);assert.equal(sample.querySelectorAll('a[href^="https:"]').length,0);
+  }
+  const dated=d.querySelector('[data-news="local"] .news-dates');assert.match(dated.textContent,/Source published: unknown/);assert.match(dated.textContent,/October 6, 2026/);
+  assert.equal(d.querySelectorAll('form,script[src],iframe').length,0);
+  assert.match(html,/connect-src 'none'/);
+ } finally {dom.window.close()}
+});
