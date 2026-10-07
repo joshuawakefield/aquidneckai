@@ -1,6 +1,6 @@
-# AquidneckAI first-release design — version 0.4
+# AquidneckAI first-release design — version 0.5
 
-Date: 2026-10-07. Task: AQ-024; reconciliation: AQ-025; sourced connection preview: AQ-028; useful-news revision: AQ-031. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
+Date: 2026-10-07. Task: AQ-024; reconciliation: AQ-025; sourced connection preview: AQ-028; useful-news revision: AQ-031; About/transparency: AQ-038. Status: design hypothesis and working isolated prototype, not an application release or reader validation. Authority: the owner's current product/engineering-ownership mandate. [Charter](PROJECT-CHARTER.md) owns durable goals; [state](PROJECT-STATE.md) owns deployed facts. This document defines the intended whole experience and evidence needed to revise it.
 
 
 ## Consolidation decision — AQ-025
@@ -87,6 +87,18 @@ Event status uses America/New_York, independent of the viewer's timezone, and ex
 
 Production may still need an explicit empty state; calling the connection path validated requires reader evidence. This proposal is neither integrated nor finally approved.
 
+## About: the builder and the evolving system
+
+AQ-038 adds one About route to this same canonical PR1 prototype. Its first-person biography follows the owner's October 7 request; the Newport Fifth Ward is named as a neighborhood, never a street address. The timeline preserves the distinction between studying electrical/computer engineering and earning a degree.
+
+Make the site's autonomy legible without implying that the model is the editor or the website deploys itself. Explain three separate layers:
+
+- Development: AI agents can research, change code and run repeatable tests. Developer model selection varies by task and is distinct from runtime inference. Work is versioned/reviewable; deployment remains manual.
+- Content: the existing configured-source pipeline can use AI to assess candidate observations. Ordinary news still awaits human editorial approval; narrow verified official-calendar publishing remains its own rule. Collection or assessment does not equal publication.
+- Prototype status: the About copy is static and isolated, with no production database, live model probe or self-refresh. Mark its last repository-recorded model/stack date and link the fuller project/architecture record.
+
+The current documented application stack and last model recorded in the repository are historical project facts, not live telemetry. About copy must say so. Never label a sample story as real, a project-level proposal as deployed, or the latest developer agent model as a permanent site model. Recheck these claims before publishing or materially changing the About page.
+
 ## Visual direction
 
 Chosen engineering/design hypothesis: a calm local editorial guide. Warm off-white background, dark harbor-colored ink, restrained terracotta accents, serif headlines and system-font body text. Generous whitespace, short paragraphs, clear typographic hierarchy and readable mobile cards. No stock robots, gratuitous animation, fake charts or manufactured freshness.
@@ -108,7 +120,7 @@ Use semantic landmarks/headings, a skip link, keyboard-operable links/controls, 
 
 Open [the self-contained prototype](prototypes/first-release/index.html) in a browser, or serve its directory over loopback for testing. It uses no external assets, network API, dependency installation or storage. HTML/CSS/JavaScript stay inside this one concept file; a restrictive content policy blocks connections. JavaScript enhances hash navigation, news and connection filtering, sample states and prompt copying. Without JavaScript all concept pages remain readable with anchor navigation.
 
-Review paths: home → local/broader selection → combined filters and original sources; home → sample story → evidence requirements; home → exercise → checked example; home → connections → filter/detail → empty/unavailable states. Desktop, 390px and 320px behavior, reload/back navigation and keyboard focus are recorded in the task journal. The prototype is outside the application build/public tree and is not deployed.
+Review paths: home → local/broader selection → combined filters and original sources; home → sample story → evidence requirements; home → exercise → checked example; home → connections → filter/detail → empty/unavailable states; home → About → owner background, model/date disclosure and separate development/content gates. Desktop, 390px and 320px behavior, reload/back navigation and keyboard focus are recorded in the task journal. The prototype is outside the application build/public tree and is not deployed.
 
 ## Acceptance gates
 
@@ -117,6 +129,7 @@ Review paths: home → local/broader selection → combined filters and original
 | Coherent design | Thesis, three journeys, page anatomy, content requirements, versioned prototype and rationale | Design hypothesis, not reader endorsement |
 | Software behavior | Fixture tests, type/build checks for production changes, desktop/mobile interaction checks, selected keyboard/accessibility checks | Prototype evidence cannot substitute for production regression/staging checks |
 | Content trust | Editorial approval/original evidence; verified connection activity/access; accurate dates; uncertainty and corrections | Story/exercise remain illustrative; connection source evidence does not establish current availability or reader benefit |
+| Transparency | Reader can tell autonomous development, AI-assisted assessment, human editorial approval and manual release apart | About route is prototype-only; model and stack are dated static disclosures, not live telemetry |
 | Reader usefulness | Observe a small first-reader sample trying the journeys; record comprehension, task completion, factual mistakes and checking effort | No recruitment/outreach, real reader sessions or measured benefits occurred here |
 | Operational readiness | Manual deployment/rollback plan, auth separation, bounded feed/API behavior, visible exceptions, plan/cap safeguards | Production access, migration application, deployment and apex cutover remain separate |
 

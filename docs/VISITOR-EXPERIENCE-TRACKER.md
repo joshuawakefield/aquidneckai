@@ -18,6 +18,7 @@ Improve the replacement on staging. Preserve the existing Netlify apex, Supabase
 | V08 | Readable mobile typography, keyboard focus, useful loading/error/empty states, no horizontal overflow. | Verified on staging | UI tests; desktop, 390px reader and 375px admin checks; no horizontal overflow |
 | V09 | Honest identity, editorial method, direct contact, owned social metadata. Remove simulated inquiry receipt and unsupported response promise. | Verified on staging; apex separate | Rendered reader identity/contact and metadata verified; legacy form fixes tested in this runtime package, not applied to the existing apex deployment |
 | V10 | Keep costs low: static curated resources, lazy admin bundle, one small public request, bounded cached reads, no new paid service or discovery loop. | Verified on staging | Build sizes, request inspection and auth smoke; Supabase Free, inference cap and manual deployment settings unchanged |
+| V11 | Explain who is building AquidneckAI, which parts are autonomous or AI-assisted, which decisions are human-gated, and the last repository-recorded runtime model/stack date. | Implemented in isolated PR1 prototype; no staging verification | One About route, accessible navigation, owner-authored timeline, dated project-record model/stack notes, separate development/content/deployment claims; targeted route/accessibility assertions and responsive CSS breakpoint assertions. Local browser visual testing was blocked; not live telemetry or public-release evidence |
 
 ## Follow-through that must remain visible
 

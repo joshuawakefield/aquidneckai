@@ -98,3 +98,30 @@ test('news empty/loading/failure are distinct; expiry and source dates stay hone
   assert.match(html,/connect-src 'none'/);
  } finally {dom.window.close()}
 });
+
+test('About route is discoverable, dated and honest about autonomy, model and builder',()=>{
+ const dom=new JSDOM(html,{url:'https://prototype.invalid/#about',runScripts:'dangerously',beforeParse(w){w.scrollTo=()=>{};}});
+ try {
+  const w=dom.window,d=w.document,about=d.querySelector('[data-page="about"]');
+  assert.ok(about);assert.equal(about.hidden,false);assert.equal(d.title,'AquidneckAI — about this evolving project');
+  const nav=d.querySelector('nav a[href="#about"]');assert.ok(nav);assert.equal(nav.getAttribute('aria-current'),'page');
+  assert.equal(about.getAttribute('aria-labelledby'),'about-title');assert.equal(d.getElementById('about-title').tagName,'H1');
+  for(const link of about.querySelectorAll('a[href^="#"]')) assert.ok(d.getElementById(link.hash.slice(1)),'Missing About anchor target: '+link.hash);
+  assert.match(html,/\.about-tech-grid\{grid-template-columns:repeat\(3,minmax\(0,1fr\)\)\}/);
+  assert.match(html,/\.about-tech-grid\{grid-template-columns:1fr\}/);
+  assert.match(html,/\.timeline li\{grid-template-columns:1fr;gap:3px\}/);
+  const copy=about.textContent.replace(/\s+/g,' ');
+  for(const phrase of ['Newport’s Fifth Ward','transplant','Logo','C++','Daniel Webster College','NuMega','signal processing','control systems','electronics','Bangkok','Sun Microsystems','Burlington Code Academy','December 2022','Google Gemini 2.5 Flash Lite','October 6, 2026','not a live window']) assert.ok(copy.includes(phrase),'Missing About detail: '+phrase);
+  assert.match(copy,/did not earn a degree/i);
+  assert.match(copy,/ordinary article candidates wait for human editorial review/i);
+  assert.match(copy,/Completed changes are tested and saved at reviewable checkpoints/i);
+  assert.match(copy,/The owner must approve a production release/i);
+  assert.match(copy,/repository-record snapshot, not a live provider/i);
+  assert.match(copy,/Broad live discovery is still a goal/i);
+  assert.match(html,/connect-src 'none'/);
+  assert.equal(d.querySelectorAll('form,script[src],iframe').length,0);
+  for(const a of about.querySelectorAll('a[href^="https:"]')) assert.match(a.rel,/noreferrer/);
+  w.location.hash='#guide';w.route(false);assert.equal(d.querySelector('[data-page="guide"]').hidden,false);
+  w.location.hash='#about';w.route(false);assert.equal(d.querySelector('[data-page="about"]').hidden,false);assert.equal(d.querySelector('nav a[href="#about"]').getAttribute('aria-current'),'page');
+ } finally {dom.window.close();}
+});
