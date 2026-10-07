@@ -21,6 +21,10 @@ Follow-up interview answered 2026-10-06: prioritize self-employed local blue-col
 
 Stay within the existing subscription and platform-enforced usage limits. Remaining usage and reset timing are not exposed to this task; do not invent a numeric quota or claim quota monitoring. Use bounded tasks, reuse evidence and valid test outputs, avoid duplicate agent work and unchanged retries, and stop/back off when the platform reports a usage limit. Do not purchase credits, enable overage, raise caps or equate a ChatGPT subscription with OpenRouter/API credit.
 
+## October 7 news-first priority correction
+
+The owner clarified that useful news from local resources and broader authors/publications must be central. Source quality/provenance/news display now precede additional isolated exercises. Preserve G-001/G-002/G-003 and practical/connection paths; do not treat the trades example as an exclusive audience. AQ-031 reconciles this in the existing draft PR1; AQ-032 is the preferred bounded fixture/contract successor. Base context records intent, not integration of the draft. No expanded live access, source enrollment, paid usage, publication or deployment is implied. Parent owns serial successors and user updates.
+
 ## Goal and task selection
 
 For each authorized session or scheduled task:
