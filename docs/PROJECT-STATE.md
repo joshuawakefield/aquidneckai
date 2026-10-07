@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-07T00:28Z. Latest priority: useful-news clarification below. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-07T00:52Z. Latest result: AQ-032 offline news provenance and owner-confirmed technology scope below. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -26,7 +26,7 @@ The new record contains charter, architecture, decision register, backlog, dated
 ## Boundaries and next work
 
 - Supabase stays Free. Keep existing inference limits and paid-call recovery safeguards.
-- Manual staging deployments only; no apex/DNS cutover, plan purchase or source-discovery loop.
+- Manual staging deployments only; no apex/DNS cutover or plan purchase. Automatic source discovery is now a desired capability; AQ-033 prepares offline evaluation only, with no live loop/enrollment activated.
 - Migration history is unreconciled. No blanket database push. Runtime data is in Supabase; repository context is not a database backup.
 - General articles require human editorial approval; strict automatic official-calendar publication is separate.
 - Source CRUD, continuing arcs, broader model routing and sponsorship are still backlog work.
@@ -143,3 +143,13 @@ The owner explicitly clarified that useful news from local resources and broader
 Repository evidence: 189 catalog adapter entries are not the full registry or article corpus; runtime 269/208 counts remain dated. Current classifier rejects useful local items lacking AI evidence; page watches cannot be approved as articles; feed publication time is AquidneckAI approval time and author/source/check fields are missing. Broader local selection is a proposal requiring fixture review, not a silently relaxed publication gate. One Useful Thing About verified Ethan Mollick's self-described scope October 7. TAAFT official pages were inaccessible; current identity/access revalidation remains unknown, with historical directory/newsletter distinction preserved.
 
 PR1 local validation: 13 prototype / 16 continuity tests, 320/390/1280px browser filters/navigation/provenance/states, and full 54 frontend / 65 backend / 39 Python baseline, TypeScript/build/auth passed; lint 0 errors/8 existing warnings. No current runtime/host/source-health evidence follows. AQ-030 screenshot delivery recovered per parent; hosted isolation/rollback remain unknown. Parent owns successors and user updates. Exact commits/CI are in task closeout; no deployment, worker, database/SQL, inference, source enrollment, publication, DNS, spending or schedule action.
+
+## AQ-032 offline provenance — October 7
+
+[Contract report](reports/2026-10-07-news-provenance-contract.md) and pure offline fixture module distinguish evidenced publication/byline, original source/update dates, fetched/checked asset URL and scope, application approval, rights/access, source condition, factual local signal and editorial interpretation. Missing/ambiguous values stay unknown; page checks do not verify linked stories; canonical/syndication hints only suggest review. Thirteen regression groups pass and are registered in the offline baseline. No schema, migration, runtime/API/provider/UI wiring or new production fields.
+
+Node 22.23.3/Python 3.12.14 baseline passed: TypeScript, 54 frontend / 78 backend / 39 Python tests, build and loopback auth smoke; lint 0 errors/8 unchanged warnings and 16 continuity tests. Memory check passed against exact start `1782b42766ee5a7afad58b0c32b2c461ad142230`. Local checks do not establish source accuracy, rights, current hosting or reader benefit.
+
+The owner answered during this task: AI/robotics/automation/frontier technology, local first and regional/global when useful, including consumer/art/luxury/home/SMB/workflow applications; general nontech news without this relationship stays outside scope. Automatic source discovery/collection/verification/judgment is a desired capability. AQ-033 prepares bounded offline evaluation, separate from recurring enrollment and publication. Current AI gates and narrow auto-publication remain unchanged; fixtures show robotics/automation/frontier false negatives and preserve ordinary nontech rejection. One Useful Thing individual-story metadata/rights remain unknown beyond AQ-031's About finding; TAAFT current identity/access remains unverified. No fresh source-health claim.
+
+Next meaningful small task: parent assign the proposed **Published → Added to AquidneckAI** current news-card label correction with focused UI regression, preserving existing public payload/date semantics. The report documents approval/reapproval evidence and compatibility limits. AQ-033 scope/source evaluation and AQ-007 bounded saved-page story extraction are subsequent independent steps; current runtime policy needs separate fixture-led alignment with the confirmed technology scope. PR1/PR2/PR3 remain untouched/draft/unmerged. Full check and remote evidence are recorded in the [journal](journal/2026-10-07-0042Z-news-provenance-contract.md) and task closeout; no successor, schedule, live service, inference, SQL, deployment or spending action. Existing Supabase Free/caps/manual staging/legacy apex boundaries remain; exact model/quota unknown.

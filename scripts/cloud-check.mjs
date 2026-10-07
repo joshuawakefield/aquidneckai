@@ -10,7 +10,7 @@ export const repositoryRoot=resolve(dirname(fileURLToPath(import.meta.url)),'..'
 export const nodeTests=[
  'test-assessment-batches.mjs','test-assessment-result.mjs','test-bounded-reads.mjs',
  'test-calendar-signals.mjs','test-classification-policy.mjs','test-cloud-environment.mjs','test-collector-policy.mjs',
- 'test-cycle-runner.mjs','test-editorial-handler.mjs','test-published-feed.mjs',
+ 'test-cycle-runner.mjs','test-editorial-handler.mjs','test-published-feed.mjs','test-news-provenance.mjs',
  'test-recovery-cache.mjs','test-source-expansion.mjs','test-source-readiness.mjs',
 ].map(name=>'scripts/'+name);
 export const pythonTests=[
