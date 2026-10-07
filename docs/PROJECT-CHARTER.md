@@ -4,7 +4,7 @@ Recorded: 2026-10-06. This is durable product intent, reconstructed from the own
 
 ## Purpose and audience
 
-Make AquidneckAI a trusted daily destination for understanding AI and putting it to use around Aquidneck Island. Initially emphasize residents and local business owners, with a slight business tilt: explain what changed, why it matters, what can be done now, and what is coming.
+Make AquidneckAI Island residents' and SMBs' go-to useful AI, robotics, automation and frontier-technology hub: local first, regional/global when useful. Include consumer, art, luxury, home and business/workflow applications, with a slight business tilt. Explain what changed, why it matters, what can be done now, and what is coming. General local news without a substantive technology connection is outside scope.
 
 The product should become a sustainable, sponsor-supported business with little routine owner labor. The owner can help tune the system and make valuable editorial decisions; that availability must not become the system's required daily maintenance budget.
 
@@ -30,7 +30,7 @@ The proposed first release leads with two complementary streams: **local technol
 
 Owner clarification received during AQ-032 resolves subject scope: AI, robotics, automation and frontier technology, local first and regional/global when useful to people who live or work on the Island. Include consumer, art/creative, luxury, home, SMB and workflow applications; coverage is broader than professional/trades uses. Ordinary nontech news without a relationship to these areas is outside scope. The owner wants AquidneckAI to be the natural destination for Island readers seeking information in this space. Current runtime AI gates remain unchanged until a separate tested implementation of this broader technology scope. The [offline provenance contract](reports/2026-10-07-news-provenance-contract.md) keeps factual local signal separate from editorial usefulness interpretation.
 
-Automatic discovery, collection, verification and judgment of relevant source candidates is now an explicit desired capability. Separate candidate discovery from evidence/access/rights evaluation, recurring enrollment and editorial publication. This supersedes treating automatic discovery as an enduring product non-goal; it does not expand this task's live-operation, enrollment, inference or spending authority. AQ-033 defines the next bounded offline evaluation step before any service is launched.
+Automatic discovery, collection, verification and judgment of relevant source candidates is now an explicit desired capability. Separate candidate discovery from evidence/access/rights evaluation, recurring enrollment and editorial publication. This supersedes treating automatic discovery as an enduring product non-goal; it does not expand this task's live-operation, enrollment, inference or spending authority. AQ-033's [offline evaluation](reports/2026-10-07-technology-source-evaluation.md) supplies a reviewed-annotation rubric and synthetic fixtures; it is not an autonomous classifier or a live discovery service. Source verification is scoped to identity/role/evidence/access/intended use and never establishes every story's accuracy.
 
 Each selected item explains what changed, why it may matter, and a practical next action only when supported. Name the publication and author when known; link the original; separate source publication, collection, editorial check and AquidneckAI publication dates; disclose uncertainty, commercial context and expired/corrected information. A reader may simply become better informed without doing an exercise. The owner's trust in named sources is a preference, not a guarantee of every claim. Source-specific review and sponsored/affiliate distinctions remain necessary.
 
@@ -49,7 +49,7 @@ The first [reader-journey/usefulness plan](reports/2026-10-06-trades-reader-jour
 ## Editorial scope
 
 - Center Newport, Middletown and Portsmouth; include Jamestown, Tiverton, Little Compton, Bristol, Barrington, Providence, Rhode Island statewide and the nearby South Coast when useful. These are coverage areas, not a claim that every place belongs to Newport County.
-- Include national and global AI developments when they have a plausible, substantive local implication. Geographic distance alone is not grounds for rejection.
+- Include national and global AI, robotics, automation and frontier-technology developments with substantive usefulness for Island readers. Geographic distance alone is not grounds for rejection; do not invent local adoption or measured benefits.
 - Include useful opportunities, training, tools, research, business adoption, policy, events and long-horizon developments. A generic AI mention or invented local angle is not sufficient.
 - Start with an objective account of the development, then explain local usefulness. Distinguish source facts from editorial interpretation and predictions. Do not force local wording into every headline.
 - Prefer a coherent searchable reader experience over mandatory audience or town segmentation. Internal geographic and topic labels remain useful for editorial assessment.
@@ -75,6 +75,8 @@ The deployed starting point has curated resources, practical exercises, a publis
 The owner wants strong reasoning for consequential choices, capable engineering assistance and cheaper models for tightly controlled tasks. The requested Astra/Sol/Luna division is an aspiration, not a deployed provider configuration. The current worker uses Gemini 2.5 Flash Lite through OpenRouter. Any routing change needs an evaluation, explicit failure behavior and a cost ceiling.
 
 Cloudflare AI and packaged CMS products were raised as possibilities, not selected components. Reuse the working stack unless a demonstrated improvement reduces owner work, operating cost or implementation risk. Avoid a platform rewrite merely because another product exists.
+
+October 7 budget clarification: the existing $1 non-resetting cap is a **test budget** that repeated, possibly daily checks should consume slowly. Roughly $0.10 is an owner estimate, not verified current usage. Future dollar-by-dollar funding depends on actual usefulness/usage and a later deliberate decision; no refill, payment or cap raise is authorized now. Separate source HTTP checks from paid assessment and reuse unchanged evidence. The user-named “OpenAI Decisions API” is a deferred migration idea with product availability unverified; no research, router or migration now. See D-010/D-033 and the [budget note](reports/2026-10-06-operating-costs.md#october-7-owner-test-budget-clarification).
 
 ## Measures of success
 
