@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-07T02:54Z. AQ-036 is merged to `aqai-local-index` as commit `136f63bbbeaf344b6ffefbc529c0d12c0dcae329`; its exact-merge workflow [run 37563009994](https://github.com/joshuawakefield/aquidneckai/actions/runs/37563009994) passed the offline report and project-memory checks. PR1 is reconciled against this base and remains open/draft/unmerged; the proposal is not application integration or deployment. Review and approval remain separate. Read the [index](README.md), [workflow](AGENT-WORKFLOW.md) and [local-first guide](LOCAL-FIRST-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-07T03:03Z. AQ-036 is merged to `aqai-local-index` as commit `136f63bbbeaf344b6ffefbc529c0d12c0dcae329`; its exact-merge workflow [run 37563009994](https://github.com/joshuawakefield/aquidneckai/actions/runs/37563009994) passed. PR1 is reconciled with that base and remains open/draft/unmerged; its standalone prototype unit suite now joins the deterministic offline checks when its test file exists. The proposal is not application integration or deployment. Review and approval remain separate. Read the [index](README.md), [workflow](AGENT-WORKFLOW.md) and [local-first guide](LOCAL-FIRST-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
