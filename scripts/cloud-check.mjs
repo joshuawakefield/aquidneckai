@@ -87,7 +87,7 @@ export function runCommand(label,command,args,{root=repositoryRoot,offline=true,
 
 export async function runCloudChecks({root=repositoryRoot}={}){
  const runtime=preflight(root);
- const required=[...nodeTests,...pythonTests,...frontendTests,'src/test/setup.ts','scripts/test-production-server.mjs',
+ const required=[...nodeTests,...pythonTests,...frontendTests,'src/test/setup.ts','scripts/test-production-server.mjs','scripts/test-public-reader-policy.mjs',
   'scripts/reconcile-saved-candidates.mjs','node_modules/typescript/bin/tsc','node_modules/vitest/vitest.mjs','node_modules/vite/bin/vite.js'];
  for(const file of required)if(!fs.existsSync(resolve(root,file)))throw Error('Missing offline test dependency: '+file+'. Run cloud-setup with --install after checking out the complete test files.');
  console.log('Offline checks: Node '+process.versions.node+', Python '+runtime.pythonVersion+'. No service credentials or live worker.');
@@ -99,6 +99,7 @@ export async function runCloudChecks({root=repositoryRoot}={}){
  const pythonHarness='import runpy,socket,sys; socket.socket.connect=lambda *a,**k: (_ for _ in ()).throw(RuntimeError("Cloud checks block network access")); script=sys.argv[1]; sys.path.insert(0,"scripts"); sys.argv=[script]; runpy.run_path(script,run_name="__main__")';
  for(const file of pythonTests)runCommand('Python '+file,runtime.python,['-c',pythonHarness,file],{root});
  runCommand('Production frontend build',process.execPath,['node_modules/vite/bin/vite.js','build'],{root});
+ runCommand('Loopback reader-policy regression tests',process.execPath,['--test','scripts/test-public-reader-policy.mjs'],{root});
  runCommand('Loopback server authentication smoke',process.execPath,['scripts/test-production-server.mjs'],{root});
  console.log('\nCloud checks passed. No live database, source collection, inference, migration or deployment was run.');
 }

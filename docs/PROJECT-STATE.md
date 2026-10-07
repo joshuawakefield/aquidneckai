@@ -1,8 +1,14 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T23:50Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-07T00:00Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
+
+AQ-029 prepares a **new draft-only, default-private reader route policy** from development `7cfda3354c46e92346d55f2b936781b331f03d75`; see the [readiness amendment](reports/2026-10-06-release-readiness-v01.md#aq-029-draft-only-route-policy-amendment--2026-10-07) and [journal](journal/2026-10-06-2355Z-public-reader-policy.md). No merge, hosted configuration, permission or deployment changed. Absent/false flag retains reader/assets authentication; exact true is exercised only in offline loopback fixtures. The proposed public set is `/`, favicon.svg and the built reader's static dependencies, excluding lazy editorial chunks. Private APIs/admin remain authenticated; existing anonymous feed/health remain. Canonical raw paths, no public fallback, explicit feed fields and fail-closed configuration/artifacts reduce exposure risk. Hosted true/deploy requires separate explicit approval; AQ-010 remains blocked.
+
+Local validation: Node 22.23.3/Python 3.12.14, TypeScript, 54 frontend / 87 backend (66 unit + 21 route/build fixture) / 39 Python tests, build/auth smoke; lint 0 errors/8 unchanged warnings and 16 continuity tests. Success through the stub adapter is not live authorization evidence. Public artifact bytes/imports were reviewed; no generic secret-detection guarantee. Remote head/CI proof is supplied in closeout after push, not inferred here. PR1 968cd3fb and PR2 c7f4805 remain open/draft/unmerged and untouched; AQ-024/025/028 and D-027–029 reserved.
+
+Next independent task: prepare a neutral reader-evaluation script and evidence template for PR1's Understand/Use/Connect journey, with task-success, misunderstanding and unverified-claim criteria; no recruitment, outreach, telemetry, publication or whole-design integration. Parent selects/assigns a fresh ID after reconciliation; no successor or schedule launched here. Exact task model/quota are not exposed.
 
 The replacement reader and authenticated editorial dashboard are deployed to [staging.aquidneckai.com](https://staging.aquidneckai.com/), application commit `b34b14e11e2fb7403afddef1fc4004a078620449`, verified October 6 around 20:27 UTC. The existing public apex remains on Netlify. Automatic hosting builds are off.
 

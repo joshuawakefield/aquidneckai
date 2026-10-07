@@ -14,6 +14,14 @@ test('event end time and Newport date-only boundaries determine whether an event
  assert.equal(eventState(event('yesterday','2026-10-03'),now),'past');
  assert.equal(eventState(event('invalid','2026-02-31'),now),'unknown');
 });
+test('public projection drops unexpected private fields from current and archived entries',()=>{
+ const extra={review_notes:'fixture-private',evidence_excerpt:'fixture-private',claim:'fixture-private',provider_usage:{key:'fixture-private'}};
+ const data=readerPublications([event('future','2026-10-07',extra),event('past','2026-09-01',extra),event('draft','2026-10-08',{...extra,status:'candidate'})],now);
+ for(const item of [...data.items,...data.pastEvents]){
+  assert.deepEqual(Object.keys(item).sort(),['id','kind','starts_at','published_at'].sort());
+ }
+ assert.ok(!JSON.stringify(data).includes('fixture-private'));
+});
 test('homepage arrays are bounded, recent articles are ordered and archives are explicit',()=>{
  const events=Array.from({length:30},(_,i)=>event('past'+i,new Date(now-(i+1)*86400000).toISOString()));
  const future=Array.from({length:30},(_,i)=>event('future'+i,new Date(now+(i+1)*86400000).toISOString()));

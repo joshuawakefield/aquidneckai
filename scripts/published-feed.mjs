@@ -1,5 +1,6 @@
 import {cachedRead} from './read-cache.mjs';
 const fields='id,canonical_url,title,summary,local_evidence,towns,kind,status,starts_at,ends_at,published_at';
+const publicFields=['id','canonical_url','title','summary','local_evidence','towns','kind','starts_at','ends_at','published_at'];
 const dayFormat=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'});
 const dateOnly=/^\d{4}-\d{2}-\d{2}$/;
 const localDay=now=>{const parts=Object.fromEntries(dayFormat.formatToParts(now).map(p=>[p.type,p.value]));return `${parts.year}-${parts.month}-${parts.day}`;};
@@ -25,7 +26,8 @@ export function readerPublications(rows,now=Date.now()){
  const upcoming=events.filter(item=>eventState(item,now)==='upcoming').sort((a,b)=>timestamp(a.starts_at)-timestamp(b.starts_at)).slice(0,12);
  const news=safe.filter(item=>item.kind!=='event'&&timestamp(item.published_at)<=now&&timestamp(item.published_at)>=now-90*86400000).sort((a,b)=>timestamp(b.published_at)-timestamp(a.published_at)).slice(0,12);
  const pastEvents=events.filter(item=>eventState(item,now)==='past').sort((a,b)=>timestamp(b.ends_at||b.starts_at)-timestamp(a.ends_at||a.starts_at)).slice(0,6);
- const publicItem=({status,...item})=>item;
+ // Project again at the public boundary, even if a future DB select widens.
+ const publicItem=item=>Object.fromEntries(publicFields.filter(field=>Object.hasOwn(item,field)).map(field=>[field,item[field]]));
  return {items:[...upcoming,...news].map(publicItem),pastEvents:pastEvents.map(publicItem)};
 }
 export function createPublishedFeed(db,{now=Date.now}={}){
