@@ -13,6 +13,7 @@ Canonical repository: [joshuawakefield/aquidneckai, aqai-local-index](https://gi
 7. [CLOUD-HANDOFF](CLOUD-HANDOFF.md): environment recipe and Dot instructions.
 8. [OPERATING-MODE](OPERATING-MODE.md): interview gaps, task selection and ongoing knowledge capture.
 9. [ENVIRONMENT-REGISTER](ENVIRONMENT-REGISTER.md): dated, non-secret plan and capability evidence.
+10. [LOCAL-FIRST-WORKFLOW](LOCAL-FIRST-WORKFLOW.md): deterministic project scripts, report commands and judgment boundaries.
 
 To finish Dot activation, use [DOT-START](DOT-START.md): prepared launch message, trigger defaults, startup evidence and model-selection guidance.
 
@@ -31,6 +32,7 @@ Then read only the relevant [reports](reports/), [journal](journal/), code and [
 | Deferred idea or unfinished task | BACKLOG, permanent AQ-ID |
 | Interaction outcome, learning, tests, handoff | journal/YYYY-MM-DD-HHMMZ-topic.md |
 | Dated audit, research, costs, source coverage | reports/YYYY-MM-DD-topic.md |
+| Script inventory, local commands, model-vs-deterministic boundary | LOCAL-FIRST-WORKFLOW and tested scripts |
 | Runtime sources, collected content, editorial history | Supabase, not this diary |
 | Credentials and private exports | Approved secret store/private backup, never GitHub |
 
@@ -42,7 +44,7 @@ Current state supersedes dated history. Label proposed, implemented, tested and 
 
 GitHub is the shared project knowledge and code record. It does not automatically contain unsaved conversations, local files, credentials or a database backup. Raw local reports remain private; this repository preserves their relevant findings and verification summaries. Database restoration and migration reconciliation remain tracked work.
 
-[AGENTS.md](../AGENTS.md) instructs agents to maintain this record. The [continuity workflow](../.github/workflows/project-memory.yml) checks document structure and requires changed state plus a journal update for substantive push/PR changes. It cannot prove an agent read the docs or that every statement is correct. Branch protection must be configured separately before checks become mandatory merge gates.
+[AGENTS.md](../AGENTS.md) instructs agents to maintain this record. The [local project-check workflow](../.github/workflows/project-memory.yml) installs locked dependencies, runs the Node 22 offline baseline and validates project memory/change records on pull requests and development-branch pushes. It cannot prove an agent read the docs or that every statement is correct. Branch protection must be configured separately before checks become mandatory merge gates.
 
 ## Historical record
 

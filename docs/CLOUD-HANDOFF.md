@@ -13,6 +13,7 @@ Published and UI-verified: 2026-10-06 around 21:09 UTC. AquidneckAI development 
 | Install script | node scripts/cloud-setup.mjs --install |
 | Start instruction | Read AGENTS.md and docs/README.md, then recover the current state and follow docs/AGENT-WORKFLOW.md. |
 | Verification | node scripts/cloud-check.mjs |
+| Local-first report | node scripts/project-check-report.mjs --base <starting-commit> --run-checks |
 | Initial credentials | None: repository development and fixture tests only |
 | Network | Package managers preset; no extra domains or network secrets; GitHub checkout/fetch and npm install verified |
 | Deployment | Manual and separate; never run production worker or migrations during environment preparation |

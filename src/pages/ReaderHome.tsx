@@ -18,9 +18,11 @@ const experiments = [
 
 function Publication({item,past=false}:{item:PublishedItem;past?:boolean}) {
   const domain=website(item.canonical_url);
+  const isEvent=past||item.kind==='event';
+  const displayDate=isEvent?(item.starts_at||item.published_at):item.published_at;
   if(!domain)return null;
   return <article className="reader-publication">
-    <p className="reader-meta">{past?'Past event':item.kind==='event'?'Event':'Published'}{(item.starts_at||item.published_at)&&<> · {dateText((item.starts_at||item.published_at)!)}</>}</p>
+    <p className="reader-meta">{past?'Past event':isEvent?'Event':'Added to AquidneckAI'}{(isEvent?Boolean(displayDate):true)&&<> · {dateText(displayDate)}</>}</p>
     <h3><a href={item.canonical_url} target="_blank" rel="noreferrer">{item.title}<ArrowUpRight aria-hidden="true" size={18}/></a></h3>
     {!past&&item.summary&&<p>{item.summary.length>240?item.summary.slice(0,237)+'…':item.summary}</p>}
     {!past&&item.local_evidence&&<p className="reader-useful"><strong>Why it matters here</strong> {item.local_evidence}</p>}

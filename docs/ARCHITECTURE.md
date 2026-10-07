@@ -49,6 +49,10 @@ Migration history is not reconciled. Applied changes were individually reviewed 
 
 A private Codex Cloud development environment was published October 6; see [handoff](CLOUD-HANDOFF.md). It has no production credentials. Normal parent-coordinated serial development and a scheduled clean-idle wake are now evidenced in the [AQ-020 matrix](OPERATING-MODE.md#aq-020-evidence-matrix--2026-10-06); uninterrupted service and authentic crash/quota recovery are not proven. No model router, Cloudflare AI integration, public chatbot, source-editing dashboard, continuous discovery loop, continuing-topic arcs or sponsor checkout is implied by the working collector. Repository instructions guide future work; each task still needs its own scope and access.
 
+## Local-first project checks
+
+The checked-in deterministic tool inventory and AI-versus-judgment boundary are in [LOCAL-FIRST-WORKFLOW](LOCAL-FIRST-WORKFLOW.md). For a cheap branch/base/diff plus command inventory, run `node scripts/project-check-report.mjs --base <starting-commit> --inventory`; it executes no tests. For actual offline outcomes, use `node scripts/project-check-report.mjs --base <starting-commit> --run-checks --format json` on Node 22. It composes its own regression tests, existing `cloud-check`, continuity tests and project-memory diff check rather than duplicating their behavior. The report is stdout-only, sanitizes child environments and marks all blocked, timed-out or skipped checks as not passed; timed-out command trees are terminated where the OS permits and cleanup status is captured. It never checks a live source, database or deployment.
+
 For next work and its access boundaries, use [BACKLOG.md](BACKLOG.md). Keep source collection, editorial publication, GitHub writes, hosting deployments and production DNS changes as distinct operations with evidence for each.
 
 

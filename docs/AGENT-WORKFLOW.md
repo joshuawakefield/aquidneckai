@@ -10,6 +10,8 @@ This loop applies equally to Codex local, Codex Cloud, a Dot delegating work, or
 3. State the task ID, intended outcome, acceptance criteria and current authority. For competing agents, use separate task branches/PRs and avoid editing the same files concurrently.
 4. Check required access before dependent work. Repository-only tasks need no live credentials. Do not infer authority from a backlog row or historical command.
 
+Before using a model for repetitive project work, consult [LOCAL-FIRST-WORKFLOW](LOCAL-FIRST-WORKFLOW.md) and inspect the existing scripts. Prefer the existing deterministic command for checks, normalization, replay and formatting; only add a script when its bounds and fixture expectations can be stated. Use a model only for residual semantic judgment a tested script cannot perform, choosing the least costly model proven reliable for the task. Script output is evidence, not a substitute for checking input quality or the truth of a human-authored state update.
+
 ## Work and learn
 
 5. Select the next task by expected reader benefit, reduced owner effort, evidence gained and dependencies, using [FIRST-RELEASE-DESIGN](FIRST-RELEASE-DESIGN.md) for the release direction. Reorder or retire backlog items with a concise evidence-backed reason. Make one bounded change. Prefer low operating cost and less owner work. Verify uncertain current provider details against official sources.

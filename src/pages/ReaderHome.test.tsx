@@ -96,3 +96,36 @@ it('aborts an interrupted visit and restores the static exercise on return witho
  expect(card).toHaveTextContent('Using only these fictional facts');
  expect(storage).not.toHaveBeenCalled();expect(fetcher).toHaveBeenCalledTimes(2);
 });
+
+// Fictional source/event dates deliberately differ from the application approval.
+const newsFixture={id:'news-date',title:'Fictional technology news',canonical_url:'https://example.test/story',summary:'Fixture only.',kind:'news',starts_at:'2026-09-22',ends_at:null,published_at:'2026-10-07T00:30:00Z',source_published_at:'2020-01-01'};
+const renderListing=async(overrides:Record<string,unknown>={})=>{
+ vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,json:async()=>({items:[{...newsFixture,...overrides}],pastEvents:[]})}));
+ render(<ReaderHome/>);
+ return (await screen.findByRole('heading',{name:newsFixture.title})).closest('article')!;
+};
+it('labels news with its AquidneckAI addition date, never source publication or event start',async()=>{
+ const card=await renderListing();
+ expect(within(card).getByText('Added to AquidneckAI · Oct 6, 2026')).toBeVisible();
+ expect(card).not.toHaveTextContent(/Published|Sep 22|2020/);
+ expect(within(card).getByRole('link',{name:newsFixture.title})).toHaveAttribute('href',newsFixture.canonical_url);
+});
+it.each([null,undefined,'','not-a-date','2026-02-30'])('keeps missing/invalid news addition date unknown (%s), without a source/event fallback',async(published_at)=>{
+ const card=await renderListing({published_at});
+ expect(within(card).getByText('Added to AquidneckAI · Date unknown')).toBeVisible();
+ expect(card).not.toHaveTextContent(/Invalid Date|Published|Sep 22|2020/);
+});
+it.each([
+ ['2026-09-22','Event · Sep 22, 2026'],
+ ['2026-10-07T00:30:00Z','Event · Oct 6, 2026'],
+ ['invalid','Event · Date unknown'],
+ [null,'Event · Oct 6, 2026'],
+])('preserves event start/date-only/invalid/fallback rendering (%s)',async(starts_at,expected)=>{
+ const card=await renderListing({kind:'event',starts_at});
+ expect(within(card).getByText(expected)).toBeVisible();
+ expect(card).not.toHaveTextContent('Added to AquidneckAI');
+});
+it('preserves an undated event without inventing a timestamp',async()=>{
+ const card=await renderListing({kind:'event',starts_at:null,published_at:null});
+ expect(within(card).getByText('Event',{exact:true})).toBeVisible();
+});
