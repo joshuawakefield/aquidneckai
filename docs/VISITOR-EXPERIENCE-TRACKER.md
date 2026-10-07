@@ -72,3 +72,10 @@ Raw data/ verification files mentioned above remain private local evidence, not 
 ## AQ-010 release assessment — October 6, 23:50 UTC
 
 [Readiness matrix v0.1](reports/2026-10-06-release-readiness-v01.md) preserves the distinction between historical staging rows above and current local tests. Expanded loopback checks confirm root/admin/assets remain staging-authenticated, private APIs require auth and anonymous feed failure stays unavailable. No public-reader enablement or current staging verification occurred. F01 launch gates, F08 staging follow-through and F09 production/usefulness remain open; PR1 AQ-028 sourced cards exist only in the unmerged v0.3 proposal. Actual reader benefit and readership remain untested.
+
+
+## AQ-029 reader delivery proposal — October 7, local only
+
+F01 remains OPEN: the default-private [route-policy amendment](reports/2026-10-06-release-readiness-v01.md#aq-029-draft-only-route-policy-amendment--2026-10-07) is implemented and fixture-tested on a new draft branch, without hosted access enablement, merge or deployment. Exact opt-in reader dependencies work in loopback; both admin aliases, private chunks/APIs and unknown paths remain authenticated. 21 policy/build/HTTP tests include configuration rollback, traversal, methods, queries, missing/symlink files, safe cache/errors and feed minimization. All 54 frontend tests remain passing. F08 staging and F09 integration/reader usefulness remain unverified; design drafts are untouched. No actual public-reader or current staging evidence is added by these fixtures.
+
+Independent October 7 [boundary review](reports/2026-10-07-pr3-independent-boundary-review.md) found no blocking defect. Actual Chromium loaded the built reader and synthetic publication anonymously using the admitted JS/CSS/favicon; external font requests were blocked and admin remained 401. Raw HTTP probes and fixture private APIs confirmed the auth boundary. This adds local evidence only: F01/F08/F09, hosted edge behavior and production-data isolation remain open/unverified. No design, deployment, hosted access or reader-benefit claim changed.
