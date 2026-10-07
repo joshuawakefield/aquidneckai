@@ -1,4 +1,4 @@
-name: Project memory
+name: Local project checks and memory
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  continuity:
+  local-checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,18 +21,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Test continuity rules
-        run: node --test scripts/test-project-memory.mjs
-      - name: Validate documentation and change record
-        if: github.event_name == 'pull_request'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install locked project dependencies
+        run: npm ci
+      - name: Run offline project report and change-record checks
         env:
-          MEMORY_BASE: ${{ github.event.pull_request.base.sha }}
-        run: node scripts/check-project-memory.mjs --base "$MEMORY_BASE"
-      - name: Validate documentation structure
-        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.event.before == '0000000000000000000000000000000000000000')
-        run: node scripts/check-project-memory.mjs
-      - name: Validate pushed change record
-        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
-        env:
-          MEMORY_BASE: ${{ github.event.before }}
-        run: node scripts/check-project-memory.mjs --base "$MEMORY_BASE"
+          CHECK_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before || github.sha }}
+        run: |
+          if [[ "$CHECK_BASE" =~ ^0{40}$ ]]; then CHECK_BASE="$(git rev-parse HEAD)"; fi
+          node scripts/project-check-report.mjs --base "$CHECK_BASE" --run-checks --format json

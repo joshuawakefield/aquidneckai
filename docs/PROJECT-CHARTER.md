@@ -78,6 +78,10 @@ Cloudflare AI and packaged CMS products were raised as possibilities, not select
 
 October 7 budget clarification: the existing $1 non-resetting cap is a **test budget** that repeated, possibly daily checks should consume slowly. Roughly $0.10 is an owner estimate, not verified current usage. Future dollar-by-dollar funding depends on actual usefulness/usage and a later deliberate decision; no refill, payment or cap raise is authorized now. Separate source HTTP checks from paid assessment and reuse unchanged evidence. The user-named “OpenAI Decisions API” is a deferred migration idea with product availability unverified; no research, router or migration now. See D-010/D-033 and the [budget note](reports/2026-10-06-operating-costs.md#october-7-owner-test-budget-clarification).
 
+## Script-first project work
+
+Use bounded, deterministic local scripts for work that can be reproduced and fixture-tested: project validation, report assembly, provenance normalization, source-rule checks and unchanged-result reuse. Before asking a model to repeat a check or format a status report, inspect the [local-first workflow](LOCAL-FIRST-WORKFLOW.md) and use the script's actual output. Keep semantic judgments about factual accuracy, reader usefulness, local relevance, news priority and rights with human review; scripts can surface evidence and unknowns but cannot certify them. For residual model-assisted work, use the least expensive model demonstrated to meet that task's quality bar, and escalate only when task evidence warrants it. This is a workflow preference, not a provider/router change or an increase to any spending or inference limit.
+
 ## Measures of success
 
 Track useful current coverage, evidence accuracy, repeat readership, actionable local opportunities, time spent resolving exceptions, source health, duplicate/noisy assessments and actual operating cost. Later measure sponsor interest and retention. Raw source count, page volume or number of model calls are not success measures.

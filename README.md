@@ -19,5 +19,4 @@ node scripts/cloud-setup.mjs --install
 node scripts/cloud-check.mjs
 ```
 
-Setup installs locked npm dependencies. Checks use fixtures and local loopback only; no production credentials are needed. See the handoff for network/access boundaries and migration cautions.
-
+Setup installs locked npm dependencies. Checks use fixtures and local loopback only; no production credentials are needed. For an exact change report, run `node scripts/project-check-report.mjs --base <starting-commit> --inventory`; this cheap mode runs no tests. Run the full offline baseline and change-record checks with `node scripts/project-check-report.mjs --base <starting-commit> --run-checks`. See [the local-first workflow](docs/LOCAL-FIRST-WORKFLOW.md) and the cloud handoff for network/access boundaries and migration cautions.

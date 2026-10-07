@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "check:local": "node scripts/project-check-report.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },
