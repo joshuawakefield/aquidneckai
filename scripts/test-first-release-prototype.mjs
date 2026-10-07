@@ -112,7 +112,7 @@ test('About route is discoverable, dated and honest about autonomy, model and bu
   assert.match(html,/\.timeline li\{grid-template-columns:1fr;gap:3px\}/);
   const copy=about.textContent.replace(/\s+/g,' ');
   for(const phrase of ['Newport’s Fifth Ward','transplant','Logo','C++','Daniel Webster College','NuMega','signal processing','control systems','electronics','Bangkok','Sun Microsystems','Burlington Code Academy','December 2022','Google Gemini 2.5 Flash Lite','October 6, 2026','not a live window']) assert.ok(copy.includes(phrase),'Missing About detail: '+phrase);
-  assert.match(copy,/did not earn a degree/i);
+  assert.match(copy,/did not complete a degree/i);
   assert.match(copy,/ordinary article candidates wait for human editorial review/i);
   assert.match(copy,/Completed changes are tested and saved at reviewable checkpoints/i);
   assert.match(copy,/The owner must approve a production release/i);
