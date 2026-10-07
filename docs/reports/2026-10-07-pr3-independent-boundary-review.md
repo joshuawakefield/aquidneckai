@@ -1,0 +1,56 @@
+# PR3 independent boundary review
+
+Reviewed October 7, 2026: AQ-029 draft [PR3](https://github.com/joshuawakefield/aquidneckai/pull/3), exact implementation `64b551b8a585ca42fad92256a91789848cc40b05`, against development `7cfda3354c46e92346d55f2b936781b331f03d75`. Independent review of the actual 14-file diff, its build output and regression coverage; not a general application audit.
+
+**Recommendation: no blocking security/correctness defect found in the proposed boundary. Suitable for a separately authorized merge review with the flag absent/false; keep PR3 draft and do not merge or enable it in this task.** No application or test implementation changes were needed. This finding does not approve public access or establish live authorization, production-data isolation or release readiness. D-031 remains open; AQ-010 remains blocked.
+
+## Reviewed contract and evidence
+
+| Surface | Source at reviewed head | Independent result |
+|---|---|---|
+| Raw target and method admission | [policy lines 15–20](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/public-reader-policy.mjs#L15-L20), [server lines 35–38](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/production-server.mjs#L35-L38) | Inspects the raw target before URL parsing; encoded/double/triple-encoded paths, dot segments, backslashes, repeated slashes, absolute-form and malformed targets never enter private routes. Node itself rejects some malformed wire targets with 400; the application returns 404 for admitted HTTP requests with invalid paths. |
+| Authentication and fallback ordering | [server lines 49–81](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/production-server.mjs#L49-L81) | Reader opt-in precedes the existing guard, but cannot select private paths. Private handlers and authenticated SPA/static fallback follow the guard. Fixture canaries verify all five private API handlers can run with valid auth, yet receive no adapter calls from anonymous GET/HEAD/POST/OPTIONS, including valid-origin/JSON editorial POST. Unexpected editorial fields return 400 before another adapter call. |
+| Build dependency admission | [policy lines 36–80](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/public-reader-policy.mjs#L36-L80), [Vite config](../../vite.config.ts) | Built manifest contains reader index JS/CSS and a separate dynamic IndexPreview JS/CSS pair. Static imports/assets are recursively admitted, dynamic imports excluded. Actual Chromium reader execution fetched root, reader JS/CSS, favicon and the published feed; no private chunk request or script exception. Direct anonymous admin navigation returned 401. |
+| Files and flag | [policy lines 5–9 and 23–33](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/public-reader-policy.mjs#L5-L33) | Absent/false stays private. Empty/padded/mixed-case flags stop startup. Missing/malformed manifests, missing files, symlinks outside/inside the build, directory symlinks, symlink loops, index aliases and directories posing as assets fail closed. Removing the whole build after startup gives generic no-store 503; individual missing admitted files give 404 without SPA fallback. |
+| Feed projection | [published-feed lines 23–43](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/published-feed.mjs#L23-L43) | All ten intended fields survive projection. Unexpected top-level fields, nested private objects under extra keys, draft and withdrawn records do not. Fixed bounded queries, cache/coalescing and event reclassification remain. Query parameters cannot change DB selection. Column types remain a trusted DB contract; this projection does not validate arbitrary nested values inside allowed fields. |
+| Headers, cache, errors | [server lines 29–34 and 49–82](https://github.com/joshuawakefield/aquidneckai/blob/64b551b8a585ca42fad92256a91789848cc40b05/scripts/production-server.mjs#L29-L82) | New public bytes and auth/errors use no-store/Vary; feed keeps its existing public cache; private assets retain private immutable caching. HEAD has no response body. Existing frame denial, no-sniff/noindex remain. Read/backend failures return generic errors without private canaries. Parser-level 400s happen before application middleware and do not carry its headers. |
+
+## Executed threat cases
+
+In addition to the committed suite, a disposable independent probe reused only its temporary-server setup, with separate assertions, raw `net.Socket` requests, synthetic private API canaries and Chromium CDP. It exercised 297 raw-target requests across absent, false and true flags, plus separate header/middleware/config/filesystem/feed/browser groups. Listeners used ephemeral 127.0.0.1 ports, workers and health DB checks were false, service environment variables were removed, and the Node offline network guard was inherited. Browser external requests were intercepted and denied; a dead loopback proxy and resolver exclusions also prevented external transport. The existing Google Fonts request was observed and blocked, not fetched.
+
+Representative reproducible expectations using the [committed fixture](../../scripts/test-public-reader-policy.mjs), raw requests (do not normalize them with `fetch`) and its synthetic credential:
+
+| Request or fixture action | Expected and observed |
+|---|---|
+| GET `/admin/..`, `/%2fadmin`, `/%252fadmin`, `/%25252fadmin`, `/assets%252freader-test.js`, `/admin\\..\\`, `/api/aqai/published/../status`, absolute-form target | 404, both with and without the fixture credential; no adapter calls |
+| Invalid NUL/tab/high-byte target | Node 400 or application 404; no reader/private bytes |
+| `/assets/reader-test.js/`, `/favicon.svg/`, `/ADMIN`, `/api/aqai/status/`, manifest/unknown paths | Anonymous GET/HEAD 401; POST/OPTIONS 405; HEAD body empty |
+| `/?next=%252fadmin`, `/?path=/api/aqai/status`, `/?%00=%ff`, `/?x=%0d%0aAuthorization%3A` | Only root is selected: 401 absent/false, 200 true; no private dispatch |
+| Private route plus X-Original-URL, X-Rewrite-URL, X-Forwarded-Uri, X-Forwarded-For, method override, Range and conditional-cache headers | 401; none bypasses authentication. POST root with method override stays 405. |
+| Duplicate Authorization: invalid first, valid second | 401; Node selects the first value. Reverse order permits only the already valid credential, not a credentialless bypass. |
+| Valid same-origin JSON editorial POST without auth; same request with fixture auth | 401 without adapter call; authenticated synthetic save 200. Extra input key then returns 400 without another call. |
+| Swap the assets directory for a symlink; self-referential asset; index symlink; directory instead of JS | Opt-in process exits 1 before listening |
+
+The probe scripts/logs remain disposable workspace evidence, not new application dependencies or committed regression code. The committed [21-case policy/build/HTTP suite](../../scripts/test-public-reader-policy.mjs) remains the durable automated baseline; the exact additional cases above make the independent observations replayable.
+
+## Verification ledger
+
+Node 22.23.3, Python 3.12.14; Chromium 151.0.7922.173. Scoped repository commands used `runCommand` from `scripts/cloud-check.mjs` to strip service variables and inherit offline guards:
+
+- **Passed:** fresh production `vite build`; `node --test scripts/test-public-reader-policy.mjs scripts/test-published-feed.mjs scripts/test-editorial-handler.mjs` — 31/31 (21 policy/build/HTTP, 5 feed, 5 editorial).
+- **Passed:** six additional independent groups, across corrected reruns: five TCP/header/middleware/filesystem/feed groups and one Chromium group. Browser publication rendered from synthetic data; external font blocked; private admin 401.
+- **Passed:** `node scripts/test-production-server.mjs` — real-adapter, secret-free auth smoke; unavailable feed truthfully 503; no backend requests made. `node --test scripts/test-project-memory.mjs` — 16/16.
+- **Passed:** `node scripts/check-project-memory.mjs --base 64b551b8a585ca42fad92256a91789848cc40b05`, reviewed five-document upload allowlist and `git diff --check`; final remote/CI identity supplied after push in closeout.
+- **Failed then corrected (probe only):** first raw TCP helper sent FIN before asynchronous responses, producing empty responses; keeping the socket open fixed it. First browser fixture omitted canonical_url, so the reader correctly omitted its publication; adding a synthetic URL fixed the test. Neither required repository changes. Final scoped checks have no unresolved failure.
+- **Unrun here:** full cloud baseline, full lint, full frontend/Python suites, live/staging/provider/database/SQL checks. No code changed, and the implementation's prior full baseline is recorded separately in the [AQ-029 journal](../journal/2026-10-06-2355Z-public-reader-policy.md); do not relabel that as this review's execution. Starting-head [CI 37550027754](https://github.com/joshuawakefield/aquidneckai/actions/runs/37550027754) was independently confirmed successful; it checks continuity only, not the application suites.
+
+Artifact identities: reader `index-ycRNkMMn.js` / `index-Dv1Ldr91.css`; private `IndexPreview-IM4hqVFj.js` / `IndexPreview-CjlqZQPF.css`. SHA256: index HTML `3ec7c7098ce34292c2c78089a4169ea1ff8d6408022c51ccf667400e59b56066`; manifest `f27015b19b282003c732f34e5adc16454f08d531ad6aed826319cb41b86926f5`. No build output uploaded.
+
+## Non-blocking limitations and remaining gates
+
+The existing CSP protects framing, not script execution; a stricter policy and third-party font disposition are separate hardening work. The manifest/files are trusted, immutable release artifacts: path checks are not an atomic snapshot or a defense against an actor replacing application files, hard links or manifest contents. Private route/chunk names appear in the public loader as expected; that does not grant API access. Private source is already in a public repository. No-store cannot revoke downloaded bytes or the pre-existing feed. These are explicit model limits, not newly demonstrated auth bypasses.
+
+Before hosted true or deployment, the [readiness gates](2026-10-06-release-readiness-v01.md#enablement-gates--separate-approval-required) still require actual edge normalization/auth forwarding/cache/TLS tests, exact candidate/artifact/config/rollback approval, deliberate worker behavior, live ACL/RLS and AQ-002 recovery evidence, design/content disposition and reader evidence. Production-data isolation is **unverified**. The parent's suggested disposable fixture workspaces, one stable staging target and separate production promotion remain a strategy recommendation, not authorization to deploy or share a login. Supabase Free, inference safeguards, manual staging and legacy Netlify apex/DNS stay unchanged.
+
+Next bounded task recommendation remains a neutral PR1 reader-evaluation script/evidence template, without outreach, publication, telemetry or design integration. Parent assigns any new ID after reconciliation. No successor or schedule was started.

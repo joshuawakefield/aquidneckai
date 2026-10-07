@@ -35,4 +35,6 @@ Read [PROJECT-STATE.md](PROJECT-STATE.md), [DECISIONS.md](DECISIONS.md) and the 
 
 ## Completion rule
 
+AQ-029 independent review, October 7: [review evidence](reports/2026-10-07-pr3-independent-boundary-review.md) found no blocking defect at PR3 implementation 64b551b8. Build, 31 focused tests, six independent groups, auth smoke and 16 continuity tests passed; no runtime change. Suitable for separate default-private merge review only; keep draft/unmerged. AQ-010 remains blocked, including unverified production-data isolation and hosted-edge/recovery gates. No new task/decision ID allocated.
+
 For each completed task record the changed paths/commit, meaningful tests and their result, deployment target if any, live verification if required, remaining limits and next action. Never close a blocked-source item because it was hidden, an editorial item because it was merely assessed, or a launch item because staging works. Keep delayed ideas here rather than embedding hidden TODOs in chat.
