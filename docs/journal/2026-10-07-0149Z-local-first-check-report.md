@@ -3,7 +3,7 @@
 Task ID: AQ-036
 Started: 2026-10-07T01:49:24Z
 Starting commit: 584f3b839c2e641ff8c83cdd371210201fbdb3aa
-Status: in progress
+Status: completed
 
 ## Request
 
@@ -16,7 +16,7 @@ The owner asked to shift repetitive work toward locally runnable deterministic s
 - Added `scripts/project-check-report.mjs`: cheap inventory mode by default, explicit `--run-checks`, required base commit, actual branch/head/diff and child-process status capture, stdout JSON/text, strict Node 22 for full checks, a 10-minute total budget, bounded/redacted diagnostics, retained PATH and documented Python override, and sanitized offline child environments. Timeout cleanup targets POSIX process groups or Windows process trees; cleanup outcome is reported.
 - Added 12 focused regression tests for the wrapper, including descendant-process cleanup and Windows taskkill argument behavior; added `npm run check:local`.
 - Added the script-first inventory/decision boundary, usage commands, deterministic-vs-semantic split and deferred next candidate to the charter, architecture, workflow, operating record, state, backlog and this journal; added D-034.
-- GitHub connector created `proposal/aq036-local-script-first` from the exact base SHA. No commit or PR yet; no placeholder snapshot files are in the proposed allowlist.
+- GitHub connector created `proposal/aq036-local-script-first` from the exact base SHA and published only the 17-file reviewed allowlist. No snapshot placeholders were included.
 
 ## Decisions and rationale
 
@@ -30,8 +30,8 @@ The supplied source snapshot was accessed through GitHub connector reads at the 
 - `node scripts/check-project-memory.mjs`: passed on 64 exact-snapshot Markdown files, but this was a partial materialization with non-Markdown path placeholders and is not full-repository verification.
 - `node --test scripts/test-project-memory.mjs`: existing 16/16 continuity tests passed on Node 24.19.0.
 - Full `scripts/cloud-check.mjs` was not run locally. No Node 22 binary, version manager or cached Node 22 package was available; the script correctly requires Node 22. The repo's egress allowlist did not include an official Node/npm download source, so no install or access expansion was attempted.
-- Add/verify the new Node 22 CI run on the draft PR before completion. No LLM/API calls, live source requests, DB/service operations or production actions occurred.
+- [GitHub Actions run 37560441072](https://github.com/joshuawakefield/aquidneckai/actions/runs/37560441072) / run #36 for the PR passed on Node 22.23.3 and Python 3.12.14. The full report JSON had `status: passed`; all four command groups passed: wrapper regression suite (12 tests), `cloud-check` (TypeScript, frontend/backend/Python regressions, build and loopback authentication smoke), continuity suite (16 tests) and `check-project-memory --base` (66 Markdown files against exact base `584f3b839c2e641ff8c83cdd371210201fbdb3aa`). PR head is `f51043fafc2f33c2dfc074a6af599a4b40f04b36`; CI executed the GitHub merge ref `c02957da82737a5c8670fe34ac6a946e84de1f4b`. No LLM/API calls, live source requests, DB/service operations or production actions occurred.
 
 ## Next steps
 
-Materialize only the reviewed changed-file allowlist into the new GitHub branch, open a draft PR to `aqai-local-index`, and verify exact commit, workflow results and full project CI output. If any check is blocked, timed out or fails, record that actual result and keep AQ-036 open; do not claim a pass. Do not merge. Preserve the existing live/cost/deployment boundaries and let the parent assign any successor.
+PR #4 remains draft and unmerged for review. The task's implementation and CI acceptance criteria are complete on that branch; nothing was deployed. AQ-037 remains deferred until recurring closeout-formatting overhead is observed, and the parent owns any successor. Preserve the existing live/cost/deployment boundaries.
