@@ -13,6 +13,8 @@ export const nodeTests=[
  'test-cycle-runner.mjs','test-editorial-handler.mjs','test-published-feed.mjs','test-news-provenance.mjs',
  'test-recovery-cache.mjs','test-source-expansion.mjs','test-source-readiness.mjs','test-technology-scope.mjs',
 ].map(name=>'scripts/'+name);
+export const optionalNodeTests=['scripts/test-first-release-prototype.mjs'];
+
 export const pythonTests=[
  'scripts/test_audit_sources.py','scripts/test_conditional_download.py',
  'scripts/test-source-pages.py','scripts/test-syndicated-feeds.py',
@@ -87,13 +89,14 @@ export function runCommand(label,command,args,{root=repositoryRoot,offline=true,
 
 export async function runCloudChecks({root=repositoryRoot}={}){
  const runtime=preflight(root);
- const required=[...nodeTests,...pythonTests,...frontendTests,'src/test/setup.ts','scripts/test-production-server.mjs',
+ const activeNodeTests=[...nodeTests,...optionalNodeTests.filter(file=>fs.existsSync(resolve(root,file)))];
+ const required=[...activeNodeTests,...pythonTests,...frontendTests,'src/test/setup.ts','scripts/test-production-server.mjs',
   'scripts/reconcile-saved-candidates.mjs','node_modules/typescript/bin/tsc','node_modules/vitest/vitest.mjs','node_modules/vite/bin/vite.js'];
  for(const file of required)if(!fs.existsSync(resolve(root,file)))throw Error('Missing offline test dependency: '+file+'. Run cloud-setup with --install after checking out the complete test files.');
  console.log('Offline checks: Node '+process.versions.node+', Python '+runtime.pythonVersion+'. No service credentials or live worker.');
  runCommand('TypeScript',process.execPath,['node_modules/typescript/bin/tsc','--noEmit','-p','tsconfig.app.json'],{root});
  runCommand('Frontend regression tests',process.execPath,['node_modules/vitest/vitest.mjs','run',...frontendTests],{root});
- runCommand('Backend regression tests',process.execPath,['--test',...nodeTests],{root});
+ runCommand('Backend regression tests',process.execPath,['--test',...activeNodeTests],{root});
  // Block Python sockets before running the reviewed unittest files. Their HTTP
  // behavior is fully mocked; no source site is contacted for parser verification.
  const pythonHarness='import runpy,socket,sys; socket.socket.connect=lambda *a,**k: (_ for _ in ()).throw(RuntimeError("Cloud checks block network access")); script=sys.argv[1]; sys.path.insert(0,"scripts"); sys.argv=[script]; runpy.run_path(script,run_name="__main__")';

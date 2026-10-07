@@ -18,6 +18,7 @@ Improve the replacement on staging. Preserve the existing Netlify apex, Supabase
 | V08 | Readable mobile typography, keyboard focus, useful loading/error/empty states, no horizontal overflow. | Verified on staging | UI tests; desktop, 390px reader and 375px admin checks; no horizontal overflow |
 | V09 | Honest identity, editorial method, direct contact, owned social metadata. Remove simulated inquiry receipt and unsupported response promise. | Verified on staging; apex separate | Rendered reader identity/contact and metadata verified; legacy form fixes tested in this runtime package, not applied to the existing apex deployment |
 | V10 | Keep costs low: static curated resources, lazy admin bundle, one small public request, bounded cached reads, no new paid service or discovery loop. | Verified on staging | Build sizes, request inspection and auth smoke; Supabase Free, inference cap and manual deployment settings unchanged |
+| V11 | Explain who is building AquidneckAI, which parts are autonomous or AI-assisted, which decisions are human-gated, and the last repository-recorded runtime model/stack date. | Implemented in isolated PR1 prototype; no staging verification | One About route, accessible navigation, owner-authored timeline, dated project-record model/stack notes, separate development/content/deployment claims; targeted route/accessibility assertions and responsive CSS breakpoint assertions. Local browser visual testing was blocked; not live telemetry or public-release evidence |
 
 ## Follow-through that must remain visible
 
@@ -69,6 +70,19 @@ Live operating-cost and schedule audit is in [the dated operating-cost report](r
 
 Raw data/ verification files mentioned above remain private local evidence, not prerequisites for cloud setup. This tracker preserves their relevant results; the shared journal/state and reproducible fixture tests are the handoff record.
 
+## First-release design hypothesis — AQ-024
+
+The owner delegates product/engineering ownership and evidence-led task selection. [FIRST-RELEASE-DESIGN](FIRST-RELEASE-DESIGN.md) ties G-001/G-002/G-003 to Understand, Use and Connect journeys. The [isolated prototype](prototypes/first-release/index.html) demonstrates home, story anatomy, AQ-021-derived guide and fictional connection formats with honest empty/unavailable states. It does not close F08 deployment or F09 real-connection evidence. Desktop/mobile prototype checks are recorded in the [journal](journal/2026-10-06-2252Z-first-release-design.md); production usability, accessibility conformance, real reader benefit and deployment remain separately assessed.
+
+
+## AQ-025 consolidation checkpoint
+
+The [v0.2 canonical proposal](FIRST-RELEASE-DESIGN.md) on PR1 retains one isolated HTML prototype and adds PR2's handwritten invented-appointment exercise plus explicit source/check-date distinctions. PR2's original React proposal, component tests, axe checks and public-route research remain recoverable at c7f4805; they are alternative/historical evidence, not a second canonical release. Both drafts stay open/unmerged. F08 still requires deployment; F09/AQ-022 still requires independent suitable connection evidence. Local reflow/keyboard/flow and automated accessibility results belong to the [AQ-025 journal](journal/2026-10-06-2301Z-design-reconciliation.md), not a conformance, reader-benefit or live-verification claim.
+
+## AQ-028 sourced connection preview
+
+F09 now has an implemented isolated preview on draft PR1, using AQ-022 evidence and a fresh October 6 source check. Two Chamber leads disclose checked/source dates, prices, conditional access and unknown availability/participation. Newport clock boundaries, missing-date and stale evidence states have deterministic fixtures; mobile/desktop and keyboard checks are recorded in the journal. The Understand story and Use exercise stay explicitly illustrative. F09 remains OPEN for production integration, separately authorized release and actual reader usefulness. This is the recommended v0.3 proposal, not final approval or a published directory. PR2 remains untouched.
+
 ## AQ-010 release assessment — October 6, 23:50 UTC
 
 [Readiness matrix v0.1](reports/2026-10-06-release-readiness-v01.md) preserves the distinction between historical staging rows above and current local tests. Expanded loopback checks confirm root/admin/assets remain staging-authenticated, private APIs require auth and anonymous feed failure stays unavailable. No public-reader enablement or current staging verification occurred. F01 launch gates, F08 staging follow-through and F09 production/usefulness remain open; PR1 AQ-028 sourced cards exist only in the unmerged v0.3 proposal. Actual reader benefit and readership remain untested.
@@ -76,7 +90,11 @@ Raw data/ verification files mentioned above remain private local evidence, not 
 
 ## AQ-030 local visual review — October 7
 
-Twelve actual integrated-app fixture captures at 1280/390px and current browser-flow checks are recorded in the [owner packet](reports/2026-10-07-owner-preview-v01.md). Reader resource search, fictional follow-up, private unknown-budget/exception guidance and failed reload are locally verified only. Screenshots inspected; no horizontal overflow, mobile vertical scrolling remains. Library delivery is blocked before file creation; retained private bytes are not a delivered link. F08 still awaits staging follow-through; F01 public-launch and F09 design/connection/usefulness gates are unchanged. No current hosted or real-reader evidence added.
+Twelve actual integrated-app fixture captures at 1280/390px and current browser-flow checks are recorded in the [owner packet](reports/2026-10-07-owner-preview-v01.md). Reader resource search, fictional follow-up, private unknown-budget/exception guidance and failed reload are locally verified only. Screenshots inspected; no horizontal overflow, mobile vertical scrolling remains. Parent reports Library delivery recovered October 7 at 00:27 UTC via direct native upload; helper failure is historical. F08 still awaits staging follow-through; F01 public-launch and F09 design/connection/usefulness gates are unchanged. No current hosted or real-reader evidence added.
+
+## AQ-031 useful-news selection — October 7
+
+**F11 — OPEN for production and reader usefulness:** useful news must be central, with local developments and broader useful ideas for residents and SMBs. The isolated v0.4 PR1 prototype demonstrates combined filters, source/author attribution or explicit unknowns, original links, source-vs-check dates, fact-vs-interpretation, commercial uncertainty and honest sample/expired/error states. Exercise and connection paths remain. The [source-stage audit](reports/2026-10-07-useful-news-source-audit.md) identifies current AI-only selection and missing feed provenance fields; The separate offline AQ-032 contract is now complete on the base; no runtime policy or integration follows. Local tests do not establish current source health, actual readership, production integration or deployment. F08/F09 and release gates remain open.
 
 ## AQ-032 provenance follow-through — October 7
 

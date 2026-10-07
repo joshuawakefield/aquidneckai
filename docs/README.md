@@ -17,6 +17,8 @@ Canonical repository: [joshuawakefield/aquidneckai, aqai-local-index](https://gi
 
 To finish Dot activation, use [DOT-START](DOT-START.md): prepared launch message, trigger defaults, startup evidence and model-selection guidance.
 
+For first-release product/design work, read [FIRST-RELEASE-DESIGN](FIRST-RELEASE-DESIGN.md): thesis, journeys, prototype, evidence gates and sequencing.
+
 Then read only the relevant [reports](reports/), [journal](journal/), code and [visitor tracker](VISITOR-EXPERIENCE-TRACKER.md). Context should become more useful over time without requiring every model to reread a giant diary.
 
 ## Where information belongs
