@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-07T01:12Z. Latest result: AQ-033 isolated offline technology/source evaluation below. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-07T01:23Z. Latest result: AQ-035 isolated candidate manifest/reuse planner below. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -175,3 +175,12 @@ Node 22.23.3/Python 3.12.14: 14 new regression groups; full 65 frontend/92 backe
 Owner budget clarification is now canonical: $1 non-resetting **test** cap, slow consumption across repeated/possibly daily checks; roughly $0.10 is an unverified owner estimate, not current usage. Future dollar-by-dollar funding depends on actual usefulness/usage and later authorization; no refill/payment/cap increase now. HTTP checks and paid assessment remain distinct. The user-named “OpenAI Decisions API” stays deferred with availability unverified; no research/router/provider switch/migration. Current Gemini/OpenRouter, Supabase Free, manual staging and legacy apex/DNS unchanged.
 
 Next bounded proposal: parent assign a fresh ID for an **offline candidate manifest and change/reuse planner** using at most six saved/synthetic seeds and twelve candidate records, mocked 200/304/access/duplicate/changed-content/uncertain-result replay, no live requests or paid calls. The report specifies later request/text/cadence/budget ceilings and independent semantic review, access/rights, shared cost reservation, enrollment and release gates. No production classifier integration is proposed in this commit. PR1 `031bb208`, PR2 `c7f4805`, PR3 `f0097a5` remain open/draft/unmerged and untouched. AQ-034 remains done; AQ-002/010 live gates remain blocked.
+
+
+## AQ-035 bounded manifest/reuse planner — October 7, 01:23 UTC
+
+Implemented and locally tested, offline only: [report](reports/2026-10-07-candidate-reuse-planner.md), six existing catalog seeds → six endpoint candidates, maximum twelve; no new source enrollment. Real access/rights/story verification stays unknown. Three bounded public GET attempts (URI feed, One Useful Thing feed, Chamber programs) failed at the environment proxy before origin content; zero redirects/retries or article text retained. TAAFT was not retried; current identity remains unverified.
+
+Pure planner reuses AQ-033 annotations/reassessment and existing conditional-cache conventions. Twelve synthetic alternative replays match: three unchanged reuse, one saved-response recovery, seven holds/reviews and one changed-body review requiring separate paid authorization. No repeated inference for unchanged/uncertain work; no executable paid path. Thirteen new regression groups, 65 frontend/105 backend/39 Python, TypeScript/build/auth, 16 continuity tests pass; lint 0 errors/8 known warnings. Model/API calls zero, incremental API spend $0. [Journal](journal/2026-10-07-0123Z-candidate-reuse-planner.md) records reviewed files and closeout; exact remote/CI proof supplied after push.
+
+This completes the prior offline planner proposal. Next recommend a reviewable three-item real news edition from existing sources, not another harness: parent needs existing saved-observation read access or an available approved public reader for exact recent story evidence. No publication implied. Runtime integration would require a separate draft PR and access/rights, semantic, cost-reservation and existing AQ-002/010 gates. Current runtime/inference, Supabase Free, $1 test cap, manual staging and legacy apex unchanged; Decisions API deferred. PR1/2/3 untouched/draft/unmerged. Parent alone owns successors; none launched here.

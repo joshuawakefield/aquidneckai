@@ -1,0 +1,353 @@
+{
+  "task": "AQ-035",
+  "mode": "offline_candidate_manifest_not_registry",
+  "limits": {
+    "seeds": 6,
+    "candidates": 12,
+    "requests": 8,
+    "perHost": 2
+  },
+  "seeds": [
+    {
+      "sourceId": "newport-buzz-home",
+      "url": "https://thenewportbuzz.com/feed",
+      "basis": "current catalog"
+    },
+    {
+      "sourceId": "newport-chamber-events-programs",
+      "url": "https://www.newportchamber.com/events-programs/",
+      "basis": "current catalog"
+    },
+    {
+      "sourceId": "uri-rhody-today",
+      "url": "https://www.uri.edu/news/feed/",
+      "basis": "current catalog"
+    },
+    {
+      "sourceId": "one-useful-thing",
+      "url": "https://www.oneusefulthing.org/feed",
+      "basis": "current catalog; additionally user requested"
+    },
+    {
+      "sourceId": "there-is-an-ai-for-that-tools",
+      "url": "https://theresanaiforthat.com/",
+      "basis": "current catalog; additionally user requested"
+    },
+    {
+      "sourceId": "deeplearning-ai-the-batch",
+      "url": "https://www.deeplearning.ai/the-batch",
+      "basis": "current catalog"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "newport-buzz-home",
+      "seedId": "newport-buzz-home",
+      "sourceId": "newport-buzz-home",
+      "canonicalUrl": "https://thenewportbuzz.com/feed",
+      "canonicalBasis": "Configured exact endpoint, not a verified publisher canonical declaration",
+      "origin": "Existing source-catalog.json endpoint; no discovered links or enrollment",
+      "identity": {
+        "label": "Newport Buzz",
+        "state": "catalog_identity_not_reverified",
+        "evidence": "AQ-031 source audit and existing catalog; no new identity claim"
+      },
+      "sourceType": "original_reporting",
+      "adapter": "rss",
+      "scope": "page",
+      "articleScope": "Feed endpoint metadata only; individual item/story not checked",
+      "access": {
+        "state": "unknown",
+        "evidence": "Not requested in AQ-035; historical catalog presence is not current access evidence"
+      },
+      "rights": {
+        "state": "unknown",
+        "evidence": "No current terms/license review. Links and brief factual metadata retained; no article reproduction or collection permission inferred."
+      },
+      "expected": {
+        "topic": "AI, robotics and automation in local reporting",
+        "audience": [
+          "residents",
+          "smbs"
+        ],
+        "reach": "local",
+        "localBenefitInterpretation": "Residents and SMBs can identify actual Island developments; each story must establish technology relevance."
+      },
+      "verification": {
+        "state": "needs_review",
+        "reason": "Identity/access/rights and individual technology story evidence need review; popularity gives no trust"
+      },
+      "checked": {
+        "at": "2026-10-07T01:19:21Z",
+        "scope": "repository_metadata_only",
+        "sourceContentCheckedAt": null
+      },
+      "proposedCadence": {
+        "days": 7,
+        "active": false,
+        "reason": "Bounded review proposal only; existing runtime cadence untouched"
+      },
+      "aq033Annotations": null
+    },
+    {
+      "id": "newport-chamber-events-programs",
+      "seedId": "newport-chamber-events-programs",
+      "sourceId": "newport-chamber-events-programs",
+      "canonicalUrl": "https://www.newportchamber.com/events-programs/",
+      "canonicalBasis": "Configured exact endpoint, not a verified publisher canonical declaration",
+      "origin": "Existing source-catalog.json endpoint; no discovered links or enrollment",
+      "identity": {
+        "label": "Greater Newport Chamber of Commerce",
+        "state": "catalog_identity_not_reverified",
+        "evidence": "AQ-031 source audit and existing catalog; no new identity claim"
+      },
+      "sourceType": "first_party",
+      "adapter": "public_page",
+      "scope": "page",
+      "articleScope": "Index/page only; linked stories not checked",
+      "access": {
+        "state": "unknown",
+        "evidence": "2026-10-07T01:19:21Z: one public GET attempt stopped at environment proxy tunnel 403, before origin; no body"
+      },
+      "rights": {
+        "state": "unknown",
+        "evidence": "No current terms/license review. Links and brief factual metadata retained; no article reproduction or collection permission inferred."
+      },
+      "expected": {
+        "topic": "Technology learning and business programs",
+        "audience": [
+          "residents",
+          "smbs"
+        ],
+        "reach": "local",
+        "localBenefitInterpretation": "Local SMBs can find dated learning or connection opportunities; participation and benefit remain unverified."
+      },
+      "verification": {
+        "state": "needs_review",
+        "reason": "Identity/access/rights and individual technology story evidence need review; popularity gives no trust"
+      },
+      "checked": {
+        "at": "2026-10-07T01:19:21Z",
+        "scope": "repository_metadata_and_failed_access_attempt",
+        "sourceContentCheckedAt": null
+      },
+      "proposedCadence": {
+        "days": 7,
+        "active": false,
+        "reason": "Bounded review proposal only; existing runtime cadence untouched"
+      },
+      "aq033Annotations": null
+    },
+    {
+      "id": "uri-rhody-today",
+      "seedId": "uri-rhody-today",
+      "sourceId": "uri-rhody-today",
+      "canonicalUrl": "https://www.uri.edu/news/feed/",
+      "canonicalBasis": "Configured exact endpoint, not a verified publisher canonical declaration",
+      "origin": "Existing source-catalog.json endpoint; no discovered links or enrollment",
+      "identity": {
+        "label": "URI Rhody Today",
+        "state": "catalog_identity_not_reverified",
+        "evidence": "AQ-031 source audit and existing catalog; no new identity claim"
+      },
+      "sourceType": "first_party",
+      "adapter": "rss",
+      "scope": "page",
+      "articleScope": "Feed endpoint metadata only; individual item/story not checked",
+      "access": {
+        "state": "unknown",
+        "evidence": "2026-10-07T01:19:21Z: one public GET attempt stopped at environment proxy tunnel 403, before origin; no body"
+      },
+      "rights": {
+        "state": "unknown",
+        "evidence": "No current terms/license review. Links and brief factual metadata retained; no article reproduction or collection permission inferred."
+      },
+      "expected": {
+        "topic": "AI, robotics and frontier research",
+        "audience": [
+          "residents",
+          "smbs"
+        ],
+        "reach": "regional",
+        "localBenefitInterpretation": "Residents and marine/technical SMBs can understand nearby research and its maturity limits."
+      },
+      "verification": {
+        "state": "needs_review",
+        "reason": "Identity/access/rights and individual technology story evidence need review; popularity gives no trust"
+      },
+      "checked": {
+        "at": "2026-10-07T01:19:21Z",
+        "scope": "repository_metadata_and_failed_access_attempt",
+        "sourceContentCheckedAt": null
+      },
+      "proposedCadence": {
+        "days": 7,
+        "active": false,
+        "reason": "Bounded review proposal only; existing runtime cadence untouched"
+      },
+      "aq033Annotations": null
+    },
+    {
+      "id": "one-useful-thing",
+      "seedId": "one-useful-thing",
+      "sourceId": "one-useful-thing",
+      "canonicalUrl": "https://www.oneusefulthing.org/feed",
+      "canonicalBasis": "Configured exact endpoint, not a verified publisher canonical declaration",
+      "origin": "Existing source-catalog.json endpoint; no discovered links or enrollment",
+      "identity": {
+        "label": "One Useful Thing",
+        "state": "historical_identity_only",
+        "evidence": "AQ-031 About-page review on 2026-10-07 identifies Ethan Mollick and publication scope; no per-story byline inference"
+      },
+      "sourceType": "commentary",
+      "adapter": "rss",
+      "scope": "page",
+      "articleScope": "Feed endpoint metadata only; individual item/story not checked",
+      "access": {
+        "state": "unknown",
+        "evidence": "2026-10-07T01:19:21Z: one public GET attempt stopped at environment proxy tunnel 403, before origin; no body"
+      },
+      "rights": {
+        "state": "unknown",
+        "evidence": "No current terms/license review. Links and brief factual metadata retained; no article reproduction or collection permission inferred."
+      },
+      "expected": {
+        "topic": "AI at work, education and life",
+        "audience": [
+          "residents",
+          "smbs"
+        ],
+        "reach": "global",
+        "localBenefitInterpretation": "Residents and SMBs can examine practical AI ideas; commentary and local interpretation are distinct from measured benefit."
+      },
+      "verification": {
+        "state": "needs_review",
+        "reason": "Identity/access/rights and individual technology story evidence need review; popularity gives no trust"
+      },
+      "checked": {
+        "at": "2026-10-07T01:19:21Z",
+        "scope": "repository_metadata_and_failed_access_attempt",
+        "sourceContentCheckedAt": null
+      },
+      "proposedCadence": {
+        "days": 7,
+        "active": false,
+        "reason": "Bounded review proposal only; existing runtime cadence untouched"
+      },
+      "aq033Annotations": null
+    },
+    {
+      "id": "there-is-an-ai-for-that-tools",
+      "seedId": "there-is-an-ai-for-that-tools",
+      "sourceId": "there-is-an-ai-for-that-tools",
+      "canonicalUrl": "https://theresanaiforthat.com/",
+      "canonicalBasis": "Configured exact endpoint, not a verified publisher canonical declaration",
+      "origin": "Existing source-catalog.json endpoint; no discovered links or enrollment",
+      "identity": {
+        "label": "TAAFT (user-requested label; current identity unverified)",
+        "state": "catalog_identity_not_reverified",
+        "evidence": "AQ-031 source audit and existing catalog; no new identity claim"
+      },
+      "sourceType": "directory",
+      "adapter": "public_page",
+      "scope": "page",
+      "articleScope": "Index/page only; linked stories not checked",
+      "access": {
+        "state": "unknown",
+        "evidence": "Not requested in AQ-035; AQ-031 access failure remains unresolved"
+      },
+      "rights": {
+        "state": "unknown",
+        "evidence": "No current terms/license review. Links and brief factual metadata retained; no article reproduction or collection permission inferred."
+      },
+      "expected": {
+        "topic": "Consumer, creative, home and workflow tool leads",
+        "audience": [
+          "residents",
+          "smbs"
+        ],
+        "reach": "global",
+        "localBenefitInterpretation": "Useful only as leads to original maker evidence; rankings do not prove performance or value."
+      },
+      "verification": {
+        "state": "needs_review",
+        "reason": "Identity/access/rights and individual technology story evidence need review; popularity gives no trust"
+      },
+      "checked": {
+        "at": "2026-10-07T01:19:21Z",
+        "scope": "repository_metadata_only",
+        "sourceContentCheckedAt": null
+      },
+      "proposedCadence": {
+        "days": 7,
+        "active": false,
+        "reason": "Bounded review proposal only; existing runtime cadence untouched"
+      },
+      "aq033Annotations": null
+    },
+    {
+      "id": "deeplearning-ai-the-batch",
+      "seedId": "deeplearning-ai-the-batch",
+      "sourceId": "deeplearning-ai-the-batch",
+      "canonicalUrl": "https://www.deeplearning.ai/the-batch",
+      "canonicalBasis": "Configured exact endpoint, not a verified publisher canonical declaration",
+      "origin": "Existing source-catalog.json endpoint; no discovered links or enrollment",
+      "identity": {
+        "label": "The Batch (catalog label)",
+        "state": "catalog_identity_not_reverified",
+        "evidence": "AQ-031 source audit and existing catalog; no new identity claim"
+      },
+      "sourceType": "commentary",
+      "adapter": "public_page",
+      "scope": "page",
+      "articleScope": "Index/page only; linked stories not checked",
+      "access": {
+        "state": "unknown",
+        "evidence": "Not requested in AQ-035; historical catalog presence is not current access evidence"
+      },
+      "rights": {
+        "state": "unknown",
+        "evidence": "No current terms/license review. Links and brief factual metadata retained; no article reproduction or collection permission inferred."
+      },
+      "expected": {
+        "topic": "AI research and applications digest",
+        "audience": [
+          "residents",
+          "smbs"
+        ],
+        "reach": "global",
+        "localBenefitInterpretation": "Readers can trace broader developments to original evidence; digest scope cannot establish linked-story truth."
+      },
+      "verification": {
+        "state": "needs_review",
+        "reason": "Identity/access/rights and individual technology story evidence need review; popularity gives no trust"
+      },
+      "checked": {
+        "at": "2026-10-07T01:19:21Z",
+        "scope": "repository_metadata_only",
+        "sourceContentCheckedAt": null
+      },
+      "proposedCadence": {
+        "days": 7,
+        "active": false,
+        "reason": "Bounded review proposal only; existing runtime cadence untouched"
+      },
+      "aq033Annotations": null
+    }
+  ],
+  "inspection": {
+    "attemptedRequests": 3,
+    "originResponses": 0,
+    "bodyBytesRetained": 0,
+    "redirectsFollowed": 0,
+    "retries": 0,
+    "paidCalls": 0,
+    "incrementalApiSpendUsd": 0,
+    "stoppedBecause": "Proxy tunnel 403 on all three requests; no alternative routing or TAAFT retry"
+  },
+  "evidenceRefs": [
+    "scripts/source-catalog.json",
+    "docs/reports/2026-10-07-technology-source-evaluation.md",
+    "https://github.com/joshuawakefield/aquidneckai/blob/031bb208068efbe74787eb20cef36950e85660de/docs/reports/2026-10-07-useful-news-source-audit.md"
+  ]
+}
