@@ -72,3 +72,8 @@ Raw data/ verification files mentioned above remain private local evidence, not 
 ## AQ-010 release assessment — October 6, 23:50 UTC
 
 [Readiness matrix v0.1](reports/2026-10-06-release-readiness-v01.md) preserves the distinction between historical staging rows above and current local tests. Expanded loopback checks confirm root/admin/assets remain staging-authenticated, private APIs require auth and anonymous feed failure stays unavailable. No public-reader enablement or current staging verification occurred. F01 launch gates, F08 staging follow-through and F09 production/usefulness remain open; PR1 AQ-028 sourced cards exist only in the unmerged v0.3 proposal. Actual reader benefit and readership remain untested.
+
+
+## AQ-030 local visual review — October 7
+
+Twelve actual integrated-app fixture captures at 1280/390px and current browser-flow checks are recorded in the [owner packet](reports/2026-10-07-owner-preview-v01.md). Reader resource search, fictional follow-up, private unknown-budget/exception guidance and failed reload are locally verified only. Screenshots inspected; no horizontal overflow, mobile vertical scrolling remains. Library delivery is blocked before file creation; retained private bytes are not a delivered link. F08 still awaits staging follow-through; F01 public-launch and F09 design/connection/usefulness gates are unchanged. No current hosted or real-reader evidence added.

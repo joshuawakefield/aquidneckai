@@ -1,6 +1,6 @@
 # AquidneckAI current checkpoint
 
-Updated: 2026-10-06T23:50Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
+Updated: 2026-10-07T00:28Z. Read the [index](README.md) and [workflow](AGENT-WORKFLOW.md); the [historical record](reports/2026-10-06-project-history-through-handoff.md) explains older milestones. Earlier statements do not override this checkpoint.
 
 ## Current result
 
@@ -125,3 +125,10 @@ Fresh refs and connector metadata confirm PR1 `968cd3fb94992cadcd659034259902500
 Expanded loopback checks plus Node 22.23.3/Python 3.12.14 baseline pass: TypeScript, 54 frontend / 65 backend / 39 Python, build, auth/static/API failure checks; full lint 0 errors/8 existing warnings and 16 continuity tests. [Journal](journal/2026-10-06-2350Z-release-readiness.md) records file allowlist and limits. Staging remains only the historical b34b14e observation; no current host/TLS/DNS/mail/service check. AQ-003 usage remains unavailable, AQ-023 design only, readership untested; AQ-026 crash/quota/report evidence unchanged.
 
 Next bounded implementation recommendation: a local-only public-reader route policy, private staging default preserved, with explicit admin/private-API/asset/method regression tests and a draft PR; no hosted enablement or whole-prototype integration. Parent assigns a fresh ID and owns successor selection. This child creates no successor or schedule. Exact task model/quota unknown; no live service/database/provider/worker, SQL, source enrollment, publication, deployment, DNS or spending operation. Remote SHA/CI evidence follows in the closeout response.
+
+
+## AQ-030 actual-app review packet — October 7
+
+[Packet v0.1](reports/2026-10-07-owner-preview-v01.md) proposes the fetched integrated base `7cfda3354c46e92346d55f2b936781b331f03d75` for a later private staging review, with configuration delta NONE and global auth retained. Neither PR1 design integration nor PR3 public-reader mode is required. All three PRs remain open/draft/unmerged. Historical staging b34b14e is not freshly verified. Current full local baseline passed 54 frontend / 65 backend / 39 Python tests, TypeScript/build/auth, lint 0 errors/8 existing warnings and 16 continuity tests. Twelve actual-app fixture screenshots and browser flows passed and were visually inspected at 1280/390px. No live data/services were used.
+
+AQ-030 remains blocked only for owner screenshot delivery: the supported Library helper failed at hosted-app tool discovery with a network error before creating files. Private captures/gallery are retained; no new Library IDs or owner-accessible local links are claimed. Existing design prototype Library `libfile_a86cace2b2b48191b3c61c097b55ecd0` v3 is unchanged and separate. Next parent task: narrow read-only host metadata for deployed build, worker boot behavior, data isolation and compatible rollback artifact/config; then an exact private deployment decision. Isolation and rollback remain UNKNOWN, and an enabled worker starts immediately on restart. No deployment, worker, inference, SQL, migration, publication, DNS or cap change occurred. Parent owns successors; remote/CI evidence supplied at closeout.
